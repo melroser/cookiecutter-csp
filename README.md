@@ -18,7 +18,7 @@ To use this template
 --------------------
 ::
     $ pip install cookiecutter
-    $ cookiecutter https://github.com/sloria/cookiecutter-docopt.git
+    $ cookiecutter https://github.com/melroser/cookiecutter-csp.git
 
 You will be prompted for basic info (your name, script name, etc.) which will be used in the template.
 
