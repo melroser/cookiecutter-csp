@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.ScriptFunctions_Diag</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        Module&nbsp;ScriptFunctions_Diag
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module ScriptFunctions_Diag</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html">source&nbsp;code</a></span></p>
+<p>Created on Oct 30, 2013</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        512008
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#CHS2LBA" class="summary-sig-name">CHS2LBA</a>(<span class="summary-sig-arg">cyl</span>,
+        <span class="summary-sig-arg">hd</span>,
+        <span class="summary-sig-arg">sector</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      CHS2LBA
+Translates Cylinder head sector information to LBA address</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#CHS2LBA">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#LBA2CHS" class="summary-sig-name">LBA2CHS</a>(<span class="summary-sig-arg">lba</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      LBA2CHS
+Translates LBA to cylinder head and sector</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#LBA2CHS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#GetSmartFrameSize" class="summary-sig-name">GetSmartFrameSize</a>()</span><br />
+      Gets the SMART frame size using DETS for diag wipe and DITS for anything
+else.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetSmartFrameSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#GetSmartFrame" class="summary-sig-name">GetSmartFrame</a>(<span class="summary-sig-arg">offset</span>,
+        <span class="summary-sig-arg">alloc_len</span>)</span><br />
+      Grabs a SMART frame</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetSmartFrame">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CollectSM2Log"></a><span class="summary-sig-name">CollectSM2Log</span>(<span class="summary-sig-arg">name_ext</span>=<span class="summary-sig-default">''</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      CollectSM2Log Collects the SM2 log</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#CollectSM2Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#Get_Drive_Limits" class="summary-sig-name">Get_Drive_Limits</a>(<span class="summary-sig-arg">logicalCyls</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Get drive limits</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#Get_Drive_Limits">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#GetDiagPrompt" class="summary-sig-name">GetDiagPrompt</a>(<span class="summary-sig-arg">DiagPrompt</span>,
+        <span class="summary-sig-arg">Retries</span>=<span class="summary-sig-default">3</span>)</span><br />
+      Set the diag command level</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetDiagPrompt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="WhatDiagLevel"></a><span class="summary-sig-name">WhatDiagLevel</span>(<span class="summary-sig-arg">recursionNumber</span>)</span><br />
+      Determines the current diag level</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#WhatDiagLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#SetDiagLevel" class="summary-sig-name">SetDiagLevel</a>(<span class="summary-sig-arg">DiagLevel</span>)</span><br />
+      Set diag mode to ESLIP, ASCII Online, pr ASCII Diag</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#SetDiagLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ASCII_DIAG_SP_CMD"></a><span class="summary-sig-name">ASCII_DIAG_SP_CMD</span>(<span class="summary-sig-arg">cmd_string</span>,
+        <span class="summary-sig-arg">timer</span>,
+        <span class="summary-sig-arg">ret_val</span>)</span><br />
+      Sends a ASCII Diage serial port command with up to 3 retries</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#ASCII_DIAG_SP_CMD">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_Diag-module.html#re_init_SP" class="summary-sig-name">re_init_SP</a>(<span class="summary-sig-arg">tries</span>)</span><br />
+      Reinitializes the serial port to ASCII Diag mode.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#re_init_SP">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetThermistorTemperature"></a><span class="summary-sig-name">GetThermistorTemperature</span>(<span class="summary-sig-arg">tag</span>=<span class="summary-sig-default">''</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetThermistorTemperature">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="CHS2LBA"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CHS2LBA</span>(<span class="sig-arg">cyl</span>,
+        <span class="sig-arg">hd</span>,
+        <span class="sig-arg">sector</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#CHS2LBA">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+CHS2LBA
+Translates Cylinder head sector information to LBA address
+
+Inputs:
+    cyl - int, cylinder
+    hd - int, head
+    sector - int, sector
+    doDITSunlock - boolean, whether to send a DITS unlock command. Defaults
+                   to false since it is assumed that DITS unlock should have
+                   already been called when the drive spins up.
+Outputs:
+    lba - int, the LBA corresponding to the CHS
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="LBA2CHS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LBA2CHS</span>(<span class="sig-arg">lba</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#LBA2CHS">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+LBA2CHS
+Translates LBA to cylinder head and sector
+
+Inputs:
+    lba - int, LBA address
+    doDITSunlock - boolean, whether to send a DITS unlock command. Defaults
+                   to false since it is assumed that DITS unlock should have
+                   already been called when the drive spins up.
+Outputs:
+    cyl, hd, sector
+    cyl - the cylinder corresponding to the given lba
+    hd - the head corresponding with the given lba
+    sector - the sector corresponding to the given lba
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartFrameSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartFrameSize</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetSmartFrameSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Gets the SMART frame size using DETS for diag wipe and DITS for anything
+else.
+
+Outputs:
+    frame_sz - int, individual frame size
+    total_sz - int, total size
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartFrame"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartFrame</span>(<span class="sig-arg">offset</span>,
+        <span class="sig-arg">alloc_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetSmartFrame">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Grabs a SMART frame
+
+Inputs:
+    offset - int, offset in number of frames
+    alloc_len - int, alloc length in number of frames
+    
+Outputs:
+    pack_len - int, pack length
+    frame_buf -  int, the frame buffer
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="Get_Drive_Limits"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Get_Drive_Limits</span>(<span class="sig-arg">logicalCyls</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#Get_Drive_Limits">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Get drive limits
+
+Returns
+    numHeads - int, number of heads -1
+    maxlba - int, max LBA
+    cyheads - int list, list of max cylinder per head
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetDiagPrompt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetDiagPrompt</span>(<span class="sig-arg">DiagPrompt</span>,
+        <span class="sig-arg">Retries</span>=<span class="sig-default">3</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#GetDiagPrompt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Set the diag command level
+
+Inputs:
+    DiagPrompt: str, diag prompt for diag mode command level
+    Retries: int, number of times to retry the function  
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetDiagLevel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetDiagLevel</span>(<span class="sig-arg">DiagLevel</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#SetDiagLevel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Set diag mode to ESLIP, ASCII Online, pr ASCII Diag
+
+Inputs:
+    DiagLevel: one of: 'ESLIP', 'ASCII Online' or 'ASCII Diag' 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="re_init_SP"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">re_init_SP</span>(<span class="sig-arg">tries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_Diag-pysrc.html#re_init_SP">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reinitializes the serial port to ASCII Diag mode. up to 3 retries.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:49 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

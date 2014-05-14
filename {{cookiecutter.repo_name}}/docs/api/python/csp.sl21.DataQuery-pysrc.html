@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.DataQuery</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        Module&nbsp;DataQuery
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl21.DataQuery-module.html">Module csp.sl21.DataQuery</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># FILE: DataQuery.py</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># SCRIPT_VERSION: $Revision: #4 $    $DateTime: 2013/12/20 15:10:16 $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#  PROCESS NAME : GemStar</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#  MODULE DESCRIPTION:</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#    Build a dictionary of product information for use in script.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#    Query ECHO database for drive specific information.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#  NOTES:</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#   RELI_SPEC dictionary is defined in DataDefines.py</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#  HISTORY:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#  03/24/2009 LB Created module.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#  04/15/2009 LB Add a else statement for the try to better handle query exception.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#                 Set emergency retract default.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#  04/21/2009 LB Add try to reli spec update in case the query is null.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#  03/01/2010 SW Recoding to accomodate New Model Number Format 2010 - version 1 OK in initial checkout.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#  03/23/2010 SW Removed some debug printouts to results files.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#  04/13/2010 SW Bug fix: Call mc.WriteToResultsFile() rather than just WriteToResultsFile().</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#  04/14/2010 SW Another bug fix - 2 args to mc.WriteToResultsFile(), not 1.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#  05/12/2010 SW Query additional field (COLD_SPIN_TIMEOUT) from RELI_SPEC table.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">#  05/14/2010 SW Implemented integer casting of RELI_SPEC['COLD_SPIN_TIMEOUT']</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment">#  03/23/2011 MU Updated the product codes in the model number decoding </tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">#  05/11/2011 MU Added a test option to fail on an error querying DB or if query results null instead</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment">#                  of using default values</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment">#                Added HYBRID to the list of attributes queried from DB and stored in RELI_SPEC</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment">#*****************************************************************************</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">traceback</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">xmlrpclib</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">struct</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.DataDefines=csp.sl10.DataDefines-module.html,Module csp.sl12.DataDefines=csp.sl12.DataDefines-module.html,Module csp.sl20.DataDefines=csp.sl20.DataDefines-module.html,Module csp.sl21.DataDefines=csp.sl21.DataDefines-module.html"><a title="csp.sl10.DataDefines
+csp.sl12.DataDefines
+csp.sl20.DataDefines
+csp.sl21.DataDefines" class="py-name" href="#" onclick="return doclink('link-0', 'DataDefines', 'link-0');">DataDefines</a></tt>     <tt class="py-keyword">as</tt> <tt class="py-name">df</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module csp.sl10.ErrorHandler=csp.sl10.ErrorHandler-module.html,Module csp.sl12.ErrorHandler=csp.sl12.ErrorHandler-module.html,Module csp.sl20.ErrorHandler=csp.sl20.ErrorHandler-module.html,Module csp.sl21.ErrorHandler=csp.sl21.ErrorHandler-module.html"><a title="csp.sl10.ErrorHandler
+csp.sl12.ErrorHandler
+csp.sl20.ErrorHandler
+csp.sl21.ErrorHandler" class="py-name" href="#" onclick="return doclink('link-1', 'ErrorHandler', 'link-1');">ErrorHandler</a></tt>    <tt class="py-keyword">as</tt> <tt class="py-name">err</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module csp.sl10.ScriptFunctions=csp.sl10.ScriptFunctions-module.html,Module csp.sl12.ScriptFunctions=csp.sl12.ScriptFunctions-module.html,Module csp.sl20.ScriptFunctions=csp.sl20.ScriptFunctions-module.html,Module csp.sl21.ScriptFunctions=csp.sl21.ScriptFunctions-module.html"><a title="csp.sl10.ScriptFunctions
+csp.sl12.ScriptFunctions
+csp.sl20.ScriptFunctions
+csp.sl21.ScriptFunctions" class="py-name" href="#" onclick="return doclink('link-2', 'ScriptFunctions', 'link-2');">ScriptFunctions</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">sf</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module csp.sl10.ScriptFunctions_Misc=csp.sl10.ScriptFunctions_Misc-module.html,Module csp.sl12.ScriptFunctions_Misc=csp.sl12.ScriptFunctions_Misc-module.html,Module csp.sl20.ScriptFunctions_Misc=csp.sl20.ScriptFunctions_Misc-module.html,Module csp.sl21.ScriptFunctions_Misc=csp.sl21.ScriptFunctions_Misc-module.html"><a title="csp.sl10.ScriptFunctions_Misc
+csp.sl12.ScriptFunctions_Misc
+csp.sl20.ScriptFunctions_Misc
+csp.sl21.ScriptFunctions_Misc" class="py-name" href="#" onclick="return doclink('link-3', 'ScriptFunctions_Misc', 'link-3');">ScriptFunctions_Misc</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">misc</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module csp.sl10.maincell_api=csp.sl10.maincell_api-module.html,Module csp.sl12.maincell_api=csp.sl12.maincell_api-module.html,Module csp.sl20.maincell_api=csp.sl20.maincell_api-module.html,Module csp.sl21.maincell_api=csp.sl21.maincell_api-module.html"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-4', 'maincell_api', 'link-4');">maincell_api</a></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">scriptenv</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">csperr</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable csp.sl10.DataQuery.mc=csp.sl10.DataQuery-module.html#mc,Variable csp.sl12.DataQuery.mc=csp.sl12.DataQuery-module.html#mc,Variable csp.sl20.DataQuery.mc=csp.sl20.DataQuery-module.html#mc,Variable csp.sl21.DataQuery.mc=csp.sl21.DataQuery-module.html#mc"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-5', 'mc', 'link-5');">mc</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-6', 'maincell_api', 'link-4');">maincell_api</a></tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment">#  populates global RELI_SPEC dictionary of drive test parameters</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="GetReliSpecTable"></a><div id="GetReliSpecTable-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="GetReliSpecTable-toggle" onclick="return toggle('GetReliSpecTable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl21.DataQuery-module.html#GetReliSpecTable">GetReliSpecTable</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GetReliSpecTable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GetReliSpecTable-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">     </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-name">TestOptions</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetTestOptions()=csp.sl10.ScriptFunctions-module.html#GetTestOptions,Function csp.sl12.ScriptFunctions.GetTestOptions()=csp.sl12.ScriptFunctions-module.html#GetTestOptions,Function csp.sl20.ScriptFunctions.GetTestOptions()=csp.sl20.ScriptFunctions-module.html#GetTestOptions,Function csp.sl21.ScriptFunctions.GetTestOptions()=csp.sl21.ScriptFunctions-module.html#GetTestOptions"><a title="csp.sl10.ScriptFunctions.GetTestOptions
+csp.sl12.ScriptFunctions.GetTestOptions
+csp.sl20.ScriptFunctions.GetTestOptions
+csp.sl21.ScriptFunctions.GetTestOptions" class="py-name" href="#" onclick="return doclink('link-7', 'GetTestOptions', 'link-7');">GetTestOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-name">Chk_model_number</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">TestOptions</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">'CheckModelNumber'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">TestOptions</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-name">Chk_model_number</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt id="link-8" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-8', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function csp.sl10.ScriptFunctions.WriteToResultsFile()=csp.sl10.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl10.maincell_api.WriteToResultsFile=csp.sl10.maincell_api-module.html#WriteToResultsFile,Function csp.sl12.ScriptFunctions.WriteToResultsFile()=csp.sl12.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl12.maincell_api.WriteToResultsFile=csp.sl12.maincell_api-module.html#WriteToResultsFile,Function csp.sl20.ScriptFunctions.WriteToResultsFile()=csp.sl20.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl20.maincell_api.WriteToResultsFile=csp.sl20.maincell_api-module.html#WriteToResultsFile,Function csp.sl21.ScriptFunctions.WriteToResultsFile()=csp.sl21.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl21.maincell_api.WriteToResultsFile=csp.sl21.maincell_api-module.html#WriteToResultsFile"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-9', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">'CheckModelNumber = True.  Will fail drive on invalid model number.'</tt><tt class="py-op">,</tt> <tt class="py-string">'rep'</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Function csp.sl10.DataQuery.GetPlatformType()=csp.sl10.DataQuery-module.html#GetPlatformType,Function csp.sl10.ScriptFunctions.GetPlatformType()=csp.sl10.ScriptFunctions-module.html#GetPlatformType,Function csp.sl12.DataQuery.GetPlatformType()=csp.sl12.DataQuery-module.html#GetPlatformType,Function csp.sl12.ScriptFunctions.GetPlatformType()=csp.sl12.ScriptFunctions-module.html#GetPlatformType,Function csp.sl20.DataQuery.GetPlatformType()=csp.sl20.DataQuery-module.html#GetPlatformType,Function csp.sl20.ScriptFunctions.GetPlatformType()=csp.sl20.ScriptFunctions-module.html#GetPlatformType,Function csp.sl21.DataQuery.GetPlatformType()=csp.sl21.DataQuery-module.html#GetPlatformType,Function csp.sl21.ScriptFunctions.GetPlatformType()=csp.sl21.ScriptFunctions-module.html#GetPlatformType"><a title="csp.sl10.DataQuery.GetPlatformType
+csp.sl10.ScriptFunctions.GetPlatformType
+csp.sl12.DataQuery.GetPlatformType
+csp.sl12.ScriptFunctions.GetPlatformType
+csp.sl20.DataQuery.GetPlatformType
+csp.sl20.ScriptFunctions.GetPlatformType
+csp.sl21.DataQuery.GetPlatformType
+csp.sl21.ScriptFunctions.GetPlatformType" class="py-name" href="#" onclick="return doclink('link-10', 'GetPlatformType', 'link-10');">GetPlatformType</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'flexstar'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-string">"select PRODUCT_FAMILY, PRODUCT_TYPE, SPIN_TIME_OUT, COLD_SPIN_TIMEOUT, \</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-string">                     COMMAND_COMPLETE_TIMEOUT, LUL_VS_CSS, HYBRID, RECOVERED_ERROR, SERIAL_PORT_ENABLED, \</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-string">                     UNSOLICITED_PWR_CYC from LCOPAE.RELI_SPEC where Model_Num = '%s'"</tt> <tt class="py-op">%</tt> <tt id="link-11" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-11', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetModelNumber()=csp.sl10.ScriptFunctions-module.html#GetModelNumber,Variable csp.sl10.maincell_api.GetModelNumber=csp.sl10.maincell_api-module.html#GetModelNumber,Function csp.sl12.ScriptFunctions.GetModelNumber()=csp.sl12.ScriptFunctions-module.html#GetModelNumber,Variable csp.sl12.maincell_api.GetModelNumber=csp.sl12.maincell_api-module.html#GetModelNumber,Function csp.sl20.ScriptFunctions.GetModelNumber()=csp.sl20.ScriptFunctions-module.html#GetModelNumber,Variable csp.sl20.maincell_api.GetModelNumber=csp.sl20.maincell_api-module.html#GetModelNumber,Function csp.sl21.ScriptFunctions.GetModelNumber()=csp.sl21.ScriptFunctions-module.html#GetModelNumber,Variable csp.sl21.maincell_api.GetModelNumber=csp.sl21.maincell_api-module.html#GetModelNumber"><a title="csp.sl10.ScriptFunctions.GetModelNumber
+csp.sl10.maincell_api.GetModelNumber
+csp.sl12.ScriptFunctions.GetModelNumber
+csp.sl12.maincell_api.GetModelNumber
+csp.sl20.ScriptFunctions.GetModelNumber
+csp.sl20.maincell_api.GetModelNumber
+csp.sl21.ScriptFunctions.GetModelNumber
+csp.sl21.maincell_api.GetModelNumber" class="py-name" href="#" onclick="return doclink('link-12', 'GetModelNumber', 'link-12');">GetModelNumber</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Function csp.sl10.DataQuery.ExecuteQuery()=csp.sl10.DataQuery-module.html#ExecuteQuery,Function csp.sl12.DataQuery.ExecuteQuery()=csp.sl12.DataQuery-module.html#ExecuteQuery,Function csp.sl20.DataQuery.ExecuteQuery()=csp.sl20.DataQuery-module.html#ExecuteQuery,Function csp.sl21.DataQuery.ExecuteQuery()=csp.sl21.DataQuery-module.html#ExecuteQuery"><a title="csp.sl10.DataQuery.ExecuteQuery
+csp.sl12.DataQuery.ExecuteQuery
+csp.sl20.DataQuery.ExecuteQuery
+csp.sl21.DataQuery.ExecuteQuery" class="py-name" href="#" onclick="return doclink('link-13', 'ExecuteQuery', 'link-13');">ExecuteQuery</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> <tt class="py-comment"># not ok</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">Chk_model_number</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Function csp.sl10.ErrorHandler.ForceTestFail()=csp.sl10.ErrorHandler-module.html#ForceTestFail,Function csp.sl12.ErrorHandler.ForceTestFail()=csp.sl12.ErrorHandler-module.html#ForceTestFail,Function csp.sl20.ErrorHandler.ForceTestFail()=csp.sl20.ErrorHandler-module.html#ForceTestFail,Function csp.sl21.ErrorHandler.ForceTestFail()=csp.sl21.ErrorHandler-module.html#ForceTestFail"><a title="csp.sl10.ErrorHandler.ForceTestFail
+csp.sl12.ErrorHandler.ForceTestFail
+csp.sl20.ErrorHandler.ForceTestFail
+csp.sl21.ErrorHandler.ForceTestFail" class="py-name" href="#" onclick="return doclink('link-14', 'ForceTestFail', 'link-14');">ForceTestFail</a></tt><tt class="py-op">(</tt><tt class="py-string">'Invalid model number: Failed query of Lotus Notus DB'</tt><tt class="py-op">,</tt> <tt class="py-number">910</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">             </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt id="link-15" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-15', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-16', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"FAIL query - using defaults"</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt id="link-17" class="py-name" targets="Variable csp.sl10.userscript.tb=csp.sl10.userscript-module.html#tb,Variable csp.sl12.userscript.tb=csp.sl12.userscript-module.html#tb,Variable csp.sl20.userscript.tb=csp.sl20.userscript-module.html#tb,Variable csp.sl21.userscript.tb=csp.sl21.userscript-module.html#tb"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-17', 'tb', 'link-17');">tb</a></tt> <tt class="py-op">=</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt id="link-18" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-18', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-19', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-20', 'tb', 'link-17');">tb</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Variable csp.sl10.DataDefines.RELI_SPEC=csp.sl10.DataDefines-module.html#RELI_SPEC,Variable csp.sl12.DataDefines.RELI_SPEC=csp.sl12.DataDefines-module.html#RELI_SPEC,Variable csp.sl20.DataDefines.RELI_SPEC=csp.sl20.DataDefines-module.html#RELI_SPEC,Variable csp.sl21.DataDefines.RELI_SPEC=csp.sl21.DataDefines-module.html#RELI_SPEC"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-21', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">15</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-22', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COMMAND_COMPLETE_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-23', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'UNSOLICITED_PWR_CYC'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">30</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-24', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-25', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-26', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-27', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-28', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-29', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-30', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetDeviceType()=csp.sl10.ScriptFunctions-module.html#GetDeviceType,Variable csp.sl10.maincell_api.GetDeviceType=csp.sl10.maincell_api-module.html#GetDeviceType,Function csp.sl12.ScriptFunctions.GetDeviceType()=csp.sl12.ScriptFunctions-module.html#GetDeviceType,Variable csp.sl12.maincell_api.GetDeviceType=csp.sl12.maincell_api-module.html#GetDeviceType,Function csp.sl20.ScriptFunctions.GetDeviceType()=csp.sl20.ScriptFunctions-module.html#GetDeviceType,Variable csp.sl20.maincell_api.GetDeviceType=csp.sl20.maincell_api-module.html#GetDeviceType,Function csp.sl21.ScriptFunctions.GetDeviceType()=csp.sl21.ScriptFunctions-module.html#GetDeviceType,Variable csp.sl21.maincell_api.GetDeviceType=csp.sl21.maincell_api-module.html#GetDeviceType"><a title="csp.sl10.ScriptFunctions.GetDeviceType
+csp.sl10.maincell_api.GetDeviceType
+csp.sl12.ScriptFunctions.GetDeviceType
+csp.sl12.maincell_api.GetDeviceType
+csp.sl20.ScriptFunctions.GetDeviceType
+csp.sl20.maincell_api.GetDeviceType
+csp.sl21.ScriptFunctions.GetDeviceType
+csp.sl21.maincell_api.GetDeviceType" class="py-name" href="#" onclick="return doclink('link-31', 'GetDeviceType', 'link-31');">GetDeviceType</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable csp.sl10.DataDefines.DEVICE_TYPE_SCSI=csp.sl10.DataDefines-module.html#DEVICE_TYPE_SCSI,Variable csp.sl12.DataDefines.DEVICE_TYPE_SCSI=csp.sl12.DataDefines-module.html#DEVICE_TYPE_SCSI,Variable csp.sl20.DataDefines.DEVICE_TYPE_SCSI=csp.sl20.DataDefines-module.html#DEVICE_TYPE_SCSI,Variable csp.sl21.DataDefines.DEVICE_TYPE_SCSI=csp.sl21.DataDefines-module.html#DEVICE_TYPE_SCSI"><a title="csp.sl10.DataDefines.DEVICE_TYPE_SCSI
+csp.sl12.DataDefines.DEVICE_TYPE_SCSI
+csp.sl20.DataDefines.DEVICE_TYPE_SCSI
+csp.sl21.DataDefines.DEVICE_TYPE_SCSI" class="py-name" href="#" onclick="return doclink('link-32', 'DEVICE_TYPE_SCSI', 'link-32');">DEVICE_TYPE_SCSI</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-33', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable csp.sl10.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD=csp.sl10.DataDefines-module.html#DEFAULT_SCSI_REC_ERROR_THRESHOLD,Variable csp.sl12.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD=csp.sl12.DataDefines-module.html#DEFAULT_SCSI_REC_ERROR_THRESHOLD,Variable csp.sl20.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD=csp.sl20.DataDefines-module.html#DEFAULT_SCSI_REC_ERROR_THRESHOLD,Variable csp.sl21.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD=csp.sl21.DataDefines-module.html#DEFAULT_SCSI_REC_ERROR_THRESHOLD"><a title="csp.sl10.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl12.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl20.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl21.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD" class="py-name" href="#" onclick="return doclink('link-34', 'DEFAULT_SCSI_REC_ERROR_THRESHOLD', 'link-34');">DEFAULT_SCSI_REC_ERROR_THRESHOLD</a></tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt id="link-35" class="py-name" targets="Function csp.sl10.DataQuery.BuildTableFromDriveData()=csp.sl10.DataQuery-module.html#BuildTableFromDriveData,Function csp.sl12.DataQuery.BuildTableFromDriveData()=csp.sl12.DataQuery-module.html#BuildTableFromDriveData,Function csp.sl20.DataQuery.BuildTableFromDriveData()=csp.sl20.DataQuery-module.html#BuildTableFromDriveData,Function csp.sl21.DataQuery.BuildTableFromDriveData()=csp.sl21.DataQuery-module.html#BuildTableFromDriveData"><a title="csp.sl10.DataQuery.BuildTableFromDriveData
+csp.sl12.DataQuery.BuildTableFromDriveData
+csp.sl20.DataQuery.BuildTableFromDriveData
+csp.sl21.DataQuery.BuildTableFromDriveData" class="py-name" href="#" onclick="return doclink('link-35', 'BuildTableFromDriveData', 'link-35');">BuildTableFromDriveData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt>   <tt class="py-comment"># ok</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-36', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">.</tt><tt class="py-name">update</tt><tt class="py-op">(</tt><tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">Chk_model_number</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                    <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="csp.sl10.ErrorHandler.ForceTestFail
+csp.sl12.ErrorHandler.ForceTestFail
+csp.sl20.ErrorHandler.ForceTestFail
+csp.sl21.ErrorHandler.ForceTestFail" class="py-name" href="#" onclick="return doclink('link-37', 'ForceTestFail', 'link-14');">ForceTestFail</a></tt><tt class="py-op">(</tt><tt class="py-string">'Invalid model number: Query results are null'</tt><tt class="py-op">,</tt> <tt class="py-number">910</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                 </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt id="link-38" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-38', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-39', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"query results are null"</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-40', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">15</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-41', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COMMAND_COMPLETE_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-42', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'UNSOLICITED_PWR_CYC'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">30</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-43', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-44', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-45', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-46', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-47', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-48', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-49', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="csp.sl10.ScriptFunctions.GetDeviceType
+csp.sl10.maincell_api.GetDeviceType
+csp.sl12.ScriptFunctions.GetDeviceType
+csp.sl12.maincell_api.GetDeviceType
+csp.sl20.ScriptFunctions.GetDeviceType
+csp.sl20.maincell_api.GetDeviceType
+csp.sl21.ScriptFunctions.GetDeviceType
+csp.sl21.maincell_api.GetDeviceType" class="py-name" href="#" onclick="return doclink('link-50', 'GetDeviceType', 'link-31');">GetDeviceType</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="csp.sl10.DataDefines.DEVICE_TYPE_SCSI
+csp.sl12.DataDefines.DEVICE_TYPE_SCSI
+csp.sl20.DataDefines.DEVICE_TYPE_SCSI
+csp.sl21.DataDefines.DEVICE_TYPE_SCSI" class="py-name" href="#" onclick="return doclink('link-51', 'DEVICE_TYPE_SCSI', 'link-32');">DEVICE_TYPE_SCSI</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-52', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="csp.sl10.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl12.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl20.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl21.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD" class="py-name" href="#" onclick="return doclink('link-53', 'DEFAULT_SCSI_REC_ERROR_THRESHOLD', 'link-34');">DEFAULT_SCSI_REC_ERROR_THRESHOLD</a></tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-54', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-55', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-56', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COMMAND_COMPLETE_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-57', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COMMAND_COMPLETE_TIMEOUT'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-58', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'UNSOLICITED_PWR_CYC'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-59', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'UNSOLICITED_PWR_CYC'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-60', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-61', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-62', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-63', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">int</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-64', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-65', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-66', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'Yes'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-67', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-68', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                 </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-69', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-70', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-71', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="csp.sl10.ScriptFunctions.GetDeviceType
+csp.sl10.maincell_api.GetDeviceType
+csp.sl12.ScriptFunctions.GetDeviceType
+csp.sl12.maincell_api.GetDeviceType
+csp.sl20.ScriptFunctions.GetDeviceType
+csp.sl20.maincell_api.GetDeviceType
+csp.sl21.ScriptFunctions.GetDeviceType
+csp.sl21.maincell_api.GetDeviceType" class="py-name" href="#" onclick="return doclink('link-72', 'GetDeviceType', 'link-31');">GetDeviceType</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="csp.sl10.DataDefines.DEVICE_TYPE_SCSI
+csp.sl12.DataDefines.DEVICE_TYPE_SCSI
+csp.sl20.DataDefines.DEVICE_TYPE_SCSI
+csp.sl21.DataDefines.DEVICE_TYPE_SCSI" class="py-name" href="#" onclick="return doclink('link-73', 'DEVICE_TYPE_SCSI', 'link-32');">DEVICE_TYPE_SCSI</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-74', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-75', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="csp.sl10.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl12.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl20.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD
+csp.sl21.DataDefines.DEFAULT_SCSI_REC_ERROR_THRESHOLD" class="py-name" href="#" onclick="return doclink('link-76', 'DEFAULT_SCSI_REC_ERROR_THRESHOLD', 'link-34');">DEFAULT_SCSI_REC_ERROR_THRESHOLD</a></tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-77', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-78', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'RECOVERED_ERROR'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt id="link-79" class="py-name"><a title="csp.sl10.DataQuery.BuildTableFromDriveData
+csp.sl12.DataQuery.BuildTableFromDriveData
+csp.sl20.DataQuery.BuildTableFromDriveData
+csp.sl21.DataQuery.BuildTableFromDriveData" class="py-name" href="#" onclick="return doclink('link-79', 'BuildTableFromDriveData', 'link-35');">BuildTableFromDriveData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt>   <tt class="py-comment"># 'gemini'</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-80', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">15</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-81', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COMMAND_COMPLETE_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-82', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'UNSOLICITED_PWR_CYC'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">30</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-83', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-84', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-85', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-86', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'COLD_SPIN_TIMEOUT'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-87', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SPIN_TIME_OUT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-88', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'HYBRID'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-89" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-89', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt id="link-90" class="py-name"><a title="csp.sl10.DataQuery.BuildTableFromDriveData
+csp.sl12.DataQuery.BuildTableFromDriveData
+csp.sl20.DataQuery.BuildTableFromDriveData
+csp.sl21.DataQuery.BuildTableFromDriveData" class="py-name" href="#" onclick="return doclink('link-90', 'BuildTableFromDriveData', 'link-35');">BuildTableFromDriveData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">         </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-91" class="py-name" targets="Function csp.sl10.ScriptFunctions.ResetBERthreshold()=csp.sl10.ScriptFunctions-module.html#ResetBERthreshold,Function csp.sl12.ScriptFunctions.ResetBERthreshold()=csp.sl12.ScriptFunctions-module.html#ResetBERthreshold,Function csp.sl20.ScriptFunctions.ResetBERthreshold()=csp.sl20.ScriptFunctions-module.html#ResetBERthreshold,Function csp.sl21.ScriptFunctions.ResetBERthreshold()=csp.sl21.ScriptFunctions-module.html#ResetBERthreshold"><a title="csp.sl10.ScriptFunctions.ResetBERthreshold
+csp.sl12.ScriptFunctions.ResetBERthreshold
+csp.sl20.ScriptFunctions.ResetBERthreshold
+csp.sl21.ScriptFunctions.ResetBERthreshold" class="py-name" href="#" onclick="return doclink('link-91', 'ResetBERthreshold', 'link-91');">ResetBERthreshold</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-comment"># Set current BER threshold for SCSI devices using RELI_SPEC value</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">     </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-comment"># Auto-populate NoSerialPort if SERIAL_PORT_ENABLED = False</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-92', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'SERIAL_PORT_ENABLED'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-93" class="py-name" targets="Variable csp.sl10.DataDefines.testOptionsDict=csp.sl10.DataDefines-module.html#testOptionsDict,Variable csp.sl12.DataDefines.testOptionsDict=csp.sl12.DataDefines-module.html#testOptionsDict,Variable csp.sl20.DataDefines.testOptionsDict=csp.sl20.DataDefines-module.html#testOptionsDict,Variable csp.sl21.DataDefines.testOptionsDict=csp.sl21.DataDefines-module.html#testOptionsDict"><a title="csp.sl10.DataDefines.testOptionsDict
+csp.sl12.DataDefines.testOptionsDict
+csp.sl20.DataDefines.testOptionsDict
+csp.sl21.DataDefines.testOptionsDict" class="py-name" href="#" onclick="return doclink('link-93', 'testOptionsDict', 'link-93');">testOptionsDict</a></tt><tt class="py-op">[</tt><tt class="py-string">'NoSerialPort'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-comment"># Continues populating RELI_SPEC table based on drive data</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"> </tt>
+<a name="BuildTableFromDriveData"></a><div id="BuildTableFromDriveData-def"><a name="L164"></a><tt class="py-lineno">164</tt> <a class="py-toggle" href="#" id="BuildTableFromDriveData-toggle" onclick="return toggle('BuildTableFromDriveData');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl21.DataQuery-module.html#BuildTableFromDriveData">BuildTableFromDriveData</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BuildTableFromDriveData-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="BuildTableFromDriveData-expanded"><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">     </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-name">model</tt> <tt class="py-op">=</tt> <tt id="link-94" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-94', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="csp.sl10.ScriptFunctions.GetModelNumber
+csp.sl10.maincell_api.GetModelNumber
+csp.sl12.ScriptFunctions.GetModelNumber
+csp.sl12.maincell_api.GetModelNumber
+csp.sl20.ScriptFunctions.GetModelNumber
+csp.sl20.maincell_api.GetModelNumber
+csp.sl21.ScriptFunctions.GetModelNumber
+csp.sl21.maincell_api.GetModelNumber" class="py-name" href="#" onclick="return doclink('link-95', 'GetModelNumber', 'link-12');">GetModelNumber</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">    <tt class="py-name">mlen</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">     </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt id="link-96" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-96', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-97', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt id="link-98" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-98', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-99" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-99', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-100', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">     </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">     </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">    <tt class="py-comment"># OK - here is where we need to become mindful of the new Model# Format</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt class="py-comment"># </tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">    <tt class="py-comment"># ModelNumFormat = 'LegacyM' or 'NewM' based on what?</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">    <tt class="py-comment"># New Model Number Format has up to 7 fields:</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">    <tt class="py-comment">#   ST or MX (Vendor) = 1st 2 characters ==&gt; ModelVendor</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">    <tt class="py-comment">#   Capacity Field = 2 to 4 decimal digits ==&gt; ModelCapacity</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-comment">#   Marketing Segment = 1-2 char field ==&gt; ModelMktSeg</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">    <tt class="py-comment">#   Uninteligent # = last 1-3 digits prior to '-' ==&gt; ModelDumbNum</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">    <tt class="py-comment">#   The Dash '-' (may or may not be there)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">    <tt class="py-comment">#   DashSix = 6 digits/chars = something special in terms of which product name</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">    <tt class="py-comment">#   [Drive Color]</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt class="py-comment">#   [# of NAS drives]</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt class="py-comment"># Legacy Model Format had 4 fields:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">    <tt class="py-comment">#   ST or STM</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">    <tt class="py-comment">#   3 or 9 -&gt; desktop or mobile</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">    <tt class="py-comment">#   ModelCapacity</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">    <tt class="py-comment">#   CacheProdSpec</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-comment">#   1-3 char MktSeg identifier</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">    <tt class="py-comment"># 1st, parse model number for different strings of chars or digits:</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">     </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">    <tt class="py-name">WhereIsTheDash</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'-'</tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">WhereIsTheDash</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-name">TheDashExists</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-name">TheDashExists</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">         </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-name">FieldNum</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">    <tt class="py-name">CharNum</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">    <tt class="py-name">Field</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">    <tt class="py-name">Field</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">     </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">    <tt class="py-comment"># Split fields based on alpha vs numeric:</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">thischar</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">thischar</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">            <tt class="py-comment">#mc.WriteToResultsFile("First Field Detected","trc")</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">            <tt class="py-name">Field</tt><tt class="py-op">[</tt><tt class="py-name">FieldNum</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">CharNum</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">thischar</tt><tt class="py-op">]</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">thischar</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">thischar</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">                <tt class="py-name">Field</tt><tt class="py-op">[</tt><tt class="py-name">FieldNum</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">CharNum</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">thischar</tt><tt class="py-op">]</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">                <tt class="py-name">FieldNum</tt> <tt class="py-op">=</tt> <tt class="py-name">FieldNum</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">                <tt class="py-comment">#mc.WriteToResultsFile("Next Field Detected: %d" % FieldNum,"trc")</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">                <tt class="py-name">Field</tt><tt class="py-op">[</tt><tt class="py-name">FieldNum</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">                <tt class="py-name">CharNum</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">                <tt class="py-name">Field</tt><tt class="py-op">[</tt><tt class="py-name">FieldNum</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">CharNum</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">thischar</tt><tt class="py-op">]</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-name">CharNum</tt> <tt class="py-op">=</tt> <tt class="py-name">CharNum</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">         </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">TheDashExists</tt><tt class="py-op">:</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">        <tt id="link-101" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-101', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-102', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"New Model Number Detected"</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">ModelNumFormat</tt> <tt class="py-op">=</tt> <tt class="py-string">'NewM'</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">FieldNum</tt> <tt class="py-op">==</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">            <tt class="py-comment"># 3 fields</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">            <tt class="py-name">ModelNumFormat</tt> <tt class="py-op">=</tt> <tt class="py-string">'LegacyM'</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">            <tt id="link-103" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-103', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-104" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-104', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Legacy Model Number Detected"</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">            <tt class="py-name">ModelNumFormat</tt> <tt class="py-op">=</tt> <tt class="py-string">'NewM'</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">            <tt id="link-105" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-105', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-106" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-106', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"New Model Number Detected"</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">     </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">ModelNumFormat</tt> <tt class="py-op">==</tt> <tt class="py-string">'NewM'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-comment">#   ST or MX (Vendor) = 1st 2 characters ==&gt; ModelVendor</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-comment">#   Capacity Field = 2 to 4 decimal digits ==&gt; ModelCapacity</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt class="py-comment">#   Marketing Segment = 1-2 char field ==&gt; ModelMktSeg</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-comment">#   Uninteligent # = last 1-3 digits prior to '-' ==&gt; ModelDumbNum</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">        <tt class="py-comment">#   The Dash '-' (may or may not be there)</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-comment">#   DashSix = 6 digits/chars = something special in terms of which product name</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-107" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-107', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'LUL'</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">        <tt class="py-name">ModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">        <tt class="py-name">ModelMktSeg</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt class="py-name">ModelDumbNum</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-name">ModelDriveColor</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt class="py-name">ModelNASDrives</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-name">DashSix</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">         </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">        <tt class="py-comment">#First Real Field is always the vendor (ST or MX)</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">        <tt class="py-name">ModelVendor</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">         </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">ModelVendor</tt> <tt class="py-op">!=</tt> <tt class="py-string">'ST'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">ModelVendor</tt> <tt class="py-op">!=</tt> <tt class="py-string">'MX'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">            <tt id="link-108" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-108', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-109" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-109', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Non-Seagate Model Number detected!"</tt><tt class="py-op">,</tt><tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-110" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-110', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Competitor'</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-111', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Competitor'</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">            <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-112" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-112', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'LUL'</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">         </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">        <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">         </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">        <tt class="py-comment"># Now get ModelMktSeg &amp; ModelCapacity Real Fields:</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">         </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">        <tt class="py-comment">#Find out if next real field is alpha or digit:</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">            <tt class="py-comment"># if alpha, it's the Mkt Segment field:</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">                <tt class="py-name">ModelMktSeg</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelMktSeg</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">         </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">            <tt class="py-comment"># if not-alpha, then it's the capacity:</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isdigit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">                <tt class="py-name">ModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">         </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">        <tt class="py-comment"># At this point we've changed model real fields, and are looking at the first char of the</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">        <tt class="py-comment">#  next real field, which is the one we didn't fill above</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">         </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">        <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">        <tt class="py-comment">#Find out if next real field is alpha or digit:</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">            <tt class="py-comment"># if alpha, it's the Mkt Segment field:</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line">                <tt class="py-name">ModelMktSeg</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelMktSeg</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line">         </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">            <tt class="py-comment"># if not-alpha, then it's the capacity:</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isdigit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line">                <tt class="py-name">ModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">                 </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">        <tt class="py-comment"># At this point we've changed model real fields, and are looking at the first char of the</tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">        <tt class="py-comment">#  next real field (4), which is either:</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line">        <tt class="py-comment">#   -  a multi-real and numeric field, </tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line">        <tt class="py-comment">#   -  an alpha field for drive color,</tt> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line">        <tt class="py-comment">#   -  no more fields (unless dash) and ModelCapacity field is too many digits.  </tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">        <tt class="py-comment">#  Check for '-' &amp; end of string to end numeric fields</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">         </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">mlen</tt> <tt class="py-op">!=</tt> <tt class="py-name">model_char_idx</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line">            <tt class="py-comment"># if it is, then we have no more model chars to process, but need to deconvolve ModelCapacity:</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line">             </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">            <tt class="py-name">DeconvolveModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line">             </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isalpha</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line">                <tt class="py-comment"># then this field is the Drive Color, and there is a numeric DumbNum still to be processed:</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line">                <tt class="py-name">ModelDriveColor</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">                <tt class="py-name">DeconvolveModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">                 </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isdigit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">                <tt class="py-comment"># then we have to get some numbers to deconvolve for DumbNum:</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">                <tt class="py-name">DeconvolveModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">                <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">isdigit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line">                    <tt class="py-name">ModelDumbNum</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelDumbNum</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line">                    <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">                    <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line">                 </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line">                <tt class="py-name">ModelGeneration</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelDumbNum</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line">                    <tt class="py-name">ModelGeneration</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelDumbNum</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelDumbNum</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line">                    <tt class="py-name">ModelDumbNum</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelDumbNum</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line">             </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line">            <tt class="py-comment"># We still need to deconvolve ModelCapacity:</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line">            <tt class="py-comment"># There are 2 possibilities:</tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line">            <tt class="py-comment">#</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">            <tt class="py-comment"># - 2 &amp; 4 (retail internal) or 2 &amp; 7 &amp; 4 (NAS):</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">            <tt class="py-comment">#</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line">            <tt class="py-comment"># Assume DumbNum is always 3 digits:</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">             </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">DeconvolveModelCapacity</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line">                 </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">                <tt class="py-comment"># Last 3 digits are DumbNum:</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelCapacity</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line">                    <tt class="py-name">ModelDumbNum</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelCapacity</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">:</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelCapacity</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line">                    <tt class="py-name">ModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelCapacity</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line">                 </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line">                <tt class="py-comment"># Last Digit is NAS # Drives if Capacity more than 4 chars:</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ModelCapacity</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">                    <tt class="py-comment"># Only chance for a NAS drive:</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line">                    <tt class="py-name">ModelNASDrives</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line">                    <tt class="py-name">ModelCapacity</tt> <tt class="py-op">=</tt> <tt class="py-name">ModelCapacity</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">4</tt><tt class="py-op">]</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line">             </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">mlen</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">model_char_idx</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">            <tt class="py-comment"># if it is, then we need to process DashSix:</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">             </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'-'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line">                <tt class="py-comment"># then we still need to process DashSix</tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">                <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line">                <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">                <tt class="py-comment">#while ((model_char_idx &lt; mlen) and (model[model_char_idx].isdigit())):</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">                <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">model_char_idx</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">mlen</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line">                    <tt class="py-name">DashSix</tt> <tt class="py-op">=</tt> <tt class="py-name">DashSix</tt> <tt class="py-op">+</tt> <tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">model_char_idx</tt><tt class="py-op">]</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line">                    <tt class="py-name">field_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">field_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line">                    <tt class="py-name">model_char_idx</tt> <tt class="py-op">=</tt> <tt class="py-name">model_char_idx</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line">                <tt id="link-113" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-113', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-114', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Some kind of misprocessing of Model Number: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">model</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">         </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">        <tt id="link-115" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-115', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-116" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-116', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"New Model Number Parse Trace for \"%s\":"</tt> <tt class="py-op">%</tt> <tt class="py-name">model</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">        <tt id="link-117" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-117', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-118" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-118', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelVendor: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelVendor</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">        <tt id="link-119" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-119', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-120" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-120', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelCapacity: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelCapacity</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">        <tt id="link-121" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-121', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-122" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-122', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelMktSeg: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelMktSeg</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">        <tt id="link-123" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-123', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-124" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-124', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelDumbNum: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelDumbNum</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line">        <tt id="link-125" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-125', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-126" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-126', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelDriveColor: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelDriveColor</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">        <tt id="link-127" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-127', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-128" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-128', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"ModelNASDrives: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">ModelNASDrives</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">        <tt id="link-129" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-129', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-130" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-130', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Model DashSix: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">DashSix</tt><tt class="py-op">,</tt><tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line">         </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">        <tt class="py-comment"># Base this on ModelMktSeg for New Model Number Format:</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line">        <tt class="py-comment">## NEW LIST</tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line">        <tt class="py-name">EnterpriseMCList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'VK'</tt><tt class="py-op">,</tt><tt class="py-string">'SA'</tt><tt class="py-op">,</tt><tt class="py-string">'SB'</tt><tt class="py-op">,</tt><tt class="py-string">'CH'</tt><tt class="py-op">,</tt><tt class="py-string">'CT'</tt><tt class="py-op">,</tt><tt class="py-string">'FX'</tt><tt class="py-op">,</tt><tt class="py-string">'FM'</tt><tt class="py-op">,</tt><tt class="py-string">'MX'</tt><tt class="py-op">,</tt><tt class="py-string">'MM'</tt><tt class="py-op">,</tt><tt class="py-string">'MP'</tt><tt class="py-op">]</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line">        <tt class="py-name">NearlineList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'NL'</tt><tt class="py-op">,</tt><tt class="py-string">'BE'</tt><tt class="py-op">,</tt><tt class="py-string">'CN'</tt><tt class="py-op">,</tt><tt class="py-string">'CS'</tt><tt class="py-op">,</tt><tt class="py-string">'SS'</tt><tt class="py-op">,</tt><tt class="py-string">'NX'</tt><tt class="py-op">,</tt><tt class="py-string">'NM'</tt><tt class="py-op">,</tt><tt class="py-string">'NC'</tt><tt class="py-op">]</tt> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line">        <tt class="py-name">DesktopList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'BL'</tt><tt class="py-op">,</tt><tt class="py-string">'BB'</tt><tt class="py-op">,</tt><tt class="py-string">'BT'</tt><tt class="py-op">,</tt><tt class="py-string">'BX'</tt><tt class="py-op">,</tt><tt class="py-string">'DM'</tt><tt class="py-op">,</tt><tt class="py-string">'DL'</tt><tt class="py-op">,</tt><tt class="py-string">'DX'</tt><tt class="py-op">,</tt><tt class="py-string">'D'</tt><tt class="py-op">]</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line">        <tt class="py-name">NotebookList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'E'</tt><tt class="py-op">,</tt><tt class="py-string">'EL'</tt><tt class="py-op">,</tt><tt class="py-string">'LM'</tt><tt class="py-op">,</tt><tt class="py-string">'LT'</tt><tt class="py-op">,</tt><tt class="py-string">'LX'</tt><tt class="py-op">,</tt><tt class="py-string">'UM'</tt><tt class="py-op">]</tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line">        <tt class="py-name">DVRList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'DB'</tt><tt class="py-op">,</tt><tt class="py-string">'PP'</tt><tt class="py-op">,</tt><tt class="py-string">'PM'</tt><tt class="py-op">,</tt><tt class="py-string">'PH'</tt><tt class="py-op">,</tt><tt class="py-string">'VM'</tt><tt class="py-op">,</tt><tt class="py-string">'VT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line">        <tt class="py-name">SurveillanceList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'SV'</tt><tt class="py-op">,</tt><tt class="py-string">'VX'</tt><tt class="py-op">,</tt><tt class="py-string">'VM'</tt><tt class="py-op">,</tt><tt class="py-string">'VT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line">        <tt class="py-name">SpecialtyList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'EE'</tt><tt class="py-op">,</tt><tt class="py-string">'LD'</tt><tt class="py-op">,</tt><tt class="py-string">'DV'</tt><tt class="py-op">,</tt><tt class="py-string">'KY'</tt><tt class="py-op">]</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line">        <tt class="py-name">AutomotiveList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">        <tt class="py-name">HybridList</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">         </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">        <tt class="py-comment">## OLD LIST</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">        <tt class="py-string">''' </tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line"><tt class="py-string">        EnterpriseMCList = ['VK','SA','SB','CH','CT','FX','FM','MX','MM']</tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line"><tt class="py-string">        NearlineList = ['NL','BE','CN','CS','SS','NX','NM']</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line"><tt class="py-string">        DesktopList = ['BL','BB','BT','BX','DM','DL','DX','D']</tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line"><tt class="py-string">        NotebookList = ['E','EL','LM','LT','LX']</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line"><tt class="py-string">        DVRList = ['DB','PP','PM','PH','VM','VT']</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line"><tt class="py-string">        SurveillanceList = ['SV','VX']</tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line"><tt class="py-string">        SpecialtyList = ['EE','LD','DV','KY']</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line"><tt class="py-string">        AutomotiveList = []</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line"><tt class="py-string">        HybridList = []</tt> </tt>
+<a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line"><tt class="py-string">        '''</tt> </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-131" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-131', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">SurveillanceList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-132" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-132', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Surveillance'</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">NearlineList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-133" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-133', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Nearline'</tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">DVRList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-134" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-134', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'DVR'</tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">AutomotiveList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-135" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-135', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Automotive'</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">NotebookList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-136" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-136', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Mobile'</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">DesktopList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-137" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-137', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Desktop'</tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">EnterpriseMCList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-138" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-138', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Enterprise'</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">ModelMktSeg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">SpecialtyList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-139" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-139', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Specialty'</tt>  </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line">         </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line">        <tt class="py-comment"># if product type is null then parse info from model number</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line">        <tt class="py-comment">#</tt> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-140" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-140', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'N'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-141" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-141', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Nearline'</tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'C'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-142" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-142', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'DVR'</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'M'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-143" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-143', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Automotive'</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'FC'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'SS'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">3</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'FCV'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'LC'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">3</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'LCV'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'LW'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-144" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-144', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Enterprise'</tt> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'3'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'AS'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'A'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'ASG'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-145" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-145', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Desktop'</tt>    </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'9'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'AS'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'A'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'ASG'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-146" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-146', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Mobile'</tt>    </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'AV'</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-name">mlen</tt><tt class="py-op">-</tt><tt class="py-number">2</tt> <tt class="py-op">:</tt> <tt class="py-name">mlen</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'SV'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">                <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-147" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-147', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Surveillance'</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'M'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  <tt class="py-comment"># the dreaded STM... model number</tt> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'9'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-148" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-148', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Mobile'</tt> </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line">                    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-149" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-149', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Desktop'</tt> </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line">        <tt class="py-comment"># OLD CODE</tt> </tt>
+<a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line">        <tt class="py-string">'''</tt> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line"><tt class="py-string">         if(df.RELI_SPEC['PRODUCT_TYPE'] == ''):</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line"><tt class="py-string">            if( (model[mlen-2] == 'S') and (model[mlen-1] == 'V') ):</tt> </tt>
+<a name="L446"></a><tt class="py-lineno">446</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'Surveillance'</tt> </tt>
+<a name="L447"></a><tt class="py-lineno">447</tt>  <tt class="py-line"><tt class="py-string">            elif(model[mlen-2] == 'N'):</tt> </tt>
+<a name="L448"></a><tt class="py-lineno">448</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'Nearline'</tt> </tt>
+<a name="L449"></a><tt class="py-lineno">449</tt>  <tt class="py-line"><tt class="py-string">            elif(model[mlen-2] == 'C'):</tt> </tt>
+<a name="L450"></a><tt class="py-lineno">450</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'DVR'</tt> </tt>
+<a name="L451"></a><tt class="py-lineno">451</tt>  <tt class="py-line"><tt class="py-string">            elif(model[mlen-1] == 'M'):</tt> </tt>
+<a name="L452"></a><tt class="py-lineno">452</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'Automotive'</tt> </tt>
+<a name="L453"></a><tt class="py-lineno">453</tt>  <tt class="py-line"><tt class="py-string">            elif(model[2] == '9'):</tt> </tt>
+<a name="L454"></a><tt class="py-lineno">454</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'Mobile'</tt> </tt>
+<a name="L455"></a><tt class="py-lineno">455</tt>  <tt class="py-line"><tt class="py-string">            elif(model[2] == '3'):</tt> </tt>
+<a name="L456"></a><tt class="py-lineno">456</tt>  <tt class="py-line"><tt class="py-string">                df.RELI_SPEC['PRODUCT_TYPE'] = 'Desktop'</tt> </tt>
+<a name="L457"></a><tt class="py-lineno">457</tt>  <tt class="py-line"><tt class="py-string">            elif(model[2] == 'M'):  # the dreaded STM... model number</tt> </tt>
+<a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line"><tt class="py-string">                if(model[3] == '9'):</tt> </tt>
+<a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line"><tt class="py-string">                    df.RELI_SPEC['PRODUCT_TYPE'] = 'Mobile'</tt> </tt>
+<a name="L460"></a><tt class="py-lineno">460</tt>  <tt class="py-line"><tt class="py-string">                else:</tt> </tt>
+<a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line"><tt class="py-string">                    df.RELI_SPEC['PRODUCT_TYPE'] = 'Desktop'</tt> </tt>
+<a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line"><tt class="py-string">        '''</tt> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line">    <tt class="py-comment">##############################################################################</tt> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">    <tt class="py-comment"># if lul vs css is null then parse info from model number</tt> </tt>
+<a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line">    <tt class="py-comment"># Default is that the drive is LUL:</tt> </tt>
+<a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line">     </tt>
+<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-150" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-150', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-151" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-151', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'LUL'</tt> </tt>
+<a name="L469"></a><tt class="py-lineno">469</tt>  <tt class="py-line">         </tt>
+<a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-152" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-152', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-153" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-153', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Unknown'</tt> </tt>
+<a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line">         </tt>
+<a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-154" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-154', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-155" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-155', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_FAMILY'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'Unknown'</tt> </tt>
+<a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line">     </tt>
+<a name="L476"></a><tt class="py-lineno">476</tt>  <tt class="py-line">    <tt id="link-156" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-156', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-157" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-157', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-158" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-158', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line">    <tt id="link-159" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-159', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-160" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-160', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Drive identifies as product type: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-161" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-161', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'PRODUCT_TYPE'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line">    <tt id="link-162" class="py-name"><a title="csp.sl10.DataQuery.mc
+csp.sl12.DataQuery.mc
+csp.sl20.DataQuery.mc
+csp.sl21.DataQuery.mc" class="py-name" href="#" onclick="return doclink('link-162', 'mc', 'link-5');">mc</a></tt><tt class="py-op">.</tt><tt id="link-163" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-163', 'WriteToResultsFile', 'link-9');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Drive is of LUL/CSS type: %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-164" class="py-name"><a title="csp.sl10.DataDefines.RELI_SPEC
+csp.sl12.DataDefines.RELI_SPEC
+csp.sl20.DataDefines.RELI_SPEC
+csp.sl21.DataDefines.RELI_SPEC" class="py-name" href="#" onclick="return doclink('link-164', 'RELI_SPEC', 'link-21');">RELI_SPEC</a></tt><tt class="py-op">[</tt><tt class="py-string">'LUL_VS_CSS'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line">     </tt>
+<a name="L480"></a><tt class="py-lineno">480</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> </tt>
+</div><a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line">     </tt>
+<a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line">     </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line"> </tt>
+<a name="ExecuteQuery"></a><div id="ExecuteQuery-def"><a name="L486"></a><tt class="py-lineno">486</tt> <a class="py-toggle" href="#" id="ExecuteQuery-toggle" onclick="return toggle('ExecuteQuery');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl21.DataQuery-module.html#ExecuteQuery">ExecuteQuery</a><tt class="py-op">(</tt><tt class="py-param">query</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExecuteQuery-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ExecuteQuery-expanded"><a name="L487"></a><tt class="py-lineno">487</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">genericService</tt><tt class="py-op">(</tt><tt class="py-string">'OracleDbAccessPlugin.executeQuery'</tt><tt class="py-op">,</tt><tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L488"></a><tt class="py-lineno">488</tt>  <tt class="py-line"> </tt>
+<a name="L489"></a><tt class="py-lineno">489</tt>  <tt class="py-line"> </tt>
+<a name="L490"></a><tt class="py-lineno">490</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L491"></a><tt class="py-lineno">491</tt>  <tt class="py-line"><tt class="py-comment">#  'flexstar' or 'gemini'</tt> </tt>
+<a name="L492"></a><tt class="py-lineno">492</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L493"></a><tt class="py-lineno">493</tt>  <tt class="py-line"> </tt>
+<a name="GetPlatformType"></a><div id="GetPlatformType-def"><a name="L494"></a><tt class="py-lineno">494</tt> <a class="py-toggle" href="#" id="GetPlatformType-toggle" onclick="return toggle('GetPlatformType');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl21.DataQuery-module.html#GetPlatformType">GetPlatformType</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GetPlatformType-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GetPlatformType-expanded"><a name="L495"></a><tt class="py-lineno">495</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> </tt>
+</div><a name="L496"></a><tt class="py-lineno">496</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:14 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

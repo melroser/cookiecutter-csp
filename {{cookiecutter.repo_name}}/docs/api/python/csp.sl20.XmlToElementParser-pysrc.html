@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl20.XmlToElementParser</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl20-module.html">Package&nbsp;sl20</a> ::
+        Module&nbsp;XmlToElementParser
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl20.XmlToElementParser-module.html">Module csp.sl20.XmlToElementParser</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># $Id: //depot/csp/script/plugin/rel/CSP_Plugin/XmlToElementParser.py#2 $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># Turn XML into element tree.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># Based on http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/149368</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># FILE:         XmlToElementParser.py</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># SCRIPT_VERSION: $Revision: #2 $    $DateTime: 2013/05/24 13:13:29 $</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># 09/13/2010 MU  Changed the DB URL to point to na-db01 since col-db01 has been decommissioned</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">parsers</tt><tt class="py-op">.</tt><tt class="py-name">expat</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="Element"></a><div id="Element-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="Element-toggle" onclick="return toggle('Element');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html">Element</a><tt class="py-op">:</tt> </tt>
+</div><div id="Element-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Element-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">         </tt>
+<a name="Element.__init__"></a><div id="Element.__init__-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="Element.__init__-toggle" onclick="return toggle('Element.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.__init__-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt>               </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__attributes</tt> <tt class="py-op">=</tt> <tt class="py-name">attributes</tt>   </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__data</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__children</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="Element.addChild"></a><div id="Element.addChild-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="Element.addChild-toggle" onclick="return toggle('Element.addChild');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#addChild">addChild</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">element</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.addChild-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.addChild-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__children</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="Element.getName"></a><div id="Element.getName-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="Element.getName-toggle" onclick="return toggle('Element.getName');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#getName">getName</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.getName-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.getName-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__name</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="Element.getData"></a><div id="Element.getData-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="Element.getData-toggle" onclick="return toggle('Element.getData');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#getData">getData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.getData-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.getData-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__data</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">         </tt>
+<a name="Element.setData"></a><div id="Element.setData-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="Element.setData-toggle" onclick="return toggle('Element.setData');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#setData">setData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.setData-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.setData-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__data</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">         </tt>
+<a name="Element.getAttributes"></a><div id="Element.getAttributes-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="Element.getAttributes-toggle" onclick="return toggle('Element.getAttributes');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#getAttributes">getAttributes</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.getAttributes-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.getAttributes-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__attributes</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="Element.getChildren"></a><div id="Element.getChildren-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="Element.getChildren-toggle" onclick="return toggle('Element.getChildren');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#getChildren">getChildren</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.getChildren-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.getChildren-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__children</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">         </tt>
+<a name="Element.__str__"></a><div id="Element.__str__-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="Element.__str__-toggle" onclick="return toggle('Element.__str__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.__str__-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-0" class="py-name" targets="Class csp.sl10.XmlToElementParser.Element=csp.sl10.XmlToElementParser.Element-class.html,Class csp.sl12.XmlToElementParser.Element=csp.sl12.XmlToElementParser.Element-class.html,Class csp.sl20.XmlToElementParser.Element=csp.sl20.XmlToElementParser.Element-class.html,Class csp.sl21.XmlToElementParser.Element=csp.sl21.XmlToElementParser.Element-class.html"><a title="csp.sl10.XmlToElementParser.Element
+csp.sl12.XmlToElementParser.Element
+csp.sl20.XmlToElementParser.Element
+csp.sl21.XmlToElementParser.Element" class="py-name" href="#" onclick="return doclink('link-0', 'Element', 'link-0');">Element</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Static Method csp.sl10.XmlToElementParser.Element.__printElement()=csp.sl10.XmlToElementParser.Element-class.html#__printElement,Static Method csp.sl12.XmlToElementParser.Element.__printElement()=csp.sl12.XmlToElementParser.Element-class.html#__printElement,Static Method csp.sl20.XmlToElementParser.Element.__printElement()=csp.sl20.XmlToElementParser.Element-class.html#__printElement,Static Method csp.sl21.XmlToElementParser.Element.__printElement()=csp.sl21.XmlToElementParser.Element-class.html#__printElement"><a title="csp.sl10.XmlToElementParser.Element.__printElement
+csp.sl12.XmlToElementParser.Element.__printElement
+csp.sl20.XmlToElementParser.Element.__printElement
+csp.sl21.XmlToElementParser.Element.__printElement" class="py-name" href="#" onclick="return doclink('link-1', '__printElement', 'link-1');">__printElement</a></tt><tt class="py-op">(</tt><tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">         </tt>
+<a name="Element.__printElement"></a><div id="Element.__printElement-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="Element.__printElement-toggle" onclick="return toggle('Element.__printElement');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.Element-class.html#__printElement">__printElement</a><tt class="py-op">(</tt><tt class="py-param">prefix</tt><tt class="py-op">,</tt> <tt class="py-param">element</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Element.__printElement-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="Element.__printElement-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-name">res</tt> <tt class="py-op">=</tt> <tt class="py-name">prefix</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-string">'name: \'%s\' data: \'%s\' attributes: %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getName()=csp.sl10.XmlToElementParser.Element-class.html#getName,Method csp.sl12.XmlToElementParser.Element.getName()=csp.sl12.XmlToElementParser.Element-class.html#getName,Method csp.sl20.XmlToElementParser.Element.getName()=csp.sl20.XmlToElementParser.Element-class.html#getName,Method csp.sl21.XmlToElementParser.Element.getName()=csp.sl21.XmlToElementParser.Element-class.html#getName"><a title="csp.sl10.XmlToElementParser.Element.getName
+csp.sl12.XmlToElementParser.Element.getName
+csp.sl20.XmlToElementParser.Element.getName
+csp.sl21.XmlToElementParser.Element.getName" class="py-name" href="#" onclick="return doclink('link-2', 'getName', 'link-2');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getData()=csp.sl10.XmlToElementParser.Element-class.html#getData,Method csp.sl12.XmlToElementParser.Element.getData()=csp.sl12.XmlToElementParser.Element-class.html#getData,Method csp.sl20.XmlToElementParser.Element.getData()=csp.sl20.XmlToElementParser.Element-class.html#getData,Method csp.sl21.XmlToElementParser.Element.getData()=csp.sl21.XmlToElementParser.Element-class.html#getData"><a title="csp.sl10.XmlToElementParser.Element.getData
+csp.sl12.XmlToElementParser.Element.getData
+csp.sl20.XmlToElementParser.Element.getData
+csp.sl21.XmlToElementParser.Element.getData" class="py-name" href="#" onclick="return doclink('link-3', 'getData', 'link-3');">getData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getAttributes()=csp.sl10.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl12.XmlToElementParser.Element.getAttributes()=csp.sl12.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl20.XmlToElementParser.Element.getAttributes()=csp.sl20.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl21.XmlToElementParser.Element.getAttributes()=csp.sl21.XmlToElementParser.Element-class.html#getAttributes"><a title="csp.sl10.XmlToElementParser.Element.getAttributes
+csp.sl12.XmlToElementParser.Element.getAttributes
+csp.sl20.XmlToElementParser.Element.getAttributes
+csp.sl21.XmlToElementParser.Element.getAttributes" class="py-name" href="#" onclick="return doclink('link-4', 'getAttributes', 'link-4');">getAttributes</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getChildren()=csp.sl10.XmlToElementParser.Element-class.html#getChildren,Method csp.sl12.XmlToElementParser.Element.getChildren()=csp.sl12.XmlToElementParser.Element-class.html#getChildren,Method csp.sl20.XmlToElementParser.Element.getChildren()=csp.sl20.XmlToElementParser.Element-class.html#getChildren,Method csp.sl21.XmlToElementParser.Element.getChildren()=csp.sl21.XmlToElementParser.Element-class.html#getChildren"><a title="csp.sl10.XmlToElementParser.Element.getChildren
+csp.sl12.XmlToElementParser.Element.getChildren
+csp.sl20.XmlToElementParser.Element.getChildren
+csp.sl21.XmlToElementParser.Element.getChildren" class="py-name" href="#" onclick="return doclink('link-5', 'getChildren', 'link-5');">getChildren</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                        <tt class="py-name">res</tt> <tt class="py-op">+=</tt> <tt id="link-6" class="py-name"><a title="csp.sl10.XmlToElementParser.Element
+csp.sl12.XmlToElementParser.Element
+csp.sl20.XmlToElementParser.Element
+csp.sl21.XmlToElementParser.Element" class="py-name" href="#" onclick="return doclink('link-6', 'Element', 'link-0');">Element</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.__printElement
+csp.sl12.XmlToElementParser.Element.__printElement
+csp.sl20.XmlToElementParser.Element.__printElement
+csp.sl21.XmlToElementParser.Element.__printElement" class="py-name" href="#" onclick="return doclink('link-7', '__printElement', 'link-1');">__printElement</a></tt><tt class="py-op">(</tt><tt class="py-name">prefix</tt> <tt class="py-op">+</tt> <tt class="py-string">'\t'</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">res</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt id="link-8" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.__printElement
+csp.sl12.XmlToElementParser.Element.__printElement
+csp.sl20.XmlToElementParser.Element.__printElement
+csp.sl21.XmlToElementParser.Element.__printElement" class="py-name" href="#" onclick="return doclink('link-8', '__printElement', 'link-1');">__printElement</a></tt> <tt class="py-op">=</tt> <tt class="py-name">staticmethod</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.__printElement
+csp.sl12.XmlToElementParser.Element.__printElement
+csp.sl20.XmlToElementParser.Element.__printElement
+csp.sl21.XmlToElementParser.Element.__printElement" class="py-name" href="#" onclick="return doclink('link-9', '__printElement', 'link-1');">__printElement</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="XmlToElementParser"></a><div id="XmlToElementParser-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="XmlToElementParser-toggle" onclick="return toggle('XmlToElementParser');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html">XmlToElementParser</a><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XmlToElementParser-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">         </tt>
+<a name="XmlToElementParser.__init__"></a><div id="XmlToElementParser.__init__-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="XmlToElementParser.__init__-toggle" onclick="return toggle('XmlToElementParser.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.__init__-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.__reset()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#__reset,Method csp.sl12.XmlToElementParser.XmlToElementParser.__reset()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#__reset,Method csp.sl20.XmlToElementParser.XmlToElementParser.__reset()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__reset,Method csp.sl21.XmlToElementParser.XmlToElementParser.__reset()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#__reset"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__reset
+csp.sl12.XmlToElementParser.XmlToElementParser.__reset
+csp.sl20.XmlToElementParser.XmlToElementParser.__reset
+csp.sl21.XmlToElementParser.XmlToElementParser.__reset" class="py-name" href="#" onclick="return doclink('link-10', '__reset', 'link-10');">__reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="XmlToElementParser.__startElement"></a><div id="XmlToElementParser.__startElement-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="XmlToElementParser.__startElement-toggle" onclick="return toggle('XmlToElementParser.__startElement');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__startElement">__startElement</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.__startElement-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.__startElement-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">element</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="csp.sl10.XmlToElementParser.Element
+csp.sl12.XmlToElementParser.Element
+csp.sl20.XmlToElementParser.Element
+csp.sl21.XmlToElementParser.Element" class="py-name" href="#" onclick="return doclink('link-11', 'Element', 'link-0');">Element</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt><tt class="py-op">,</tt> <tt class="py-name">attributes</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                        <tt class="py-name">parent</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                        <tt class="py-name">parent</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.addChild()=csp.sl10.XmlToElementParser.Element-class.html#addChild,Method csp.sl12.XmlToElementParser.Element.addChild()=csp.sl12.XmlToElementParser.Element-class.html#addChild,Method csp.sl20.XmlToElementParser.Element.addChild()=csp.sl20.XmlToElementParser.Element-class.html#addChild,Method csp.sl21.XmlToElementParser.Element.addChild()=csp.sl21.XmlToElementParser.Element-class.html#addChild"><a title="csp.sl10.XmlToElementParser.Element.addChild
+csp.sl12.XmlToElementParser.Element.addChild
+csp.sl20.XmlToElementParser.Element.addChild
+csp.sl21.XmlToElementParser.Element.addChild" class="py-name" href="#" onclick="return doclink('link-12', 'addChild', 'link-12');">addChild</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__root</tt> <tt class="py-op">=</tt> <tt class="py-name">element</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                 </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="XmlToElementParser.__endElement"></a><div id="XmlToElementParser.__endElement-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="XmlToElementParser.__endElement-toggle" onclick="return toggle('XmlToElementParser.__endElement');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__endElement">__endElement</a><tt class="py-op">(</tt><tt class="py-param">self</tt> <tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.__endElement-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.__endElement-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="XmlToElementParser.__characterData"></a><div id="XmlToElementParser.__characterData-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="XmlToElementParser.__characterData-toggle" onclick="return toggle('XmlToElementParser.__characterData');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__characterData">__characterData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.__characterData-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.__characterData-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">string</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                        <tt class="py-name">element</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                        <tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.setData()=csp.sl10.XmlToElementParser.Element-class.html#setData,Method csp.sl12.XmlToElementParser.Element.setData()=csp.sl12.XmlToElementParser.Element-class.html#setData,Method csp.sl20.XmlToElementParser.Element.setData()=csp.sl20.XmlToElementParser.Element-class.html#setData,Method csp.sl21.XmlToElementParser.Element.setData()=csp.sl21.XmlToElementParser.Element-class.html#setData"><a title="csp.sl10.XmlToElementParser.Element.setData
+csp.sl12.XmlToElementParser.Element.setData
+csp.sl20.XmlToElementParser.Element.setData
+csp.sl21.XmlToElementParser.Element.setData" class="py-name" href="#" onclick="return doclink('link-13', 'setData', 'link-13');">setData</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.getData
+csp.sl12.XmlToElementParser.Element.getData
+csp.sl20.XmlToElementParser.Element.getData
+csp.sl21.XmlToElementParser.Element.getData" class="py-name" href="#" onclick="return doclink('link-14', 'getData', 'link-3');">getData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                         </tt>
+<a name="XmlToElementParser.__reset"></a><div id="XmlToElementParser.__reset-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="XmlToElementParser.__reset-toggle" onclick="return toggle('XmlToElementParser.__reset');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__reset">__reset</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.__reset-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.__reset-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__root</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__nodeStack</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt> <tt class="py-op">=</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">parsers</tt><tt class="py-op">.</tt><tt class="py-name">expat</tt><tt class="py-op">.</tt><tt class="py-name">ParserCreate</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt><tt class="py-op">.</tt><tt class="py-name">StartElementHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.__startElement()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#__startElement,Method csp.sl12.XmlToElementParser.XmlToElementParser.__startElement()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#__startElement,Method csp.sl20.XmlToElementParser.XmlToElementParser.__startElement()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__startElement,Method csp.sl21.XmlToElementParser.XmlToElementParser.__startElement()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#__startElement"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__startElement
+csp.sl12.XmlToElementParser.XmlToElementParser.__startElement
+csp.sl20.XmlToElementParser.XmlToElementParser.__startElement
+csp.sl21.XmlToElementParser.XmlToElementParser.__startElement" class="py-name" href="#" onclick="return doclink('link-15', '__startElement', 'link-15');">__startElement</a></tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt><tt class="py-op">.</tt><tt class="py-name">EndElementHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.__endElement()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#__endElement,Method csp.sl12.XmlToElementParser.XmlToElementParser.__endElement()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#__endElement,Method csp.sl20.XmlToElementParser.XmlToElementParser.__endElement()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__endElement,Method csp.sl21.XmlToElementParser.XmlToElementParser.__endElement()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#__endElement"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__endElement
+csp.sl12.XmlToElementParser.XmlToElementParser.__endElement
+csp.sl20.XmlToElementParser.XmlToElementParser.__endElement
+csp.sl21.XmlToElementParser.XmlToElementParser.__endElement" class="py-name" href="#" onclick="return doclink('link-16', '__endElement', 'link-16');">__endElement</a></tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt><tt class="py-op">.</tt><tt class="py-name">CharacterDataHandler</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.__characterData()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#__characterData,Method csp.sl12.XmlToElementParser.XmlToElementParser.__characterData()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#__characterData,Method csp.sl20.XmlToElementParser.XmlToElementParser.__characterData()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__characterData,Method csp.sl21.XmlToElementParser.XmlToElementParser.__characterData()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#__characterData"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__characterData
+csp.sl12.XmlToElementParser.XmlToElementParser.__characterData
+csp.sl20.XmlToElementParser.XmlToElementParser.__characterData
+csp.sl21.XmlToElementParser.XmlToElementParser.__characterData" class="py-name" href="#" onclick="return doclink('link-17', '__characterData', 'link-17');">__characterData</a></tt>                </tt>
+</div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="XmlToElementParser.parse"></a><div id="XmlToElementParser.parse-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="XmlToElementParser.parse-toggle" onclick="return toggle('XmlToElementParser.parse');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#parse">parse</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.parse-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.parse-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__reset
+csp.sl12.XmlToElementParser.XmlToElementParser.__reset
+csp.sl20.XmlToElementParser.XmlToElementParser.__reset
+csp.sl21.XmlToElementParser.XmlToElementParser.__reset" class="py-name" href="#" onclick="return doclink('link-18', '__reset', 'link-10');">__reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt><tt class="py-op">.</tt><tt class="py-name">Parse</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__root</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">         </tt>
+<a name="XmlToElementParser.parseFile"></a><div id="XmlToElementParser.parseFile-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="XmlToElementParser.parseFile-toggle" onclick="return toggle('XmlToElementParser.parseFile');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl20.XmlToElementParser.XmlToElementParser-class.html#parseFile">parseFile</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="XmlToElementParser.parseFile-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="XmlToElementParser.parseFile-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.__reset
+csp.sl12.XmlToElementParser.XmlToElementParser.__reset
+csp.sl20.XmlToElementParser.XmlToElementParser.__reset
+csp.sl21.XmlToElementParser.XmlToElementParser.__reset" class="py-name" href="#" onclick="return doclink('link-19', '__reset', 'link-10');">__reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__parser</tt><tt class="py-op">.</tt><tt class="py-name">ParseFile</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__root</tt> </tt>
+</div></div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">urllib</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name" targets="Module csp.sl10.XmlToElementParser=csp.sl10.XmlToElementParser-module.html,Class csp.sl10.XmlToElementParser.XmlToElementParser=csp.sl10.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl12.XmlToElementParser=csp.sl12.XmlToElementParser-module.html,Class csp.sl12.XmlToElementParser.XmlToElementParser=csp.sl12.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl20.XmlToElementParser=csp.sl20.XmlToElementParser-module.html,Class csp.sl20.XmlToElementParser.XmlToElementParser=csp.sl20.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl21.XmlToElementParser=csp.sl21.XmlToElementParser-module.html,Class csp.sl21.XmlToElementParser.XmlToElementParser=csp.sl21.XmlToElementParser.XmlToElementParser-class.html"><a title="csp.sl10.XmlToElementParser
+csp.sl10.XmlToElementParser.XmlToElementParser
+csp.sl12.XmlToElementParser
+csp.sl12.XmlToElementParser.XmlToElementParser
+csp.sl20.XmlToElementParser
+csp.sl20.XmlToElementParser.XmlToElementParser
+csp.sl21.XmlToElementParser
+csp.sl21.XmlToElementParser.XmlToElementParser" class="py-name" href="#" onclick="return doclink('link-20', 'XmlToElementParser', 'link-20');">XmlToElementParser</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">         </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl12.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl20.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl21.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#parseFile"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl12.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl20.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl21.XmlToElementParser.XmlToElementParser.parseFile" class="py-name" href="#" onclick="return doclink('link-21', 'parseFile', 'link-21');">parseFile</a></tt><tt class="py-op">(</tt><tt class="py-name">urllib</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Function csp.sl10.PortForwarder.urlopen()=csp.sl10.PortForwarder-module.html#urlopen,Function csp.sl12.PortForwarder.urlopen()=csp.sl12.PortForwarder-module.html#urlopen,Function csp.sl20.PortForwarder.urlopen()=csp.sl20.PortForwarder-module.html#urlopen,Function csp.sl21.PortForwarder.urlopen()=csp.sl21.PortForwarder-module.html#urlopen"><a title="csp.sl10.PortForwarder.urlopen
+csp.sl12.PortForwarder.urlopen
+csp.sl20.PortForwarder.urlopen
+csp.sl21.PortForwarder.urlopen" class="py-name" href="#" onclick="return doclink('link-22', 'urlopen', 'link-22');">urlopen</a></tt><tt class="py-op">(</tt><tt class="py-string">'http://notes.reli.colo.seagate.com/DMT_REL/pasoft.nsf/CodeFlashes?ReadViewEntries'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>     </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">e</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl12.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl20.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl21.XmlToElementParser.XmlToElementParser.parseFile" class="py-name" href="#" onclick="return doclink('link-23', 'parseFile', 'link-21');">parseFile</a></tt><tt class="py-op">(</tt><tt class="py-name">urllib</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="csp.sl10.PortForwarder.urlopen
+csp.sl12.PortForwarder.urlopen
+csp.sl20.PortForwarder.urlopen
+csp.sl21.PortForwarder.urlopen" class="py-name" href="#" onclick="return doclink('link-24', 'urlopen', 'link-22');">urlopen</a></tt><tt class="py-op">(</tt><tt class="py-string">'http://www.weather.gov/xml/current_obs/KBJC.xml'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">e</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:21 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl12.notes</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl12-module.html">Package&nbsp;sl12</a> ::
+        Module&nbsp;notes
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl12.notes-module.html">Module csp.sl12.notes</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># $Id: //depot/csp/script/plugin/rel/CSP_Plugin/notes.py#2 $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># Functions to get views, documents and fields from Lotus Notes</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># FILE:         notes.py</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># SCRIPT_VERSION: $Revision: #2 $    $DateTime: 2013/05/24 13:13:29 $</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># 09/13/2010 MU  Changed the DB URL to point to na-db01 since col-db01 has been decommissioned</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.XmlToElementParser=csp.sl10.XmlToElementParser-module.html,Class csp.sl10.XmlToElementParser.XmlToElementParser=csp.sl10.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl12.XmlToElementParser=csp.sl12.XmlToElementParser-module.html,Class csp.sl12.XmlToElementParser.XmlToElementParser=csp.sl12.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl20.XmlToElementParser=csp.sl20.XmlToElementParser-module.html,Class csp.sl20.XmlToElementParser.XmlToElementParser=csp.sl20.XmlToElementParser.XmlToElementParser-class.html,Module csp.sl21.XmlToElementParser=csp.sl21.XmlToElementParser-module.html,Class csp.sl21.XmlToElementParser.XmlToElementParser=csp.sl21.XmlToElementParser.XmlToElementParser-class.html"><a title="csp.sl10.XmlToElementParser
+csp.sl10.XmlToElementParser.XmlToElementParser
+csp.sl12.XmlToElementParser
+csp.sl12.XmlToElementParser.XmlToElementParser
+csp.sl20.XmlToElementParser
+csp.sl20.XmlToElementParser.XmlToElementParser
+csp.sl21.XmlToElementParser
+csp.sl21.XmlToElementParser.XmlToElementParser" class="py-name" href="#" onclick="return doclink('link-0', 'XmlToElementParser', 'link-0');">XmlToElementParser</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">urllib2</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-name">_urlopen</tt> <tt class="py-op">=</tt> <tt class="py-name">urllib2</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Function csp.sl10.PortForwarder.urlopen()=csp.sl10.PortForwarder-module.html#urlopen,Function csp.sl12.PortForwarder.urlopen()=csp.sl12.PortForwarder-module.html#urlopen,Function csp.sl20.PortForwarder.urlopen()=csp.sl20.PortForwarder-module.html#urlopen,Function csp.sl21.PortForwarder.urlopen()=csp.sl21.PortForwarder-module.html#urlopen"><a title="csp.sl10.PortForwarder.urlopen
+csp.sl12.PortForwarder.urlopen
+csp.sl20.PortForwarder.urlopen
+csp.sl21.PortForwarder.urlopen" class="py-name" href="#" onclick="return doclink('link-1', 'urlopen', 'link-1');">urlopen</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable csp.sl10.notes.ENTRY_COUNT=csp.sl10.notes-module.html#ENTRY_COUNT,Variable csp.sl12.notes.ENTRY_COUNT=csp.sl12.notes-module.html#ENTRY_COUNT,Variable csp.sl20.notes.ENTRY_COUNT=csp.sl20.notes-module.html#ENTRY_COUNT,Variable csp.sl21.notes.ENTRY_COUNT=csp.sl21.notes-module.html#ENTRY_COUNT"><a title="csp.sl10.notes.ENTRY_COUNT
+csp.sl12.notes.ENTRY_COUNT
+csp.sl20.notes.ENTRY_COUNT
+csp.sl21.notes.ENTRY_COUNT" class="py-name" href="#" onclick="return doclink('link-2', 'ENTRY_COUNT', 'link-2');">ENTRY_COUNT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">4000</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="setUrlopen"></a><div id="setUrlopen-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="setUrlopen-toggle" onclick="return toggle('setUrlopen');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.notes-module.html#setUrlopen">setUrlopen</a><tt class="py-op">(</tt><tt class="py-param">urlopen</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setUrlopen-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="setUrlopen-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">global</tt> <tt class="py-name">_urlopen</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-name">_urlopen</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name"><a title="csp.sl10.PortForwarder.urlopen
+csp.sl12.PortForwarder.urlopen
+csp.sl20.PortForwarder.urlopen
+csp.sl21.PortForwarder.urlopen" class="py-name" href="#" onclick="return doclink('link-3', 'urlopen', 'link-1');">urlopen</a></tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="getViewFile"></a><div id="getViewFile-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="getViewFile-toggle" onclick="return toggle('getViewFile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.notes-module.html#getViewFile">getViewFile</a><tt class="py-op">(</tt><tt class="py-param">databaseUrl</tt><tt class="py-op">,</tt> <tt class="py-param">viewName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getViewFile-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getViewFile-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">_urlopen</tt><tt class="py-op">(</tt><tt class="py-name">databaseUrl</tt> <tt class="py-op">+</tt> <tt class="py-string">'/'</tt> <tt class="py-op">+</tt> <tt class="py-name">viewName</tt> <tt class="py-op">+</tt> <tt class="py-string">'?ReadViewEntries'</tt> <tt class="py-op">+</tt> <tt class="py-string">'&amp;Count='</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name"><a title="csp.sl10.notes.ENTRY_COUNT
+csp.sl12.notes.ENTRY_COUNT
+csp.sl20.notes.ENTRY_COUNT
+csp.sl21.notes.ENTRY_COUNT" class="py-name" href="#" onclick="return doclink('link-4', 'ENTRY_COUNT', 'link-2');">ENTRY_COUNT</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="getFileAttachmentFile"></a><div id="getFileAttachmentFile-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="getFileAttachmentFile-toggle" onclick="return toggle('getFileAttachmentFile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.notes-module.html#getFileAttachmentFile">getFileAttachmentFile</a><tt class="py-op">(</tt><tt class="py-param">databaseUrl</tt><tt class="py-op">,</tt> <tt class="py-param">viewName</tt><tt class="py-op">,</tt> <tt class="py-param">documentName</tt><tt class="py-op">,</tt> <tt class="py-param">attachmentName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getFileAttachmentFile-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getFileAttachmentFile-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">_urlopen</tt><tt class="py-op">(</tt><tt class="py-name">databaseUrl</tt> <tt class="py-op">+</tt> <tt class="py-string">'/'</tt> <tt class="py-op">+</tt> <tt class="py-name">viewName</tt> <tt class="py-op">+</tt> <tt class="py-string">'/'</tt> <tt class="py-op">+</tt> <tt class="py-name">documentName</tt> <tt class="py-op">+</tt> <tt class="py-string">'/'</tt> <tt class="py-op">+</tt> <tt class="py-string">'$FILE'</tt> <tt class="py-op">+</tt> <tt class="py-string">'/'</tt> <tt class="py-op">+</tt> <tt class="py-name">attachmentName</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="getViewEntryByColumnNameValue"></a><div id="getViewEntryByColumnNameValue-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="getViewEntryByColumnNameValue-toggle" onclick="return toggle('getViewEntryByColumnNameValue');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.notes-module.html#getViewEntryByColumnNameValue">getViewEntryByColumnNameValue</a><tt class="py-op">(</tt><tt class="py-param">viewElement</tt><tt class="py-op">,</tt> <tt class="py-param">columnName</tt><tt class="py-op">,</tt> <tt class="py-param">columnValue</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getViewEntryByColumnNameValue-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getViewEntryByColumnNameValue-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">viewElement</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getChildren()=csp.sl10.XmlToElementParser.Element-class.html#getChildren,Method csp.sl12.XmlToElementParser.Element.getChildren()=csp.sl12.XmlToElementParser.Element-class.html#getChildren,Method csp.sl20.XmlToElementParser.Element.getChildren()=csp.sl20.XmlToElementParser.Element-class.html#getChildren,Method csp.sl21.XmlToElementParser.Element.getChildren()=csp.sl21.XmlToElementParser.Element-class.html#getChildren"><a title="csp.sl10.XmlToElementParser.Element.getChildren
+csp.sl12.XmlToElementParser.Element.getChildren
+csp.sl20.XmlToElementParser.Element.getChildren
+csp.sl21.XmlToElementParser.Element.getChildren" class="py-name" href="#" onclick="return doclink('link-5', 'getChildren', 'link-5');">getChildren</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getName()=csp.sl10.XmlToElementParser.Element-class.html#getName,Method csp.sl12.XmlToElementParser.Element.getName()=csp.sl12.XmlToElementParser.Element-class.html#getName,Method csp.sl20.XmlToElementParser.Element.getName()=csp.sl20.XmlToElementParser.Element-class.html#getName,Method csp.sl21.XmlToElementParser.Element.getName()=csp.sl21.XmlToElementParser.Element-class.html#getName"><a title="csp.sl10.XmlToElementParser.Element.getName
+csp.sl12.XmlToElementParser.Element.getName
+csp.sl20.XmlToElementParser.Element.getName
+csp.sl21.XmlToElementParser.Element.getName" class="py-name" href="#" onclick="return doclink('link-6', 'getName', 'link-6');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'viewentry'</tt><tt class="py-op">:</tt>                   </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt id="link-7" class="py-name" targets="Function csp.sl10.notes.getViewEntryColumnValue()=csp.sl10.notes-module.html#getViewEntryColumnValue,Function csp.sl12.notes.getViewEntryColumnValue()=csp.sl12.notes-module.html#getViewEntryColumnValue,Function csp.sl20.notes.getViewEntryColumnValue()=csp.sl20.notes-module.html#getViewEntryColumnValue,Function csp.sl21.notes.getViewEntryColumnValue()=csp.sl21.notes-module.html#getViewEntryColumnValue"><a title="csp.sl10.notes.getViewEntryColumnValue
+csp.sl12.notes.getViewEntryColumnValue
+csp.sl20.notes.getViewEntryColumnValue
+csp.sl21.notes.getViewEntryColumnValue" class="py-name" href="#" onclick="return doclink('link-7', 'getViewEntryColumnValue', 'link-7');">getViewEntryColumnValue</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">,</tt> <tt class="py-name">columnName</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">columnValue</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                                <tt class="py-keyword">return</tt> <tt class="py-name">e</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'view entry with column %s equal to %s not found'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">columnName</tt><tt class="py-op">,</tt> <tt class="py-name">columnValue</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">         </tt>
+<a name="getViewEntryColumnValue"></a><div id="getViewEntryColumnValue-def"><a name="L37"></a><tt class="py-lineno">37</tt> <a class="py-toggle" href="#" id="getViewEntryColumnValue-toggle" onclick="return toggle('getViewEntryColumnValue');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.notes-module.html#getViewEntryColumnValue">getViewEntryColumnValue</a><tt class="py-op">(</tt><tt class="py-param">element</tt><tt class="py-op">,</tt> <tt class="py-param">columnName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getViewEntryColumnValue-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getViewEntryColumnValue-expanded"><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.getChildren
+csp.sl12.XmlToElementParser.Element.getChildren
+csp.sl20.XmlToElementParser.Element.getChildren
+csp.sl21.XmlToElementParser.Element.getChildren" class="py-name" href="#" onclick="return doclink('link-8', 'getChildren', 'link-5');">getChildren</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.getName
+csp.sl12.XmlToElementParser.Element.getName
+csp.sl20.XmlToElementParser.Element.getName
+csp.sl21.XmlToElementParser.Element.getName" class="py-name" href="#" onclick="return doclink('link-9', 'getName', 'link-6');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'entrydata'</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getAttributes()=csp.sl10.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl12.XmlToElementParser.Element.getAttributes()=csp.sl12.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl20.XmlToElementParser.Element.getAttributes()=csp.sl20.XmlToElementParser.Element-class.html#getAttributes,Method csp.sl21.XmlToElementParser.Element.getAttributes()=csp.sl21.XmlToElementParser.Element-class.html#getAttributes"><a title="csp.sl10.XmlToElementParser.Element.getAttributes
+csp.sl12.XmlToElementParser.Element.getAttributes
+csp.sl20.XmlToElementParser.Element.getAttributes
+csp.sl21.XmlToElementParser.Element.getAttributes" class="py-name" href="#" onclick="return doclink('link-10', 'getAttributes', 'link-10');">getAttributes</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">columnName</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt class="py-name">ee</tt> <tt class="py-keyword">in</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.getChildren
+csp.sl12.XmlToElementParser.Element.getChildren
+csp.sl20.XmlToElementParser.Element.getChildren
+csp.sl21.XmlToElementParser.Element.getChildren" class="py-name" href="#" onclick="return doclink('link-11', 'getChildren', 'link-5');">getChildren</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                                        <tt class="py-keyword">if</tt> <tt class="py-name">ee</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="csp.sl10.XmlToElementParser.Element.getName
+csp.sl12.XmlToElementParser.Element.getName
+csp.sl20.XmlToElementParser.Element.getName
+csp.sl21.XmlToElementParser.Element.getName" class="py-name" href="#" onclick="return doclink('link-12', 'getName', 'link-6');">getName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'text'</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                                                <tt class="py-keyword">return</tt> <tt class="py-name">ee</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method csp.sl10.XmlToElementParser.Element.getData()=csp.sl10.XmlToElementParser.Element-class.html#getData,Method csp.sl12.XmlToElementParser.Element.getData()=csp.sl12.XmlToElementParser.Element-class.html#getData,Method csp.sl20.XmlToElementParser.Element.getData()=csp.sl20.XmlToElementParser.Element-class.html#getData,Method csp.sl21.XmlToElementParser.Element.getData()=csp.sl21.XmlToElementParser.Element-class.html#getData"><a title="csp.sl10.XmlToElementParser.Element.getData
+csp.sl12.XmlToElementParser.Element.getData
+csp.sl20.XmlToElementParser.Element.getData
+csp.sl21.XmlToElementParser.Element.getData" class="py-name" href="#" onclick="return doclink('link-13', 'getData', 'link-13');">getData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'column %s not found'</tt> <tt class="py-op">%</tt> <tt class="py-name">columnName</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">         </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Variable csp.sl10.FirmwareGetter.FirmwareGetter.DB_URL=csp.sl10.FirmwareGetter.FirmwareGetter-class.html#DB_URL,Variable csp.sl12.FirmwareGetter.FirmwareGetter.DB_URL=csp.sl12.FirmwareGetter.FirmwareGetter-class.html#DB_URL,Variable csp.sl20.FirmwareGetter.FirmwareGetter.DB_URL=csp.sl20.FirmwareGetter.FirmwareGetter-class.html#DB_URL,Variable csp.sl21.FirmwareGetter.FirmwareGetter.DB_URL=csp.sl21.FirmwareGetter.FirmwareGetter-class.html#DB_URL"><a title="csp.sl10.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl12.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl20.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl21.FirmwareGetter.FirmwareGetter.DB_URL" class="py-name" href="#" onclick="return doclink('link-14', 'DB_URL', 'link-14');">DB_URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'http://notes.reli.colo.seagate.com/DMT_REL/pasoft.nsf/'</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt id="link-15" class="py-name" targets="Variable csp.sl10.FirmwareGetter.FirmwareGetter.VIEW_NAME=csp.sl10.FirmwareGetter.FirmwareGetter-class.html#VIEW_NAME,Variable csp.sl12.FirmwareGetter.FirmwareGetter.VIEW_NAME=csp.sl12.FirmwareGetter.FirmwareGetter-class.html#VIEW_NAME,Variable csp.sl20.FirmwareGetter.FirmwareGetter.VIEW_NAME=csp.sl20.FirmwareGetter.FirmwareGetter-class.html#VIEW_NAME,Variable csp.sl21.FirmwareGetter.FirmwareGetter.VIEW_NAME=csp.sl21.FirmwareGetter.FirmwareGetter-class.html#VIEW_NAME"><a title="csp.sl10.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl12.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl20.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl21.FirmwareGetter.FirmwareGetter.VIEW_NAME" class="py-name" href="#" onclick="return doclink('link-15', 'VIEW_NAME', 'link-15');">VIEW_NAME</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'CodeFlashes'</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">DOCUMENT_NAME</tt> <tt class="py-op">=</tt> <tt class="py-string">'COL2009-0053'</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">         </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-name">parser</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="csp.sl10.XmlToElementParser
+csp.sl10.XmlToElementParser.XmlToElementParser
+csp.sl12.XmlToElementParser
+csp.sl12.XmlToElementParser.XmlToElementParser
+csp.sl20.XmlToElementParser
+csp.sl20.XmlToElementParser.XmlToElementParser
+csp.sl21.XmlToElementParser
+csp.sl21.XmlToElementParser.XmlToElementParser" class="py-name" href="#" onclick="return doclink('link-16', 'XmlToElementParser', 'link-0');">XmlToElementParser</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="csp.sl10.XmlToElementParser
+csp.sl10.XmlToElementParser.XmlToElementParser
+csp.sl12.XmlToElementParser
+csp.sl12.XmlToElementParser.XmlToElementParser
+csp.sl20.XmlToElementParser
+csp.sl20.XmlToElementParser.XmlToElementParser
+csp.sl21.XmlToElementParser
+csp.sl21.XmlToElementParser.XmlToElementParser" class="py-name" href="#" onclick="return doclink('link-17', 'XmlToElementParser', 'link-0');">XmlToElementParser</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">         </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">view</tt> <tt class="py-op">=</tt> <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method csp.sl10.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl12.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl20.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#parseFile,Method csp.sl21.XmlToElementParser.XmlToElementParser.parseFile()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#parseFile"><a title="csp.sl10.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl12.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl20.XmlToElementParser.XmlToElementParser.parseFile
+csp.sl21.XmlToElementParser.XmlToElementParser.parseFile" class="py-name" href="#" onclick="return doclink('link-18', 'parseFile', 'link-18');">parseFile</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name" targets="Function csp.sl10.notes.getViewFile()=csp.sl10.notes-module.html#getViewFile,Function csp.sl12.notes.getViewFile()=csp.sl12.notes-module.html#getViewFile,Function csp.sl20.notes.getViewFile()=csp.sl20.notes-module.html#getViewFile,Function csp.sl21.notes.getViewFile()=csp.sl21.notes-module.html#getViewFile"><a title="csp.sl10.notes.getViewFile
+csp.sl12.notes.getViewFile
+csp.sl20.notes.getViewFile
+csp.sl21.notes.getViewFile" class="py-name" href="#" onclick="return doclink('link-19', 'getViewFile', 'link-19');">getViewFile</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="csp.sl10.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl12.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl20.FirmwareGetter.FirmwareGetter.DB_URL
+csp.sl21.FirmwareGetter.FirmwareGetter.DB_URL" class="py-name" href="#" onclick="return doclink('link-20', 'DB_URL', 'link-14');">DB_URL</a></tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="csp.sl10.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl12.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl20.FirmwareGetter.FirmwareGetter.VIEW_NAME
+csp.sl21.FirmwareGetter.FirmwareGetter.VIEW_NAME" class="py-name" href="#" onclick="return doclink('link-21', 'VIEW_NAME', 'link-15');">VIEW_NAME</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">         </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-name">entry</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name" targets="Function csp.sl10.notes.getViewEntryByColumnNameValue()=csp.sl10.notes-module.html#getViewEntryByColumnNameValue,Function csp.sl12.notes.getViewEntryByColumnNameValue()=csp.sl12.notes-module.html#getViewEntryByColumnNameValue,Function csp.sl20.notes.getViewEntryByColumnNameValue()=csp.sl20.notes-module.html#getViewEntryByColumnNameValue,Function csp.sl21.notes.getViewEntryByColumnNameValue()=csp.sl21.notes-module.html#getViewEntryByColumnNameValue"><a title="csp.sl10.notes.getViewEntryByColumnNameValue
+csp.sl12.notes.getViewEntryByColumnNameValue
+csp.sl20.notes.getViewEntryByColumnNameValue
+csp.sl21.notes.getViewEntryByColumnNameValue" class="py-name" href="#" onclick="return doclink('link-22', 'getViewEntryByColumnNameValue', 'link-22');">getViewEntryByColumnNameValue</a></tt><tt class="py-op">(</tt><tt class="py-name">view</tt><tt class="py-op">,</tt> <tt class="py-string">'Doc_Num'</tt><tt class="py-op">,</tt> <tt class="py-name">DOCUMENT_NAME</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">         </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:57 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

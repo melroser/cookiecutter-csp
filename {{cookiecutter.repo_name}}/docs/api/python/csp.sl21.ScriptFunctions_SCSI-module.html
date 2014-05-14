@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.ScriptFunctions_SCSI</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        Module&nbsp;ScriptFunctions_SCSI
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module ScriptFunctions_SCSI</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html">source&nbsp;code</a></span></p>
+<p>***************************************************************************
+  $File: 
+  //depot/csp/script/plugin/dev/branches/leet/ScriptFunctions_SCSI.py $ 
+  SCRIPT_VERSION: $Revision: $    $DateTime: $ ScriptFunctions for SCSI 
+  exclusive functions 
+  ***************************************************************************</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#IsSCSI" class="summary-sig-name">IsSCSI</a>(<span class="summary-sig-arg">func</span>)</span><br />
+      Checks to see if the DUT is SCSI/SAS.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#IsSCSI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModeSense6" class="summary-sig-name">ModeSense6</a>(<span class="summary-sig-arg">dbd</span>,
+        <span class="summary-sig-arg">pc</span>,
+        <span class="summary-sig-arg">pg_code</span>,
+        <span class="summary-sig-arg">sub_pg_code</span>,
+        <span class="summary-sig-arg">alloc_len</span>)</span><br />
+      Issue SCSI Mode Sense (6) to the drive.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSense6">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModeSelect6" class="summary-sig-name">ModeSelect6</a>(<span class="summary-sig-arg">pf</span>,
+        <span class="summary-sig-arg">sp</span>,
+        <span class="summary-sig-arg">param_list_len</span>)</span><br />
+      Issue SCSI Mode Select (6) to the drive.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelect6">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModeSense10" class="summary-sig-name">ModeSense10</a>(<span class="summary-sig-arg">llbaa</span>,
+        <span class="summary-sig-arg">dbd</span>,
+        <span class="summary-sig-arg">pc</span>,
+        <span class="summary-sig-arg">pg_code</span>,
+        <span class="summary-sig-arg">sub_pg_code</span>,
+        <span class="summary-sig-arg">alloc_len</span>)</span><br />
+      Issue SCSI Mode Sense (10) to the drive.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSense10">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModeSelect10" class="summary-sig-name">ModeSelect10</a>(<span class="summary-sig-arg">pf</span>,
+        <span class="summary-sig-arg">sp</span>,
+        <span class="summary-sig-arg">param_list_len</span>)</span><br />
+      Issue SCSI Mode Select (10) to the drive.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelect10">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogSense" class="summary-sig-name">LogSense</a>(<span class="summary-sig-arg">pg_code</span>,
+        <span class="summary-sig-arg">sub_pg_code</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">alloc_len</span>=<span class="summary-sig-default">0xffff</span>,
+        <span class="summary-sig-arg">pc</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">sp</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">param_ptr</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Issue Log Sense command to current device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogSense">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogSelect" class="summary-sig-name">LogSelect</a>(<span class="summary-sig-arg">pg_code</span>,
+        <span class="summary-sig-arg">sub_pg_code</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">param_list_len</span>=<span class="summary-sig-default">0xffff</span>,
+        <span class="summary-sig-arg">pc</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">sp</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">pcr</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Issue Log Select command to current device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogSelect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#UnlockLogPages" class="summary-sig-name">UnlockLogPages</a>()</span><br />
+      Unlocks Seagate specific log pages</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#UnlockLogPages">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#RezeroUnit" class="summary-sig-name">RezeroUnit</a>()</span><br />
+      Send SCSI Rezero Unit command to the device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#RezeroUnit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#EnableReadCache" class="summary-sig-name">EnableReadCache</a>()</span><br />
+      Enables read cache on the SCSI device by clearing RCD bit (read cache
+      disable).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableReadCache">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#DisableReadCache" class="summary-sig-name">DisableReadCache</a>()</span><br />
+      Disables read cache on the SCSI device by setting RCD bit (read cache
+      disable).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableReadCache">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#EnableForceSeqWrite" class="summary-sig-name">EnableForceSeqWrite</a>()</span><br />
+      Sets FSW (force sequential write) bit.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableForceSeqWrite">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#DisableForceSeqWrite" class="summary-sig-name">DisableForceSeqWrite</a>()</span><br />
+      Clears FSW (force sequential write) bit.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableForceSeqWrite">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#EnablePreScan" class="summary-sig-name">EnablePreScan</a>()</span><br />
+      Enables pre-scan by setting EN_PS (enable pre-scan) bit.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnablePreScan">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#DisablePreScan" class="summary-sig-name">DisablePreScan</a>()</span><br />
+      Disables pre-scan by clearing EN_PS (enable pre-scan) bit.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisablePreScan">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ReadDefectData10" class="summary-sig-name">ReadDefectData10</a>(<span class="summary-sig-arg">plistv</span>,
+        <span class="summary-sig-arg">glistv</span>,
+        <span class="summary-sig-arg">defect_list_format</span>,
+        <span class="summary-sig-arg">alloc_len</span>)</span><br />
+      Issue Read Defect Data (10) command to pull defect list from the device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReadDefectData10">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ReadDefectData12" class="summary-sig-name">ReadDefectData12</a>(<span class="summary-sig-arg">plistv</span>,
+        <span class="summary-sig-arg">glistv</span>,
+        <span class="summary-sig-arg">defect_list_format</span>,
+        <span class="summary-sig-arg">alloc_len</span>)</span><br />
+      Issue Read Defect Data (12) command to pull defect list from the device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReadDefectData12">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#DefaultModePage" class="summary-sig-name">DefaultModePage</a>(<span class="summary-sig-arg">MDpage_code</span>=<span class="summary-sig-default">df.PARAMETER_ALL</span>,
+        <span class="summary-sig-arg">MDsubpage_code</span>=<span class="summary-sig-default">0x00</span>)</span><br />
+      Reverts all SCSI mode page values to default.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DefaultModePage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage_BER" class="summary-sig-name">LogPage_BER</a>(<span class="summary-sig-arg">lpReset</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">headNum</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Collects BER log page parameters from log page 0x03 (read) (parameters 0x0003, 0x0005, 0xE400),
+calculates drive-level BER and sends it to database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_BER">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage_BER_reset" class="summary-sig-name">LogPage_BER_reset</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Resets log page 0x03 for BER (same as CTRL+W in SATA).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_BER_reset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage" class="summary-sig-name">LogPage</a>(<span class="summary-sig-arg">log_pg</span>=<span class="summary-sig-default">df.PARAMETER_ALL</span>,
+        <span class="summary-sig-arg">sendPrm</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Collect log page data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage_Supported" class="summary-sig-name">LogPage_Supported</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns a list of supported log page numbers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Supported">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModePage" class="summary-sig-name">ModePage</a>(<span class="summary-sig-arg">mode_pg</span>=<span class="summary-sig-default">df.PARAMETER_ALL</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Dump all mode page settings - dumps all mode pages if no specific 
+      mode page is given mode_pg: integer: Mode page to display.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#FormatUnit" class="summary-sig-name">FormatUnit</a>(<span class="summary-sig-arg">sector_sz</span>=<span class="summary-sig-default">512</span>,
+        <span class="summary-sig-arg">CMPLST</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">DPRY</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">DCRT</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">Unconditional</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Issue SCSI FormatUnit command.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#FormatUnit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#BGMS_Status" class="summary-sig-name">BGMS_Status</a>(<span class="summary-sig-arg">Verbose</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Returns BGMS status for SCSI devices from Log page 0x15 Verbose: 
+      boolean: If set to False, it will also display BGMS activity in the 
+      results log</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#BGMS_Status">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage_Param" class="summary-sig-name">LogPage_Param</a>(<span class="summary-sig-arg">logPage</span>,
+        <span class="summary-sig-arg">logParam</span>)</span><br />
+      Collect specified log page parameter.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Param">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#LogPage_Collect" class="summary-sig-name">LogPage_Collect</a>(<span class="summary-sig-arg">reset</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">printRes</span>=<span class="summary-sig-default">1</span>)</span><br />
+      Collects log parameters listed in DataDefines.LogPage_decoded_dict_xml
+reset: boolean:     Will reset all affected log pages if set to 1.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Collect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModeSelectStrict" class="summary-sig-name">ModeSelectStrict</a>()</span><br />
+      Zeroes out first and third bytes of Mode Select bit, and also PS 
+      (pave saveable bit) for strict bit compliance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelectStrict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#SORT_ModePageSettings" class="summary-sig-name">SORT_ModePageSettings</a>(<span class="summary-sig-arg">sp</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Set all mode page settings necessary for Stress ORT.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#SORT_ModePageSettings">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModePageDecode" class="summary-sig-name">ModePageDecode</a>(<span class="summary-sig-arg">mpNum</span>,
+        <span class="summary-sig-arg">modePage_data</span>,
+        <span class="summary-sig-arg">mpLen</span>)</span><br />
+      Takes Mode page number (with SPF), mode page data in string and mode 
+      page length to look up mode page parameters defined in Data Defines 
+      mode page field dictionary.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePageDecode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#DisableLogUpdate" class="summary-sig-name">DisableLogUpdate</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Disables updating of log page parameters</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableLogUpdate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#EnableLogUpdate" class="summary-sig-name">EnableLogUpdate</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Enables updating of log page parameters</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableLogUpdate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ReportSupported" class="summary-sig-name">ReportSupported</a>(<span class="summary-sig-arg">op_code</span>=<span class="summary-sig-default">df.PARAMETER_ALL</span>)</span><br />
+      Report if given op code is supported by the drive.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReportSupported">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#ModePage_Supported" class="summary-sig-name">ModePage_Supported</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Determines supported Mode pages on this device and returns list of 
+      supported mode pages</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePage_Supported">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#SCSIVerify" class="summary-sig-name">SCSIVerify</a>(<span class="summary-sig-arg">min_lba</span>,
+        <span class="summary-sig-arg">max_lba</span>,
+        <span class="summary-sig-arg">acc_mode</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">passes</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">cmd_optimize</span>=<span class="summary-sig-default">True</span>)</span><br />
+      TODO:</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#SCSIVerify">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SCSI-module.html#GetNumberPrimaryDefects" class="summary-sig-name">GetNumberPrimaryDefects</a>(<span class="summary-sig-arg">dumpToFile</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">name_extension</span>=<span class="summary-sig-default">''</span>)</span><br />
+      Returns number of primary defects from the SCSI device</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#GetNumberPrimaryDefects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="IsSCSI"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsSCSI</span>(<span class="sig-arg">func</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#IsSCSI">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Checks to see if the DUT is SCSI/SAS. If not, returns with a warning 
+  message</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModeSense6"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModeSense6</span>(<span class="sig-arg">dbd</span>,
+        <span class="sig-arg">pc</span>,
+        <span class="sig-arg">pg_code</span>,
+        <span class="sig-arg">sub_pg_code</span>,
+        <span class="sig-arg">alloc_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSense6">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue SCSI Mode Sense (6) to the drive.
+
+dbd: boolean:         Disable block descriptors (including sectror size info)
+pc: integer:          Page control 0: current, 1: changeable, 2: default, 3: saved
+pg_code: integer:     Page Code
+sub_pg_code: integer: Subpage code
+alloc_len: integer:   Allocation length for data-in (read) buffer
+                        (must be &gt;= than the size of the mode page)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModeSelect6"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModeSelect6</span>(<span class="sig-arg">pf</span>,
+        <span class="sig-arg">sp</span>,
+        <span class="sig-arg">param_list_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelect6">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Issue SCSI Mode Select (6) to the drive. This command assumes that 
+  ModeSelect has been already called and data-out (write) buffer has been 
+  set up properly.</p>
+  <p>pf: boolean:             Page format sp: boolean:             Save 
+  pages param_list_len: integer: Size of data-out (write) buffer</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModeSense10"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModeSense10</span>(<span class="sig-arg">llbaa</span>,
+        <span class="sig-arg">dbd</span>,
+        <span class="sig-arg">pc</span>,
+        <span class="sig-arg">pg_code</span>,
+        <span class="sig-arg">sub_pg_code</span>,
+        <span class="sig-arg">alloc_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSense10">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue SCSI Mode Sense (10) to the drive.
+
+llbaa: boolean:       Long LBA accepted
+dbd: boolean:         Disable block descriptors (including sectror size info)
+pc: integer:          Page control 0: current, 1: changeable, 2: default, 3: saved
+pg_code: integer:     Page Code
+sub_pg_code: integer: Subpage code
+alloc_len: integer:   Allocation length for data-in (read) buffer
+                        (must be &gt;= than the size of the mode page)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModeSelect10"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModeSelect10</span>(<span class="sig-arg">pf</span>,
+        <span class="sig-arg">sp</span>,
+        <span class="sig-arg">param_list_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelect10">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Issue SCSI Mode Select (10) to the drive. This command assumes that 
+  ModeSelect has been already called and data-out (write) buffer has been 
+  set up properly.</p>
+  <p>pf: boolean:             Page format sp: boolean:             Save 
+  pages param_list_len: integer: Size of data-out (write) buffer</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogSense"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogSense</span>(<span class="sig-arg">pg_code</span>,
+        <span class="sig-arg">sub_pg_code</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">alloc_len</span>=<span class="sig-default">0xffff</span>,
+        <span class="sig-arg">pc</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">sp</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">param_ptr</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogSense">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue Log Sense command to current device.
+
+pg_code: integer:     Log page code
+sub_pg_code: integer: Log page sub code
+alloc_len: integer:   Amount of log page data to read. (Default 0xffff)
+pc: integer:          Page control - type of log parameter values to return (Default 1)
+                          0: threshold values
+                          1: cumulative values
+                          2: default threshold values
+                          3: default cumulative values
+sp: integer:          Save parameters (Default 1)
+                          0: LogSense will not cause any parameters to be saved
+                          1: LogSense will attempt to save parameters. Note this will
+                             cause illegal request if device does not support saving of
+                             parameters via Log Sense command.
+param_ptr: integer:   Parameter pointer field (Default 0). Allows user to read partial
+                      log pages by specifing a parameter code. Log Sense will use the
+                      parameter code and skip all parameter codes that come before the
+                      specified parameter. Will fail for invalid field in CDB if
+                      given parameter code is larger than largest available parameter code.
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogSelect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogSelect</span>(<span class="sig-arg">pg_code</span>,
+        <span class="sig-arg">sub_pg_code</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">param_list_len</span>=<span class="sig-default">0xffff</span>,
+        <span class="sig-arg">pc</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">sp</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">pcr</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogSelect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue Log Select command to current device.
+
+pg_code: integer:         Log page code
+sub_pg_code: integer:     Log page sub code (Default = 0)
+param_list_len: integer:  Amount of log page data to send. (Default 0xffff)
+pc: integer:              Page control - type of log parameter values to return (Default = 1)
+                              0: threshold values
+                              1: cumulative values
+                              2: default threshold values
+                              3: default cumulative values
+sp: integer:              Save parameters (default 0)
+                              0: LogSelect will not cause any parameters to be saved
+                              1: LogSelect will update and save log parameters.
+pcr: integer:             Parameter Code Reset - if set to one with param_list_len = 0,
+                          it will cause this log page to be reset to default values.
+                          If pcr = 1 and param_list_len != 0 will be terminated with
+                          check condition status. (Default = 0)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="UnlockLogPages"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">UnlockLogPages</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#UnlockLogPages">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Unlocks Seagate specific log pages</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="RezeroUnit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RezeroUnit</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#RezeroUnit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Send SCSI Rezero Unit command to the device. Forces SMART frame 
+  save.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableReadCache"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableReadCache</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableReadCache">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables read cache on the SCSI device by clearing RCD bit (read cache 
+  disable). Not supported for ATA devices.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DisableReadCache"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DisableReadCache</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableReadCache">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Disables read cache on the SCSI device by setting RCD bit (read cache 
+  disable). Not supported for ATA devices.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableForceSeqWrite"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableForceSeqWrite</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableForceSeqWrite">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets FSW (force sequential write) bit. Causes multiple block writes to
+  be written to the media in an ascending, sequential, logical block 
+  order</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DisableForceSeqWrite"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DisableForceSeqWrite</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableForceSeqWrite">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Clears FSW (force sequential write) bit. Target SCSI device is allowed
+  to reorder sequence of writing to achieve faster command completion</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnablePreScan"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnablePreScan</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnablePreScan">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables pre-scan by setting EN_PS (enable pre-scan) bit. Pre-scan 
+  causes new SCSI drives to perform an internally issued sequential read of
+  whole pack when first spun up to detect any errors.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DisablePreScan"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DisablePreScan</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisablePreScan">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Disables pre-scan by clearing EN_PS (enable pre-scan) bit.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReadDefectData10"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReadDefectData10</span>(<span class="sig-arg">plistv</span>,
+        <span class="sig-arg">glistv</span>,
+        <span class="sig-arg">defect_list_format</span>,
+        <span class="sig-arg">alloc_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReadDefectData10">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue Read Defect Data (10) command to pull defect list from the device.
+
+plistv: boolean:             Request primary defect list to be returned
+                             (Not to be confused with pending list on ATA devices)
+glistv: boolean:             Request grown defect list to be returned
+defect_list_format: integer: Specifies format to be used in returned defects. Uses same
+                             address descriptor used by FORMAT UNIT command.
+                             0: use short block format (LBA range upto 0xFFFF FFFF)
+                             3: use long block format (LBA range upto 0xFFFF FFFF FFFF FFFF)
+                             4: use bytes from index (Cylinder, head and bytes from index)
+                             5: use physical sector format (Cylinder, head and sector)
+alloc_len: integer           Amount of data to read from device (maximum 0xFFFF)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReadDefectData12"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReadDefectData12</span>(<span class="sig-arg">plistv</span>,
+        <span class="sig-arg">glistv</span>,
+        <span class="sig-arg">defect_list_format</span>,
+        <span class="sig-arg">alloc_len</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReadDefectData12">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Issue Read Defect Data (12) command to pull defect list from the device.
+Same as Read Defect Data (10) in terms of functionality but allocation
+length can be upto 0xFFFF FFFF.
+
+plistv: boolean:             Request primary defect list to be returned
+                             (Not to be confused with pending list on ATA devices)
+glistv: boolean:             Request grown defect list to be returned
+defect_list_format: integer: Specifies format to be used in returned defects. Uses same
+                             address descriptor used by FORMAT UNIT command.
+                             0: use short block format (LBA range upto 0xFFFF FFFF)
+                             3: use long block format (LBA range upto 0xFFFF FFFF FFFF FFFF)
+                             4: use bytes from index (Cylinder, head and bytes from index)
+                             5: use physical sector format (Cylinder, head and sector)
+alloc_len: long              Amount of data to read from device (maximum 0xFFFF FFFF)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DefaultModePage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DefaultModePage</span>(<span class="sig-arg">MDpage_code</span>=<span class="sig-default">df.PARAMETER_ALL</span>,
+        <span class="sig-arg">MDsubpage_code</span>=<span class="sig-default">0x00</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DefaultModePage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reverts all SCSI mode page values to default. Not supported for ATA 
+  devices.</p>
+  <p>MDpage_code: integer:     Mode page to reset. If not specified, will 
+  reset all mode pages. MDsubpage_code: integer:  Sub-mode page to reset. 
+  (default 0x00)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage_BER"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage_BER</span>(<span class="sig-arg">lpReset</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">headNum</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_BER">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Collects BER log page parameters from log page 0x03 (read) (parameters 0x0003, 0x0005, 0xE400),
+calculates drive-level BER and sends it to database.
+
+lpReset;boolean: Whether to reset log page after BER data is pulled or not. (Default = 1)
+                 NOTE - if device rejects resetting log page 0x03, it will issue
+                 a command to reset ALL log pages.
+headNum;integer: Head number the calculated BER relates to. Default is -1 which is for all heads.
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage_BER_reset"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage_BER_reset</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_BER_reset">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Resets log page 0x03 for BER (same as CTRL+W in SATA). Called from 
+  TestRWSGatherPI()</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage</span>(<span class="sig-arg">log_pg</span>=<span class="sig-default">df.PARAMETER_ALL</span>,
+        <span class="sig-arg">sendPrm</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collect log page data. Not supported for SATA devices. log_pg: 
+  integer:  Log page to pull. If set to 0, it will pull ALL log pages 
+  (Default = 0) sendPrm: boolean: To send log page data to database. DO NOT
+  turn this on unless absolutely necessary (Default = False)</p>
+  <p>#TODO: PRINT LEADING ZEROES</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage_Supported"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage_Supported</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Supported">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a list of supported log page numbers</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModePage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModePage</span>(<span class="sig-arg">mode_pg</span>=<span class="sig-default">df.PARAMETER_ALL</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Dump all mode page settings - dumps all mode pages if no specific mode
+  page is given mode_pg: integer: Mode page to display. 0 will display all 
+  mode pages (Default = 0)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="FormatUnit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FormatUnit</span>(<span class="sig-arg">sector_sz</span>=<span class="sig-default">512</span>,
+        <span class="sig-arg">CMPLST</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">DPRY</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">DCRT</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">Unconditional</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#FormatUnit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Issue SCSI FormatUnit command. ATA devices are not supported. No 
+  initialization pattern, protection field usage or defect list are 
+  supported (yet)</p>
+  <p>sector_sz: integer:    Sector size to format into (default = 512) 
+  CMPLST: boolean:       G-list formatted (default 0 = yes) DRPY: boolean:
+  P-list formatted (default 0 = yes) DCRT: boolean:         Format with 
+  certification (default 1 = no) IMMED: boolean:        Return status 
+  immediately (default 1 = yes) Unconditional:boolean: Forces format even 
+  if the drive is already in desired block size (default 0 = no)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="BGMS_Status"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">BGMS_Status</span>(<span class="sig-arg">Verbose</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#BGMS_Status">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns BGMS status for SCSI devices from Log page 0x15 Verbose: 
+  boolean: If set to False, it will also display BGMS activity in the 
+  results log</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage_Param"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage_Param</span>(<span class="sig-arg">logPage</span>,
+        <span class="sig-arg">logParam</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Param">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collect specified log page parameter. Returns -1 if parameter is 
+  invalid or not supported. logPage:integer:  Log page to collect the 
+  parameter from logParam:integer: Log parameter to collect</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="LogPage_Collect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LogPage_Collect</span>(<span class="sig-arg">reset</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">printRes</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#LogPage_Collect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Collects log parameters listed in DataDefines.LogPage_decoded_dict_xml
+reset: boolean:     Will reset all affected log pages if set to 1. (default yes)
+                    NOTE - it will attempt resetting all log pages if it fails to reset individual pages.
+printRes; boolean:  Causes the function to dump collected data to the result file. (default yes)
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModeSelectStrict"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModeSelectStrict</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModeSelectStrict">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Zeroes out first and third bytes of Mode Select bit, and also PS (pave
+  saveable bit) for strict bit compliance. Returns size of the total mode 
+  select buffer length (including mode page contents and header) NOTE - 
+  Must be called after Mode Sense command, but before any manual 
+  manipulation of bits. Issue Mode Select using the mode page length 
+  returned by this function.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SORT_ModePageSettings"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SORT_ModePageSettings</span>(<span class="sig-arg">sp</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#SORT_ModePageSettings">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set all mode page settings necessary for Stress ORT. Only for SCSI 
+  devices. sp: boolean: Save parameters. (Default = true)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModePageDecode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModePageDecode</span>(<span class="sig-arg">mpNum</span>,
+        <span class="sig-arg">modePage_data</span>,
+        <span class="sig-arg">mpLen</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePageDecode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Takes Mode page number (with SPF), mode page data in string and mode 
+  page length to look up mode page parameters defined in Data Defines mode 
+  page field dictionary. mpNum: integer:        Mode page number (with SPF 
+  bit) modePage_data: string: Contents of mode page mpLen: integer:        
+  Length of this mode page</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DisableLogUpdate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DisableLogUpdate</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#DisableLogUpdate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Disables updating of log page parameters</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableLogUpdate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableLogUpdate</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#EnableLogUpdate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables updating of log page parameters</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReportSupported"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReportSupported</span>(<span class="sig-arg">op_code</span>=<span class="sig-default">df.PARAMETER_ALL</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ReportSupported">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Report if given op code is supported by the drive. Returns false if not supported.
+Not supported for ATA devices.
+op_code: integer:   Command op code. If no op code is specified, then all supported commands
+                    are returned as a list.
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ModePage_Supported"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ModePage_Supported</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#ModePage_Supported">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines supported Mode pages on this device and returns list of 
+  supported mode pages</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SCSIVerify"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SCSIVerify</span>(<span class="sig-arg">min_lba</span>,
+        <span class="sig-arg">max_lba</span>,
+        <span class="sig-arg">acc_mode</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">passes</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">cmd_optimize</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#SCSIVerify">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>TODO:</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetNumberPrimaryDefects"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetNumberPrimaryDefects</span>(<span class="sig-arg">dumpToFile</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">name_extension</span>=<span class="sig-default">''</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SCSI-pysrc.html#GetNumberPrimaryDefects">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns number of primary defects from the SCSI device</p>
+  <p>dumpToFile: boolean;        Will save primary defect list as a file 
+  name_extension: string;     String to append to the file name</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@IsSCSI</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:49 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

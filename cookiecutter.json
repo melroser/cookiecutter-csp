@@ -1,0 +1,11 @@
+{
+    "full_name": "Robert Melrose",
+    "email": "robert.r.melrose@seagate.com",
+    "project_name": "CSP_Project",
+    "repo_name": "csp_project",
+    "project_description": "A simple python project for CSP users.",
+    "release_date": "2014-01-01",
+    "year": "2014",
+    "version": "0.0.1",
+    "repo_url": "https://stash.seagate.com/stash/projects"
+}

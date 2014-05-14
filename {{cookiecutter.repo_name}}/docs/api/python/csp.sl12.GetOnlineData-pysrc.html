@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl12.GetOnlineData</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl12-module.html">Package&nbsp;sl12</a> ::
+        Module&nbsp;GetOnlineData
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl12.GetOnlineData-module.html">Module csp.sl12.GetOnlineData</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># FILE: GetOnlineData.py</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># SCRIPT_VERSION: $Revision: #5 $    $DateTime: 2013/05/24 13:13:29 $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># AUTHOR:   Michael Ullmann</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#*****************************************************************************/</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.ScriptFunctions=csp.sl10.ScriptFunctions-module.html,Module csp.sl12.ScriptFunctions=csp.sl12.ScriptFunctions-module.html,Module csp.sl20.ScriptFunctions=csp.sl20.ScriptFunctions-module.html,Module csp.sl21.ScriptFunctions=csp.sl21.ScriptFunctions-module.html"><a title="csp.sl10.ScriptFunctions
+csp.sl12.ScriptFunctions
+csp.sl20.ScriptFunctions
+csp.sl21.ScriptFunctions" class="py-name" href="#" onclick="return doclink('link-0', 'ScriptFunctions', 'link-0');">ScriptFunctions</a></tt>      <tt class="py-keyword">as</tt> <tt class="py-name">sf</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module csp.sl10.ScriptFunctions_Misc=csp.sl10.ScriptFunctions_Misc-module.html,Module csp.sl12.ScriptFunctions_Misc=csp.sl12.ScriptFunctions_Misc-module.html,Module csp.sl20.ScriptFunctions_Misc=csp.sl20.ScriptFunctions_Misc-module.html,Module csp.sl21.ScriptFunctions_Misc=csp.sl21.ScriptFunctions_Misc-module.html"><a title="csp.sl10.ScriptFunctions_Misc
+csp.sl12.ScriptFunctions_Misc
+csp.sl20.ScriptFunctions_Misc
+csp.sl21.ScriptFunctions_Misc" class="py-name" href="#" onclick="return doclink('link-1', 'ScriptFunctions_Misc', 'link-1');">ScriptFunctions_Misc</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">misc</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module csp.sl10.DataDefines=csp.sl10.DataDefines-module.html,Module csp.sl12.DataDefines=csp.sl12.DataDefines-module.html,Module csp.sl20.DataDefines=csp.sl20.DataDefines-module.html,Module csp.sl21.DataDefines=csp.sl21.DataDefines-module.html"><a title="csp.sl10.DataDefines
+csp.sl12.DataDefines
+csp.sl20.DataDefines
+csp.sl21.DataDefines" class="py-name" href="#" onclick="return doclink('link-2', 'DataDefines', 'link-2');">DataDefines</a></tt>          <tt class="py-keyword">as</tt> <tt class="py-name">df</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">misc</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Function csp.sl10.ScriptFunctions_Misc.restorePluginParameters()=csp.sl10.ScriptFunctions_Misc-module.html#restorePluginParameters,Function csp.sl12.ScriptFunctions_Misc.restorePluginParameters()=csp.sl12.ScriptFunctions_Misc-module.html#restorePluginParameters,Function csp.sl20.ScriptFunctions_Misc.restorePluginParameters()=csp.sl20.ScriptFunctions_Misc-module.html#restorePluginParameters,Function csp.sl21.ScriptFunctions_Misc.restorePluginParameters()=csp.sl21.ScriptFunctions_Misc-module.html#restorePluginParameters"><a title="csp.sl10.ScriptFunctions_Misc.restorePluginParameters
+csp.sl12.ScriptFunctions_Misc.restorePluginParameters
+csp.sl20.ScriptFunctions_Misc.restorePluginParameters
+csp.sl21.ScriptFunctions_Misc.restorePluginParameters" class="py-name" href="#" onclick="return doclink('link-3', 'restorePluginParameters', 'link-3');">restorePluginParameters</a></tt> </tt>
+<a name="GetHumiditySensorOnline"></a><div id="GetHumiditySensorOnline-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="GetHumiditySensorOnline-toggle" onclick="return toggle('GetHumiditySensorOnline');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.GetOnlineData-module.html#GetHumiditySensorOnline">GetHumiditySensorOnline</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GetHumiditySensorOnline-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GetHumiditySensorOnline-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Function csp.sl10.ScriptFunctions.WriteToResultsFile()=csp.sl10.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl10.maincell_api.WriteToResultsFile=csp.sl10.maincell_api-module.html#WriteToResultsFile,Function csp.sl12.ScriptFunctions.WriteToResultsFile()=csp.sl12.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl12.maincell_api.WriteToResultsFile=csp.sl12.maincell_api-module.html#WriteToResultsFile,Function csp.sl20.ScriptFunctions.WriteToResultsFile()=csp.sl20.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl20.maincell_api.WriteToResultsFile=csp.sl20.maincell_api-module.html#WriteToResultsFile,Function csp.sl21.ScriptFunctions.WriteToResultsFile()=csp.sl21.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl21.maincell_api.WriteToResultsFile=csp.sl21.maincell_api-module.html#WriteToResultsFile"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-4', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"CHAIN::GetHumiditySensorOnline"</tt><tt class="py-op">,</tt><tt class="py-string">"chn"</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetFunctionName()=csp.sl10.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl10.maincell_api.SetFunctionName=csp.sl10.maincell_api-module.html#SetFunctionName,Function csp.sl12.ScriptFunctions.SetFunctionName()=csp.sl12.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl12.maincell_api.SetFunctionName=csp.sl12.maincell_api-module.html#SetFunctionName,Function csp.sl20.ScriptFunctions.SetFunctionName()=csp.sl20.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl20.maincell_api.SetFunctionName=csp.sl20.maincell_api-module.html#SetFunctionName,Function csp.sl21.ScriptFunctions.SetFunctionName()=csp.sl21.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl21.maincell_api.SetFunctionName=csp.sl21.maincell_api-module.html#SetFunctionName"><a title="csp.sl10.ScriptFunctions.SetFunctionName
+csp.sl10.maincell_api.SetFunctionName
+csp.sl12.ScriptFunctions.SetFunctionName
+csp.sl12.maincell_api.SetFunctionName
+csp.sl20.ScriptFunctions.SetFunctionName
+csp.sl20.maincell_api.SetFunctionName
+csp.sl21.ScriptFunctions.SetFunctionName
+csp.sl21.maincell_api.SetFunctionName" class="py-name" href="#" onclick="return doclink('link-5', 'SetFunctionName', 'link-5');">SetFunctionName</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetHumiditySensorOnline"</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">     </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-name">TestOptions</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetTestOptions()=csp.sl10.ScriptFunctions-module.html#GetTestOptions,Function csp.sl12.ScriptFunctions.GetTestOptions()=csp.sl12.ScriptFunctions-module.html#GetTestOptions,Function csp.sl20.ScriptFunctions.GetTestOptions()=csp.sl20.ScriptFunctions-module.html#GetTestOptions,Function csp.sl21.ScriptFunctions.GetTestOptions()=csp.sl21.ScriptFunctions-module.html#GetTestOptions"><a title="csp.sl10.ScriptFunctions.GetTestOptions
+csp.sl12.ScriptFunctions.GetTestOptions
+csp.sl20.ScriptFunctions.GetTestOptions
+csp.sl21.ScriptFunctions.GetTestOptions" class="py-name" href="#" onclick="return doclink('link-6', 'GetTestOptions', 'link-6');">GetTestOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">TestOptions</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">TestOptions</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'NoSerialPort'</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-7', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"No Serial Port Test Option Selected - doing nothing in GetHumiditySensorOnline()"</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable csp.sl10.DataDefines.INVALID_HUM=csp.sl10.DataDefines-module.html#INVALID_HUM,Variable csp.sl12.DataDefines.INVALID_HUM=csp.sl12.DataDefines-module.html#INVALID_HUM,Variable csp.sl20.DataDefines.INVALID_HUM=csp.sl20.DataDefines-module.html#INVALID_HUM,Variable csp.sl21.DataDefines.INVALID_HUM=csp.sl21.DataDefines-module.html#INVALID_HUM"><a title="csp.sl10.DataDefines.INVALID_HUM
+csp.sl12.DataDefines.INVALID_HUM
+csp.sl20.DataDefines.INVALID_HUM
+csp.sl21.DataDefines.INVALID_HUM" class="py-name" href="#" onclick="return doclink('link-8', 'INVALID_HUM', 'link-8');">INVALID_HUM</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">     </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-comment"># Check EPC &amp; APM, disable if enabled:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function csp.sl10.ScriptFunctions.PowerMgtInterrupt()=csp.sl10.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl12.ScriptFunctions.PowerMgtInterrupt()=csp.sl12.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl20.ScriptFunctions.PowerMgtInterrupt()=csp.sl20.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl21.ScriptFunctions.PowerMgtInterrupt()=csp.sl21.ScriptFunctions-module.html#PowerMgtInterrupt"><a title="csp.sl10.ScriptFunctions.PowerMgtInterrupt
+csp.sl12.ScriptFunctions.PowerMgtInterrupt
+csp.sl20.ScriptFunctions.PowerMgtInterrupt
+csp.sl21.ScriptFunctions.PowerMgtInterrupt" class="py-name" href="#" onclick="return doclink('link-9', 'PowerMgtInterrupt', 'link-9');">PowerMgtInterrupt</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">     </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-name">humidity_keys</tt>  <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'start'</tt><tt class="py-op">:</tt><tt class="py-string">'(relative) Humidity'</tt><tt class="py-op">,</tt> <tt class="py-string">'end'</tt><tt class="py-op">:</tt> <tt class="py-string">'%'</tt><tt class="py-op">}</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">     </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">,</tt> <tt class="py-name">rcvBuffer</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Function csp.sl10.ScriptFunctions.SendSerialCmd()=csp.sl10.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl10.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl10.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl12.ScriptFunctions.SendSerialCmd()=csp.sl12.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl12.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl12.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl20.ScriptFunctions.SendSerialCmd()=csp.sl20.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl20.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl20.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl21.ScriptFunctions.SendSerialCmd()=csp.sl21.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl21.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl21.SerialSocket.SerialCommander-class.html#SendSerialCmd"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-10', 'SendSerialCmd', 'link-10');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable csp.sl10.DataDefines.CTRL_R=csp.sl10.DataDefines-module.html#CTRL_R,Variable csp.sl12.DataDefines.CTRL_R=csp.sl12.DataDefines-module.html#CTRL_R,Variable csp.sl20.DataDefines.CTRL_R=csp.sl20.DataDefines-module.html#CTRL_R,Variable csp.sl21.DataDefines.CTRL_R=csp.sl21.DataDefines-module.html#CTRL_R"><a title="csp.sl10.DataDefines.CTRL_R
+csp.sl12.DataDefines.CTRL_R
+csp.sl20.DataDefines.CTRL_R
+csp.sl21.DataDefines.CTRL_R" class="py-name" href="#" onclick="return doclink('link-11', 'CTRL_R', 'link-11');">CTRL_R</a></tt><tt class="py-op">,</tt><tt class="py-number">3</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Function csp.sl10.ScriptFunctions.FlushCache()=csp.sl10.ScriptFunctions-module.html#FlushCache,Variable csp.sl10.maincell_api.FlushCache=csp.sl10.maincell_api-module.html#FlushCache,Function csp.sl12.ScriptFunctions.FlushCache()=csp.sl12.ScriptFunctions-module.html#FlushCache,Variable csp.sl12.maincell_api.FlushCache=csp.sl12.maincell_api-module.html#FlushCache,Function csp.sl20.ScriptFunctions.FlushCache()=csp.sl20.ScriptFunctions-module.html#FlushCache,Variable csp.sl20.maincell_api.FlushCache=csp.sl20.maincell_api-module.html#FlushCache,Function csp.sl21.ScriptFunctions.FlushCache()=csp.sl21.ScriptFunctions-module.html#FlushCache,Variable csp.sl21.maincell_api.FlushCache=csp.sl21.maincell_api-module.html#FlushCache"><a title="csp.sl10.ScriptFunctions.FlushCache
+csp.sl10.maincell_api.FlushCache
+csp.sl12.ScriptFunctions.FlushCache
+csp.sl12.maincell_api.FlushCache
+csp.sl20.ScriptFunctions.FlushCache
+csp.sl20.maincell_api.FlushCache
+csp.sl21.ScriptFunctions.FlushCache
+csp.sl21.maincell_api.FlushCache" class="py-name" href="#" onclick="return doclink('link-12', 'FlushCache', 'link-12');">FlushCache</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">rcvBuffer</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-13', 'SendSerialCmd', 'link-10');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable csp.sl10.DataDefines.CTRL_B=csp.sl10.DataDefines-module.html#CTRL_B,Variable csp.sl12.DataDefines.CTRL_B=csp.sl12.DataDefines-module.html#CTRL_B,Variable csp.sl20.DataDefines.CTRL_B=csp.sl20.DataDefines-module.html#CTRL_B,Variable csp.sl21.DataDefines.CTRL_B=csp.sl21.DataDefines-module.html#CTRL_B"><a title="csp.sl10.DataDefines.CTRL_B
+csp.sl12.DataDefines.CTRL_B
+csp.sl20.DataDefines.CTRL_B
+csp.sl21.DataDefines.CTRL_B" class="py-name" href="#" onclick="return doclink('link-14', 'CTRL_B', 'link-14');">CTRL_B</a></tt><tt class="py-op">,</tt><tt class="py-number">5</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">     </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-15', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetHumiditySensorOnline: no response from serial port"</tt><tt class="py-op">,</tt><tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Function csp.sl10.ScriptFunctions.PowerMgtResume()=csp.sl10.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl12.ScriptFunctions.PowerMgtResume()=csp.sl12.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl20.ScriptFunctions.PowerMgtResume()=csp.sl20.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl21.ScriptFunctions.PowerMgtResume()=csp.sl21.ScriptFunctions-module.html#PowerMgtResume"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-16', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="csp.sl10.DataDefines.INVALID_HUM
+csp.sl12.DataDefines.INVALID_HUM
+csp.sl20.DataDefines.INVALID_HUM
+csp.sl21.DataDefines.INVALID_HUM" class="py-name" href="#" onclick="return doclink('link-17', 'INVALID_HUM', 'link-8');">INVALID_HUM</a></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">     </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-name">humidity_start</tt> <tt class="py-op">=</tt> <tt class="py-name">rcvBuffer</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-name">humidity_keys</tt><tt class="py-op">[</tt><tt class="py-string">'start'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">     </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">humidity_start</tt> <tt class="py-op">!=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">humidity_data</tt> <tt class="py-op">=</tt> <tt class="py-name">rcvBuffer</tt><tt class="py-op">[</tt><tt class="py-name">humidity_start</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-18', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetHumiditySensorOnline: error parsing humidity data - %s not found"</tt> <tt class="py-op">%</tt><tt class="py-name">humidity_keys</tt><tt class="py-op">[</tt><tt class="py-string">'start'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-19', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="csp.sl10.DataDefines.INVALID_HUM
+csp.sl12.DataDefines.INVALID_HUM
+csp.sl20.DataDefines.INVALID_HUM
+csp.sl21.DataDefines.INVALID_HUM" class="py-name" href="#" onclick="return doclink('link-20', 'INVALID_HUM', 'link-8');">INVALID_HUM</a></tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">     </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-name">humidity_end</tt> <tt class="py-op">=</tt> <tt class="py-name">humidity_data</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-name">humidity_keys</tt><tt class="py-op">[</tt><tt class="py-string">'end'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">humidity_end</tt> <tt class="py-op">!=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">humidity_data</tt> <tt class="py-op">=</tt> <tt class="py-name">humidity_data</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-name">humidity_end</tt><tt class="py-op">]</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-21', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetHumiditySensorOnline: error parsing humidity data - %s not found"</tt> <tt class="py-op">%</tt><tt class="py-name">humidity_keys</tt><tt class="py-op">[</tt><tt class="py-string">'end'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-22', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="csp.sl10.DataDefines.INVALID_HUM
+csp.sl12.DataDefines.INVALID_HUM
+csp.sl20.DataDefines.INVALID_HUM
+csp.sl21.DataDefines.INVALID_HUM" class="py-name" href="#" onclick="return doclink('link-23', 'INVALID_HUM', 'link-8');">INVALID_HUM</a></tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">     </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">humidity_data</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable csp.sl10.DataDefines.test_data=csp.sl10.DataDefines-module.html#test_data,Variable csp.sl12.DataDefines.test_data=csp.sl12.DataDefines-module.html#test_data,Variable csp.sl20.DataDefines.test_data=csp.sl20.DataDefines-module.html#test_data,Variable csp.sl21.DataDefines.test_data=csp.sl21.DataDefines-module.html#test_data"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-24', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">humidity_sense_rh</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-25', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetHumiditySensorOnline: error parsing humidity data"</tt><tt class="py-op">,</tt> <tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-26', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="csp.sl10.DataDefines.INVALID_HUM
+csp.sl12.DataDefines.INVALID_HUM
+csp.sl20.DataDefines.INVALID_HUM
+csp.sl21.DataDefines.INVALID_HUM" class="py-name" href="#" onclick="return doclink('link-27', 'INVALID_HUM', 'link-8');">INVALID_HUM</a></tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">     </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">     </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-28', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">'Relative Humidity: %s%%'</tt> <tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-29', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">humidity_sense_rh</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'hum'</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">     </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-30', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">     </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">misc</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="csp.sl10.ScriptFunctions_Misc.restorePluginParameters
+csp.sl12.ScriptFunctions_Misc.restorePluginParameters
+csp.sl20.ScriptFunctions_Misc.restorePluginParameters
+csp.sl21.ScriptFunctions_Misc.restorePluginParameters" class="py-name" href="#" onclick="return doclink('link-31', 'restorePluginParameters', 'link-3');">restorePluginParameters</a></tt> </tt>
+<a name="GetTemperatureDiode"></a><div id="GetTemperatureDiode-def"><a name="L72"></a><tt class="py-lineno"> 72</tt> <a class="py-toggle" href="#" id="GetTemperatureDiode-toggle" onclick="return toggle('GetTemperatureDiode');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.GetOnlineData-module.html#GetTemperatureDiode">GetTemperatureDiode</a><tt class="py-op">(</tt><tt class="py-param">displayTemp</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GetTemperatureDiode-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GetTemperatureDiode-expanded"><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-32', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"CHAIN::GetTemperatureDiode"</tt><tt class="py-op">,</tt><tt class="py-string">"chn"</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="csp.sl10.ScriptFunctions.SetFunctionName
+csp.sl10.maincell_api.SetFunctionName
+csp.sl12.ScriptFunctions.SetFunctionName
+csp.sl12.maincell_api.SetFunctionName
+csp.sl20.ScriptFunctions.SetFunctionName
+csp.sl20.maincell_api.SetFunctionName
+csp.sl21.ScriptFunctions.SetFunctionName
+csp.sl21.maincell_api.SetFunctionName" class="py-name" href="#" onclick="return doclink('link-33', 'SetFunctionName', 'link-5');">SetFunctionName</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetTemperatureDiode"</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">     </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">    <tt class="py-name">TestOptions</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="csp.sl10.ScriptFunctions.GetTestOptions
+csp.sl12.ScriptFunctions.GetTestOptions
+csp.sl20.ScriptFunctions.GetTestOptions
+csp.sl21.ScriptFunctions.GetTestOptions" class="py-name" href="#" onclick="return doclink('link-34', 'GetTestOptions', 'link-6');">GetTestOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">TestOptions</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">TestOptions</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'NoSerialPort'</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-35', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"No Serial Port Test Option Selected - doing nothing in GetTemperatureDiode()"</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Variable csp.sl10.DataDefines.INVALID_TEMP=csp.sl10.DataDefines-module.html#INVALID_TEMP,Variable csp.sl12.DataDefines.INVALID_TEMP=csp.sl12.DataDefines-module.html#INVALID_TEMP,Variable csp.sl20.DataDefines.INVALID_TEMP=csp.sl20.DataDefines-module.html#INVALID_TEMP,Variable csp.sl21.DataDefines.INVALID_TEMP=csp.sl21.DataDefines-module.html#INVALID_TEMP"><a title="csp.sl10.DataDefines.INVALID_TEMP
+csp.sl12.DataDefines.INVALID_TEMP
+csp.sl20.DataDefines.INVALID_TEMP
+csp.sl21.DataDefines.INVALID_TEMP" class="py-name" href="#" onclick="return doclink('link-36', 'INVALID_TEMP', 'link-36');">INVALID_TEMP</a></tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">     </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-comment"># Check EPC &amp; APM, disable if enabled:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">    <tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtInterrupt
+csp.sl12.ScriptFunctions.PowerMgtInterrupt
+csp.sl20.ScriptFunctions.PowerMgtInterrupt
+csp.sl21.ScriptFunctions.PowerMgtInterrupt" class="py-name" href="#" onclick="return doclink('link-37', 'PowerMgtInterrupt', 'link-9');">PowerMgtInterrupt</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">         </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-38', 'SendSerialCmd', 'link-10');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="csp.sl10.DataDefines.CTRL_R
+csp.sl12.DataDefines.CTRL_R
+csp.sl20.DataDefines.CTRL_R
+csp.sl21.DataDefines.CTRL_R" class="py-name" href="#" onclick="return doclink('link-39', 'CTRL_R', 'link-11');">CTRL_R</a></tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="csp.sl10.ScriptFunctions.FlushCache
+csp.sl10.maincell_api.FlushCache
+csp.sl12.ScriptFunctions.FlushCache
+csp.sl12.maincell_api.FlushCache
+csp.sl20.ScriptFunctions.FlushCache
+csp.sl20.maincell_api.FlushCache
+csp.sl21.ScriptFunctions.FlushCache
+csp.sl21.maincell_api.FlushCache" class="py-name" href="#" onclick="return doclink('link-40', 'FlushCache', 'link-12');">FlushCache</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">         </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-comment">#GetTemperatureDiode</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">,</tt> <tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-41', 'SendSerialCmd', 'link-10');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="csp.sl10.DataDefines.CTRL_B
+csp.sl12.DataDefines.CTRL_B
+csp.sl20.DataDefines.CTRL_B
+csp.sl21.DataDefines.CTRL_B" class="py-name" href="#" onclick="return doclink('link-42', 'CTRL_B', 'link-14');">CTRL_B</a></tt><tt class="py-op">,</tt> <tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt>   <tt class="py-comment"># Get Diode Temp (CTRL + B)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-name">strTofind</tt> <tt class="py-op">=</tt> <tt class="py-string">'Thermistor temp in degrees C '</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-name">index</tt> <tt class="py-op">=</tt> <tt class="py-name">b</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-name">strTofind</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">     </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">index</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">0</tt> <tt class="py-keyword">or</tt> <tt class="py-name">n</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">10</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># Nothing found or no response</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-43', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">'No diode temperature from serial port'</tt><tt class="py-op">,</tt> <tt class="py-string">'trc'</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-44', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="csp.sl10.DataDefines.INVALID_TEMP
+csp.sl12.DataDefines.INVALID_TEMP
+csp.sl20.DataDefines.INVALID_TEMP
+csp.sl21.DataDefines.INVALID_TEMP" class="py-name" href="#" onclick="return doclink('link-45', 'INVALID_TEMP', 'link-36');">INVALID_TEMP</a></tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-46', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">[</tt><tt class="py-name">index</tt> <tt class="py-op">+</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">strTofind</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-name">index</tt> <tt class="py-op">+</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">strTofind</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">displayTemp</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-47', 'WriteToResultsFile', 'link-4');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">'Diode Temp from SP = %d in degrees C'</tt> <tt class="py-op">%</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-48', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt><tt class="py-op">,</tt> <tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">     </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-49', 'PowerMgtResume', 'link-16');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">     </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-50', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp_Max</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-51', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-52', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp_Max</tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-53', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">     </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="csp.sl10.DataDefines.test_data
+csp.sl12.DataDefines.test_data
+csp.sl20.DataDefines.test_data
+csp.sl21.DataDefines.test_data" class="py-name" href="#" onclick="return doclink('link-54', 'test_data', 'link-24');">test_data</a></tt><tt class="py-op">.</tt><tt class="py-name">DiodeTemp</tt> </tt>
+</div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-comment"># END OF GetTemperatureDiode())</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:21 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

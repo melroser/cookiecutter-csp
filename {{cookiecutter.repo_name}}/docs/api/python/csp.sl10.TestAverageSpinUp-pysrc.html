@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl10.TestAverageSpinUp</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl10-module.html">Package&nbsp;sl10</a> ::
+        Module&nbsp;TestAverageSpinUp
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl10.TestAverageSpinUp-module.html">Module csp.sl10.TestAverageSpinUp</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># FILE: TestAverageSpinUp.py</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># SCRIPT_VERSION: $Revision: #3 $    $DateTime: 2013/06/27 16:57:43 $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># 12/14/2011 MU Initial Release</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#*****************************************************************************/</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.ScriptFunctions=csp.sl10.ScriptFunctions-module.html,Module csp.sl12.ScriptFunctions=csp.sl12.ScriptFunctions-module.html,Module csp.sl20.ScriptFunctions=csp.sl20.ScriptFunctions-module.html,Module csp.sl21.ScriptFunctions=csp.sl21.ScriptFunctions-module.html"><a title="csp.sl10.ScriptFunctions
+csp.sl12.ScriptFunctions
+csp.sl20.ScriptFunctions
+csp.sl21.ScriptFunctions" class="py-name" href="#" onclick="return doclink('link-0', 'ScriptFunctions', 'link-0');">ScriptFunctions</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">sf</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module csp.sl10.ScriptFunctions_DT=csp.sl10.ScriptFunctions_DT-module.html,Module csp.sl12.ScriptFunctions_DT=csp.sl12.ScriptFunctions_DT-module.html,Module csp.sl20.ScriptFunctions_DT=csp.sl20.ScriptFunctions_DT-module.html,Module csp.sl21.ScriptFunctions_DT=csp.sl21.ScriptFunctions_DT-module.html"><a title="csp.sl10.ScriptFunctions_DT
+csp.sl12.ScriptFunctions_DT
+csp.sl20.ScriptFunctions_DT
+csp.sl21.ScriptFunctions_DT" class="py-name" href="#" onclick="return doclink('link-1', 'ScriptFunctions_DT', 'link-1');">ScriptFunctions_DT</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">dt</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module csp.sl10.ScriptFunctions_Misc=csp.sl10.ScriptFunctions_Misc-module.html,Module csp.sl12.ScriptFunctions_Misc=csp.sl12.ScriptFunctions_Misc-module.html,Module csp.sl20.ScriptFunctions_Misc=csp.sl20.ScriptFunctions_Misc-module.html,Module csp.sl21.ScriptFunctions_Misc=csp.sl21.ScriptFunctions_Misc-module.html"><a title="csp.sl10.ScriptFunctions_Misc
+csp.sl12.ScriptFunctions_Misc
+csp.sl20.ScriptFunctions_Misc
+csp.sl21.ScriptFunctions_Misc" class="py-name" href="#" onclick="return doclink('link-2', 'ScriptFunctions_Misc', 'link-2');">ScriptFunctions_Misc</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">misc</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">misc</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Function csp.sl10.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl10.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl12.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl12.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl20.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl20.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl21.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl21.ScriptFunctions_Misc-module.html#restoreSubtestParameters"><a title="csp.sl10.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl12.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl20.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl21.ScriptFunctions_Misc.restoreSubtestParameters" class="py-name" href="#" onclick="return doclink('link-3', 'restoreSubtestParameters', 'link-3');">restoreSubtestParameters</a></tt> </tt>
+<a name="AverageSpinUp"></a><div id="AverageSpinUp-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="AverageSpinUp-toggle" onclick="return toggle('AverageSpinUp');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.TestAverageSpinUp-module.html#AverageSpinUp">AverageSpinUp</a><tt class="py-op">(</tt><tt class="py-param">timeout</tt><tt class="py-op">,</tt><tt class="py-param">off_time</tt><tt class="py-op">,</tt> <tt class="py-param">cycles</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AverageSpinUp-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AverageSpinUp-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">     </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-name">subtest_orig</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetSubTestName()=csp.sl10.ScriptFunctions-module.html#GetSubTestName,Variable csp.sl10.maincell_api.GetSubTestName=csp.sl10.maincell_api-module.html#GetSubTestName,Function csp.sl12.ScriptFunctions.GetSubTestName()=csp.sl12.ScriptFunctions-module.html#GetSubTestName,Variable csp.sl12.maincell_api.GetSubTestName=csp.sl12.maincell_api-module.html#GetSubTestName,Function csp.sl20.ScriptFunctions.GetSubTestName()=csp.sl20.ScriptFunctions-module.html#GetSubTestName,Variable csp.sl20.maincell_api.GetSubTestName=csp.sl20.maincell_api-module.html#GetSubTestName,Function csp.sl21.ScriptFunctions.GetSubTestName()=csp.sl21.ScriptFunctions-module.html#GetSubTestName,Variable csp.sl21.maincell_api.GetSubTestName=csp.sl21.maincell_api-module.html#GetSubTestName"><a title="csp.sl10.ScriptFunctions.GetSubTestName
+csp.sl10.maincell_api.GetSubTestName
+csp.sl12.ScriptFunctions.GetSubTestName
+csp.sl12.maincell_api.GetSubTestName
+csp.sl20.ScriptFunctions.GetSubTestName
+csp.sl20.maincell_api.GetSubTestName
+csp.sl21.ScriptFunctions.GetSubTestName
+csp.sl21.maincell_api.GetSubTestName" class="py-name" href="#" onclick="return doclink('link-4', 'GetSubTestName', 'link-4');">GetSubTestName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">     </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetEventDate()=csp.sl10.ScriptFunctions-module.html#SetEventDate,Variable csp.sl10.maincell_api.SetEventDate=csp.sl10.maincell_api-module.html#SetEventDate,Function csp.sl12.ScriptFunctions.SetEventDate()=csp.sl12.ScriptFunctions-module.html#SetEventDate,Variable csp.sl12.maincell_api.SetEventDate=csp.sl12.maincell_api-module.html#SetEventDate,Function csp.sl20.ScriptFunctions.SetEventDate()=csp.sl20.ScriptFunctions-module.html#SetEventDate,Variable csp.sl20.maincell_api.SetEventDate=csp.sl20.maincell_api-module.html#SetEventDate,Function csp.sl21.ScriptFunctions.SetEventDate()=csp.sl21.ScriptFunctions-module.html#SetEventDate,Variable csp.sl21.maincell_api.SetEventDate=csp.sl21.maincell_api-module.html#SetEventDate"><a title="csp.sl10.ScriptFunctions.SetEventDate
+csp.sl10.maincell_api.SetEventDate
+csp.sl12.ScriptFunctions.SetEventDate
+csp.sl12.maincell_api.SetEventDate
+csp.sl20.ScriptFunctions.SetEventDate
+csp.sl20.maincell_api.SetEventDate
+csp.sl21.ScriptFunctions.SetEventDate
+csp.sl21.maincell_api.SetEventDate" class="py-name" href="#" onclick="return doclink('link-5', 'SetEventDate', 'link-5');">SetEventDate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-name">total_time_to_ready</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">cycles</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Function csp.sl10.ScriptFunctions.SpinUp()=csp.sl10.ScriptFunctions-module.html#SpinUp,Variable csp.sl10.maincell_api.SpinUp=csp.sl10.maincell_api-module.html#SpinUp,Function csp.sl12.ScriptFunctions.SpinUp()=csp.sl12.ScriptFunctions-module.html#SpinUp,Variable csp.sl12.maincell_api.SpinUp=csp.sl12.maincell_api-module.html#SpinUp,Function csp.sl20.ScriptFunctions.SpinUp()=csp.sl20.ScriptFunctions-module.html#SpinUp,Variable csp.sl20.maincell_api.SpinUp=csp.sl20.maincell_api-module.html#SpinUp,Function csp.sl21.ScriptFunctions.SpinUp()=csp.sl21.ScriptFunctions-module.html#SpinUp,Variable csp.sl21.maincell_api.SpinUp=csp.sl21.maincell_api-module.html#SpinUp"><a title="csp.sl10.ScriptFunctions.SpinUp
+csp.sl10.maincell_api.SpinUp
+csp.sl12.ScriptFunctions.SpinUp
+csp.sl12.maincell_api.SpinUp
+csp.sl20.ScriptFunctions.SpinUp
+csp.sl20.maincell_api.SpinUp
+csp.sl21.ScriptFunctions.SpinUp
+csp.sl21.maincell_api.SpinUp" class="py-name" href="#" onclick="return doclink('link-6', 'SpinUp', 'link-6');">SpinUp</a></tt><tt class="py-op">(</tt><tt class="py-name">timeout</tt><tt class="py-op">,</tt> <tt class="py-name">off_time</tt><tt class="py-op">,</tt> <tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-string">'Avg_Spin_Up_%d'</tt> <tt class="py-op">%</tt><tt class="py-name">i</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">         </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">total_time_to_ready</tt> <tt class="py-op">+=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetSpinUpDuration()=csp.sl10.ScriptFunctions-module.html#GetSpinUpDuration,Variable csp.sl10.maincell_api.GetSpinUpDuration=csp.sl10.maincell_api-module.html#GetSpinUpDuration,Function csp.sl12.ScriptFunctions.GetSpinUpDuration()=csp.sl12.ScriptFunctions-module.html#GetSpinUpDuration,Variable csp.sl12.maincell_api.GetSpinUpDuration=csp.sl12.maincell_api-module.html#GetSpinUpDuration,Function csp.sl20.ScriptFunctions.GetSpinUpDuration()=csp.sl20.ScriptFunctions-module.html#GetSpinUpDuration,Variable csp.sl20.maincell_api.GetSpinUpDuration=csp.sl20.maincell_api-module.html#GetSpinUpDuration,Function csp.sl21.ScriptFunctions.GetSpinUpDuration()=csp.sl21.ScriptFunctions-module.html#GetSpinUpDuration,Variable csp.sl21.maincell_api.GetSpinUpDuration=csp.sl21.maincell_api-module.html#GetSpinUpDuration"><a title="csp.sl10.ScriptFunctions.GetSpinUpDuration
+csp.sl10.maincell_api.GetSpinUpDuration
+csp.sl12.ScriptFunctions.GetSpinUpDuration
+csp.sl12.maincell_api.GetSpinUpDuration
+csp.sl20.ScriptFunctions.GetSpinUpDuration
+csp.sl20.maincell_api.GetSpinUpDuration
+csp.sl21.ScriptFunctions.GetSpinUpDuration
+csp.sl21.maincell_api.GetSpinUpDuration" class="py-name" href="#" onclick="return doclink('link-7', 'GetSpinUpDuration', 'link-7');">GetSpinUpDuration</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">         </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-name">avg_time_to_ready</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">total_time_to_ready</tt> <tt class="py-op">/</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">cycles</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">     </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function csp.sl10.ScriptFunctions.WriteToResultsFile()=csp.sl10.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl10.maincell_api.WriteToResultsFile=csp.sl10.maincell_api-module.html#WriteToResultsFile,Function csp.sl12.ScriptFunctions.WriteToResultsFile()=csp.sl12.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl12.maincell_api.WriteToResultsFile=csp.sl12.maincell_api-module.html#WriteToResultsFile,Function csp.sl20.ScriptFunctions.WriteToResultsFile()=csp.sl20.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl20.maincell_api.WriteToResultsFile=csp.sl20.maincell_api-module.html#WriteToResultsFile,Function csp.sl21.ScriptFunctions.WriteToResultsFile()=csp.sl21.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl21.maincell_api.WriteToResultsFile=csp.sl21.maincell_api-module.html#WriteToResultsFile"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-8', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"%d Cycle Avg_Spin_Up_Time = %f sec"</tt> <tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">cycles</tt><tt class="py-op">,</tt> <tt class="py-name">avg_time_to_ready</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">     </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetSubTestName()=csp.sl10.ScriptFunctions-module.html#SetSubTestName,Variable csp.sl10.maincell_api.SetSubTestName=csp.sl10.maincell_api-module.html#SetSubTestName,Function csp.sl12.ScriptFunctions.SetSubTestName()=csp.sl12.ScriptFunctions-module.html#SetSubTestName,Variable csp.sl12.maincell_api.SetSubTestName=csp.sl12.maincell_api-module.html#SetSubTestName,Function csp.sl20.ScriptFunctions.SetSubTestName()=csp.sl20.ScriptFunctions-module.html#SetSubTestName,Variable csp.sl20.maincell_api.SetSubTestName=csp.sl20.maincell_api-module.html#SetSubTestName,Function csp.sl21.ScriptFunctions.SetSubTestName()=csp.sl21.ScriptFunctions-module.html#SetSubTestName,Variable csp.sl21.maincell_api.SetSubTestName=csp.sl21.maincell_api-module.html#SetSubTestName"><a title="csp.sl10.ScriptFunctions.SetSubTestName
+csp.sl10.maincell_api.SetSubTestName
+csp.sl12.ScriptFunctions.SetSubTestName
+csp.sl12.maincell_api.SetSubTestName
+csp.sl20.ScriptFunctions.SetSubTestName
+csp.sl20.maincell_api.SetSubTestName
+csp.sl21.ScriptFunctions.SetSubTestName
+csp.sl21.maincell_api.SetSubTestName" class="py-name" href="#" onclick="return doclink('link-9', 'SetSubTestName', 'link-9');">SetSubTestName</a></tt><tt class="py-op">(</tt><tt class="py-name">subtest_orig</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Function csp.sl10.ScriptFunctions_DT.SendGenPowerTest()=csp.sl10.ScriptFunctions_DT-module.html#SendGenPowerTest,Function csp.sl12.ScriptFunctions_DT.SendGenPowerTest()=csp.sl12.ScriptFunctions_DT-module.html#SendGenPowerTest,Function csp.sl20.ScriptFunctions_DT.SendGenPowerTest()=csp.sl20.ScriptFunctions_DT-module.html#SendGenPowerTest,Function csp.sl21.ScriptFunctions_DT.SendGenPowerTest()=csp.sl21.ScriptFunctions_DT-module.html#SendGenPowerTest"><a title="csp.sl10.ScriptFunctions_DT.SendGenPowerTest
+csp.sl12.ScriptFunctions_DT.SendGenPowerTest
+csp.sl20.ScriptFunctions_DT.SendGenPowerTest
+csp.sl21.ScriptFunctions_DT.SendGenPowerTest" class="py-name" href="#" onclick="return doclink('link-10', 'SendGenPowerTest', 'link-10');">SendGenPowerTest</a></tt><tt class="py-op">(</tt><tt class="py-name">avg_time_to_ready</tt><tt class="py-op">,</tt> <tt class="py-name">cycles</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">         </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:28 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

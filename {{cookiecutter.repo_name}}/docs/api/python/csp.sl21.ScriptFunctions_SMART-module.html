@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.ScriptFunctions_SMART</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        Module&nbsp;ScriptFunctions_SMART
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module ScriptFunctions_SMART</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html">source&nbsp;code</a></span></p>
+<p>***************************************************************************
+  $File: 
+  //depot/csp/script/plugin/dev/branches/leet/ScriptFunctions_SMART.py $ 
+  SCRIPT_VERSION: $Revision: $    $DateTime: $</p>
+  <p>SMART operation, status verification and logging. Import this file as 
+  sm. 
+  ***************************************************************************</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#ForceSMARTFrameSave" class="summary-sig-name">ForceSMARTFrameSave</a>()</span><br />
+      Forces SMART frame save on SATA or SAS drives to ensure latest frame 
+      is updated.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#ForceSMARTFrameSave">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#GetSmartFrameHeaderData" class="summary-sig-name">GetSmartFrameHeaderData</a>(<span class="summary-sig-arg">key</span>=<span class="summary-sig-default">''</span>)</span><br />
+      Retrieves SMART frame data at the given offset with given length.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartFrameHeaderData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSmartNumberCriticalEvents"></a><span class="summary-sig-name">GetSmartNumberCriticalEvents</span>()</span><br />
+      Returns length of SMART A1 log (Critical Event) entries</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartNumberCriticalEvents">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSmartNumberReservedGrownDefects"></a><span class="summary-sig-name">GetSmartNumberReservedGrownDefects</span>()</span><br />
+      Returns length of SMART A7 log (R-list) entries</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartNumberReservedGrownDefects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSmartNumberGrownDefects"></a><span class="summary-sig-name">GetSmartNumberGrownDefects</span>()</span><br />
+      Returns length of SMART A8 (G-list) entries</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartNumberGrownDefects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSmartNumberPendingDefects"></a><span class="summary-sig-name">GetSmartNumberPendingDefects</span>()</span><br />
+      Returns length of SMART A9 (P-list) entries</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartNumberPendingDefects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#ParseSmartDefects" class="summary-sig-name">ParseSmartDefects</a>(<span class="summary-sig-arg">packed_def_buffer</span>,
+        <span class="summary-sig-arg">logName</span>)</span><br />
+      TODO: Describe what this function does</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#ParseSmartDefects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#GetSmartAttribute" class="summary-sig-name">GetSmartAttribute</a>(<span class="summary-sig-arg">number</span>,
+        <span class="summary-sig-arg">returnTriplet</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Returns SMART Attribute for SATA devices</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartAttribute">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#EnableSMART" class="summary-sig-name">EnableSMART</a>()</span><br />
+      Enables SMART monitoring on the device SATA: SMART command with 
+      register set to 0xD8 SAS: Clears DEXCPT bit in informational 
+      exceptions mode page (0x1C)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#EnableSMART">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#DisableSMART" class="summary-sig-name">DisableSMART</a>()</span><br />
+      Disables SMART monitoring on the device SATA: SMART command with 
+      register set to 0xD9 SAS: Sets DEXCPT bit in informational exceptions
+      mode page (0x1C)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#DisableSMART">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SMARTReadData" class="summary-sig-name">SMARTReadData</a>()</span><br />
+      Reads SMART attribute sector for ATA devices</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SMARTReadLog" class="summary-sig-name">SMARTReadLog</a>(<span class="summary-sig-arg">logSectorAddr</span>,
+        <span class="summary-sig-arg">maxSz</span>)</span><br />
+      Reads specified SMART log logSectorAddress: integer: Address of SMART
+      log sector maxSz: integer:            Max allocation size for the log
+      sector to be read</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SMARTWriteLog" class="summary-sig-name">SMARTWriteLog</a>(<span class="summary-sig-arg">logSectorAddr</span>,
+        <span class="summary-sig-arg">maxSz</span>)</span><br />
+      Writes specified SMART log logSectorAddress: integer: Address of 
+      SMART log sector maxSz: integer:            Max allocation size for 
+      the log sector to be read</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTWriteLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SMARTReturnStatus" class="summary-sig-name">SMARTReturnStatus</a>()</span><br />
+      Check SMART return status for SATA SAS automatically returns sense 
+      01/5D if a failure threshold is exceeded.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReturnStatus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SMARTReadThreshold" class="summary-sig-name">SMARTReadThreshold</a>()</span><br />
+      Reads and loads SMART attribute threshold information to data-in 
+      (read) buffer Not supported for SCSI devices.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadThreshold">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SAS_SMART_Attributes" class="summary-sig-name">SAS_SMART_Attributes</a>(<span class="summary-sig-arg">sendToPAE</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Pulls Log page (0x30) and parses SMART on-line attributes for SCSI 
+      device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SAS_SMART_Attributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#CollectSmartA1Log" class="summary-sig-name">CollectSmartA1Log</a>()</span><br />
+      Collects SMART A1 SATA Critical Events Log over interface and sends 
+      data to ECHO.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA1Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#CollectSmartA7Log" class="summary-sig-name">CollectSmartA7Log</a>(<span class="summary-sig-arg">doDITSunlock</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Collects R-list data for SATA / SAS devices over interface and sends 
+      it to database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA7Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#CollectSmartA8Log" class="summary-sig-name">CollectSmartA8Log</a>()</span><br />
+      Collects G-list data for SATA / SAS devices over interface and sends 
+      it to database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA8Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#TestAllSmartPI" class="summary-sig-name">TestAllSmartPI</a>()</span><br />
+      Collects the following logs from SMART: Critical events, R-list, 
+      G-list, P-list and SMART attributes</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#TestAllSmartPI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CollectSmartAttributeLog"></a><span class="summary-sig-name">CollectSmartAttributeLog</span>()</span><br />
+      Collects SMART attribute log (On-line attributes for SAS)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartAttributeLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#CollectSmartA9Log" class="summary-sig-name">CollectSmartA9Log</a>()</span><br />
+      Collects P-list from the device and sends it to database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA9Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#SmartCheck" class="summary-sig-name">SmartCheck</a>(<span class="summary-sig-arg">enable_failure_threshold</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">fail_attr_list</span>=<span class="summary-sig-default">{}</span>,
+        <span class="summary-sig-arg">use_default_fail</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">collect_data</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Check &amp; display SMART attributes, fail drive if IOEDC or Pending Count &gt; Zero, can add more attributes with different failing thresholds</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SmartCheck">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#CollectA4Log" class="summary-sig-name">CollectA4Log</a>()</span><br />
+      Displays BGMS log in the results file only.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectA4Log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#GetSmartTemperature" class="summary-sig-name">GetSmartTemperature</a>(<span class="summary-sig-arg">printTemp</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Returns current SMART temperature printTemp: boolean;    Prints 
+      current, max and min SMART temperature reading in the result file</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartTemperature">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CollectSSDEventLog"></a><span class="summary-sig-name">CollectSSDEventLog</span>(<span class="summary-sig-arg">name_extension</span>=<span class="summary-sig-default">&quot;&quot;</span>)</span><br />
+      Collects SMART B7h (SSD) log via interface name_extension: string; 
+      Optional string to add to file name</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSSDEventLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_SMART-module.html#GetSmartPowerOnHours" class="summary-sig-name">GetSmartPowerOnHours</a>(<span class="summary-sig-arg">printTS</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Returns SMART power-on hours for SATA and SAS drives.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartPowerOnHours">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="a1_entries"></a><span class="summary-name">a1_entries</span> = <code title="[]">[]</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="a7_entries"></a><span class="summary-name">a7_entries</span> = <code title="[]">[]</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="a8_entries"></a><span class="summary-name">a8_entries</span> = <code title="[]">[]</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="a9_entries"></a><span class="summary-name">a9_entries</span> = <code title="[]">[]</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="csp.sl21.ScriptFunctions_SMART-module.html#SMART_FRAME_HEADER" class="summary-name">SMART_FRAME_HEADER</a> = <code title="{'scsi_cum_pwr_cycles': {'xml_tag': 'POWER_CYCLE', 'offset': 8, 'lengt\
+h': 2, 'data_type': 'dec', 'endian': 1, 'data': '', 'tables': ['SMART_\
+COLD_START']}, 'pwr_on_hrs': {'xml_tag': 'POWER_ON_HOURS', 'offset': 1\
+0, 'length': 6, 'data_type': 'dec', 'endian': 1, 'data': '', 'tables':\
+ ['SMART_FRAME_ENV']}, 'frame_ver': {'xml_tag': 'FRAME_VERSION', 'offs\
+et': 16, 'length': 2, 'data_type': 'hex', 'endian': 1, 'data': '', 'ta\
+bles': ['SMART_FRAME_ENV']}, 'smt_save_flg': {'xml_tag': 'SMART_SAVE_F\
+LAGS', 'offset': 18, 'length': 1, 'data_type': 'dec', 'endian': 1, 'da\
+...">{'scsi_cum_pwr_cycles': {'xml_tag': 'POWE<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="ForceSMARTFrameSave"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ForceSMARTFrameSave</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#ForceSMARTFrameSave">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Forces SMART frame save on SATA or SAS drives to ensure latest frame 
+  is updated. SAS uses rezero unit command while SATA uses SMART Factory 
+  command.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartFrameHeaderData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartFrameHeaderData</span>(<span class="sig-arg">key</span>=<span class="sig-default">''</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartFrameHeaderData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Retrieves SMART frame data at the given offset with given length. 
+Issues a rezero unit command to force last SMART frame save if SAS.
+Uses code from ParseSM2Log.py (by Michael Ullmann)
+
+key: string:  SMART frame attribute to collect. This key must exist in 
+                    SMART_FRAME_HEADER defined in ScriptFunctions_SMART.py
+
+</pre>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ParseSmartDefects"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ParseSmartDefects</span>(<span class="sig-arg">packed_def_buffer</span>,
+        <span class="sig-arg">logName</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#ParseSmartDefects">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>TODO: Describe what this function does</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartAttribute"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartAttribute</span>(<span class="sig-arg">number</span>,
+        <span class="sig-arg">returnTriplet</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartAttribute">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns SMART Attribute for SATA devices</p>
+  <p>number: integer:         SMART attribute number returnTriplet: 
+  boolean:  Returns nominal, worst as well as raw</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableSMART"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableSMART</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#EnableSMART">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables SMART monitoring on the device SATA: SMART command with 
+  register set to 0xD8 SAS: Clears DEXCPT bit in informational exceptions 
+  mode page (0x1C)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="DisableSMART"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DisableSMART</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#DisableSMART">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Disables SMART monitoring on the device SATA: SMART command with 
+  register set to 0xD9 SAS: Sets DEXCPT bit in informational exceptions 
+  mode page (0x1C)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SMARTReadData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SMARTReadData</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads SMART attribute sector for ATA devices</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SMARTReadLog"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SMARTReadLog</span>(<span class="sig-arg">logSectorAddr</span>,
+        <span class="sig-arg">maxSz</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadLog">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads specified SMART log logSectorAddress: integer: Address of SMART 
+  log sector maxSz: integer:            Max allocation size for the log 
+  sector to be read</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SMARTWriteLog"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SMARTWriteLog</span>(<span class="sig-arg">logSectorAddr</span>,
+        <span class="sig-arg">maxSz</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTWriteLog">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes specified SMART log logSectorAddress: integer: Address of SMART
+  log sector maxSz: integer:            Max allocation size for the log 
+  sector to be read</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SMARTReturnStatus"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SMARTReturnStatus</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReturnStatus">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check SMART return status for SATA SAS automatically returns sense 
+  01/5D if a failure threshold is exceeded.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SMARTReadThreshold"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SMARTReadThreshold</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SMARTReadThreshold">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads and loads SMART attribute threshold information to data-in 
+  (read) buffer Not supported for SCSI devices.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SAS_SMART_Attributes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SAS_SMART_Attributes</span>(<span class="sig-arg">sendToPAE</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SAS_SMART_Attributes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Pulls Log page (0x30) and parses SMART on-line attributes for SCSI 
+  device. Attributes are displayed and sent only if chosen.</p>
+  <p>sendtoPAE;    boolean:    If true, sends to PAE_SMART_ATTR_SINGLE</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CollectSmartA1Log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CollectSmartA1Log</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA1Log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collects SMART A1 SATA Critical Events Log over interface and sends 
+  data to ECHO. Not supported for SCSI devices.</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CollectSmartA7Log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CollectSmartA7Log</span>(<span class="sig-arg">doDITSunlock</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA7Log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collects R-list data for SATA / SAS devices over interface and sends 
+  it to database. SCSI - Pulls R-list from Read Defect Data with DITS 
+  Manufacture command: DRG bit set to 1 SATA - Pulls SMART A7 Log</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CollectSmartA8Log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CollectSmartA8Log</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA8Log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collects G-list data for SATA / SAS devices over interface and sends 
+  it to database. SCSI - Pulls G-list from Read Defect Data SATA - Pulls 
+  SMART A8 Log</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TestAllSmartPI"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">TestAllSmartPI</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#TestAllSmartPI">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collects the following logs from SMART: Critical events, R-list, 
+  G-list, P-list and SMART attributes</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CollectSmartA9Log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CollectSmartA9Log</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectSmartA9Log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Collects P-list from the device and sends it to database. SCSI - pulls
+  P-list from Read Defect Data (primary list). Due to log size 
+  considerations, only number of entries is given. SATA - pulls SMART A9 
+  log (pending defect list)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmartCheck"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SmartCheck</span>(<span class="sig-arg">enable_failure_threshold</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">fail_attr_list</span>=<span class="sig-default">{}</span>,
+        <span class="sig-arg">use_default_fail</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">collect_data</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#SmartCheck">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Check &amp; display SMART attributes, fail drive if IOEDC or Pending Count &gt; Zero, can add more attributes with different failing thresholds
+
+enable_failure_threshold: boolean:  True (default) to fail when tripped, or false to avoid failure of drive.
+fail_attr_list: dictionary:         Custom list of attributes to fail on - ex [attribute name, threshold]} or {atribute #:threshold}
+use_default_fail: boolean:          True (default) uses default device thresholds for P-list &amp; IOEDC, false otherwise
+collect_data: boolean:              True (default) collects SMART attribute log and sends them to PAE_SMART_ATTR_ATTR
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CollectA4Log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CollectA4Log</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#CollectA4Log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Displays BGMS log in the results file only. No data is sent to the 
+  database</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartTemperature"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartTemperature</span>(<span class="sig-arg">printTemp</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartTemperature">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns current SMART temperature printTemp: boolean;    Prints 
+  current, max and min SMART temperature reading in the result file</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetSmartPowerOnHours"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetSmartPowerOnHours</span>(<span class="sig-arg">printTS</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_SMART-pysrc.html#GetSmartPowerOnHours">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns SMART power-on hours for SATA and SAS drives. (SATA - From 
+  Smart Attribute #9, SAS - from Log Page 0x3E) Will return -1 by default 
+  if there is a problem pulling POH.</p>
+  <p>For UDS time stamp, use GetUDSTimeStamp() instead.</p>
+  <p>printTS: boolean: If set to 1, will display POH in the result file. 
+  (default 0)</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="SMART_FRAME_HEADER"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SMART_FRAME_HEADER</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+{'scsi_cum_pwr_cycles': {'xml_tag': 'POWER_CYCLE', 'offset': 8, 'lengt<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+h': 2, 'data_type': 'dec', 'endian': 1, 'data': '', 'tables': ['SMART_<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+COLD_START']}, 'pwr_on_hrs': {'xml_tag': 'POWER_ON_HOURS', 'offset': 1<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+0, 'length': 6, 'data_type': 'dec', 'endian': 1, 'data': '', 'tables':<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ ['SMART_FRAME_ENV']}, 'frame_ver': {'xml_tag': 'FRAME_VERSION', 'offs<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+et': 16, 'length': 2, 'data_type': 'hex', 'endian': 1, 'data': '', 'ta<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+bles': ['SMART_FRAME_ENV']}, 'smt_save_flg': {'xml_tag': 'SMART_SAVE_F<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+LAGS', 'offset': 18, 'length': 1, 'data_type': 'dec', 'endian': 1, 'da<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:49 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

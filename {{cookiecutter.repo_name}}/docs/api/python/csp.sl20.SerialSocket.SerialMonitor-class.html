@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl20.SerialSocket.SerialMonitor</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl20-module.html">Package&nbsp;sl20</a> ::
+        <a href="csp.sl20.SerialSocket-module.html">Module&nbsp;SerialSocket</a> ::
+        Class&nbsp;SerialMonitor
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SerialMonitor</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_csp_sl20_8" name="uml_class_diagram_for_csp_sl20_8">
+<area shape="rect" id="node1_28" href="csp.sl20.SerialSocket.SerialMonitor-class.html#spmon" title="csp.sl20.SerialSocket.SerialMonitor.spmon" alt="" coords="17,417,241,439"/>
+<area shape="rect" id="node1_29" href="csp.sl20.SerialSocket.SerialMonitor-class.html#__init__" title="This constructor should always be called with keyword arguments." alt="" coords="17,441,241,463"/>
+<area shape="rect" id="node1_30" href="csp.sl20.SerialSocket.SerialMonitor-class.html#getFilter" title="csp.sl20.SerialSocket.SerialMonitor.getFilter" alt="" coords="17,463,241,484"/>
+<area shape="rect" id="node1_31" href="csp.sl20.SerialSocket.SerialMonitor-class.html#setFilter" title="csp.sl20.SerialSocket.SerialMonitor.setFilter" alt="" coords="17,484,241,505"/>
+<area shape="rect" id="node1_32" href="csp.sl20.SerialSocket.SerialMonitor-class.html#log" title="csp.sl20.SerialSocket.SerialMonitor.log" alt="" coords="17,505,241,527"/>
+<area shape="rect" id="node1_33" href="csp.sl20.SerialSocket.SerialMonitor-class.html#setBaudRate" title="csp.sl20.SerialSocket.SerialMonitor.setBaudRate" alt="" coords="17,527,241,548"/>
+<area shape="rect" id="node1_34" href="csp.sl20.SerialSocket.SerialMonitor-class.html#connect" title="csp.sl20.SerialSocket.SerialMonitor.connect" alt="" coords="17,548,241,569"/>
+<area shape="rect" id="node1_35" href="csp.sl20.SerialSocket.SerialMonitor-class.html#close" title="csp.sl20.SerialSocket.SerialMonitor.close" alt="" coords="17,569,241,591"/>
+<area shape="rect" id="node1_36" href="csp.sl20.SerialSocket.SerialMonitor-class.html#interrupt" title="csp.sl20.SerialSocket.SerialMonitor.interrupt" alt="" coords="17,591,241,612"/>
+<area shape="rect" id="node1_37" href="csp.sl20.SerialSocket.SerialMonitor-class.html#send" title="csp.sl20.SerialSocket.SerialMonitor.send" alt="" coords="17,612,241,633"/>
+<area shape="rect" id="node1_38" href="csp.sl20.SerialSocket.SerialMonitor-class.html#run" title="Method representing the thread&#39;s activity." alt="" coords="17,633,241,655"/>
+<area shape="rect" id="node1_39" href="csp.sl20.SerialSocket.SerialMonitor-class.html#startSPMon" title="csp.sl20.SerialSocket.SerialMonitor.startSPMon" alt="" coords="17,655,241,676"/>
+<area shape="rect" id="node1_40" href="csp.sl20.SerialSocket.SerialMonitor-class.html#closeSPMon" title="csp.sl20.SerialSocket.SerialMonitor.closeSPMon" alt="" coords="17,676,241,697"/>
+<area shape="rect" id="node1_41" href="csp.sl20.SerialSocket.SerialMonitor-class.html#suspendSPMon" title="csp.sl20.SerialSocket.SerialMonitor.suspendSPMon" alt="" coords="17,697,241,719"/>
+<area shape="rect" id="node1_42" href="csp.sl20.SerialSocket.SerialMonitor-class.html#resumeSPMon" title="csp.sl20.SerialSocket.SerialMonitor.resumeSPMon" alt="" coords="17,719,241,740"/>
+<area shape="rect" id="node1_43" href="csp.sl20.SerialSocket.SerialMonitor-class.html#interruptSPMon" title="csp.sl20.SerialSocket.SerialMonitor.interruptSPMon" alt="" coords="17,740,241,761"/>
+<area shape="rect" id="node1" href="csp.sl20.SerialSocket.SerialMonitor-class.html" title="csp.sl20.SerialSocket.SerialMonitor" alt="" coords="5,390,253,767"/>
+<area shape="rect" id="node2_44" href="javascript:void(0);" title="repr(x)" alt="" coords="44,108,213,129"/>
+<area shape="rect" id="node2_45" href="javascript:void(0);" title="Start the thread&#39;s activity." alt="" coords="44,129,213,151"/>
+<area shape="rect" id="node2_46" href="javascript:void(0);" title="Wait until the thread terminates." alt="" coords="44,151,213,172"/>
+<area shape="rect" id="node2_47" href="javascript:void(0);" title="threading.Thread.name" alt="" coords="44,172,213,193"/>
+<area shape="rect" id="node2_48" href="javascript:void(0);" title="Thread identifier of this thread or None if it has not been started." alt="" coords="44,193,213,215"/>
+<area shape="rect" id="node2_49" href="javascript:void(0);" title="Return whether the thread is alive." alt="" coords="44,215,213,236"/>
+<area shape="rect" id="node2_50" href="javascript:void(0);" title="Return whether the thread is alive." alt="" coords="44,236,213,257"/>
+<area shape="rect" id="node2_51" href="javascript:void(0);" title="threading.Thread.daemon" alt="" coords="44,257,213,279"/>
+<area shape="rect" id="node2_52" href="javascript:void(0);" title="threading.Thread.isDaemon" alt="" coords="44,279,213,300"/>
+<area shape="rect" id="node2_53" href="javascript:void(0);" title="threading.Thread.setDaemon" alt="" coords="44,300,213,321"/>
+<area shape="rect" id="node2_54" href="javascript:void(0);" title="threading.Thread.getName" alt="" coords="44,321,213,343"/>
+<area shape="rect" id="node2_55" href="javascript:void(0);" title="threading.Thread.setName" alt="" coords="44,343,213,364"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="A class that represents a thread of control." alt="" coords="31,73,225,370"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="threading._Verbose" alt="" coords="58,6,198,53"/>
+</map>
+  <img src="uml_class_diagram_for_csp_sl20_8.gif" alt='' usemap="#uml_class_diagram_for_csp_sl20_8" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.SerialSocket.SerialMonitor-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">server</span>,
+        <span class="summary-sig-arg">port</span>,
+        <span class="summary-sig-arg">baud_rate</span>)</span><br />
+      This constructor should always be called with keyword arguments.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getFilter"></a><span class="summary-sig-name">getFilter</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.getFilter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setFilter"></a><span class="summary-sig-name">setFilter</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">serial_mon_filter</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.setFilter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="log"></a><span class="summary-sig-name">log</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">buf</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setBaudRate"></a><span class="summary-sig-name">setBaudRate</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.setBaudRate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="connect"></a><span class="summary-sig-name">connect</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.connect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="close"></a><span class="summary-sig-name">close</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.close">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="interrupt"></a><span class="summary-sig-name">interrupt</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.interrupt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="send"></a><span class="summary-sig-name">send</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cmd</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.send">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.SerialSocket.SerialMonitor-class.html#run" class="summary-sig-name">run</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Method representing the thread's activity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.run">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>threading.Thread</code></b>:
+      <code>__repr__</code>,
+      <code>daemon</code>,
+      <code>getName</code>,
+      <code>ident</code>,
+      <code>isAlive</code>,
+      <code>isDaemon</code>,
+      <code>is_alive</code>,
+      <code>join</code>,
+      <code>name</code>,
+      <code>setDaemon</code>,
+      <code>setName</code>,
+      <code>start</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>threading.Thread</code></b> (private):
+      <code>_block</code>,
+      <code>_reset_internal_locks</code>,
+      <code>_set_daemon</code>,
+      <code>_set_ident</code>
+      </p></div>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>threading._Verbose</code></b> (private):
+      <code>_note</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="startSPMon"></a><span class="summary-sig-name">startSPMon</span>(<span class="summary-sig-arg">host</span>,
+        <span class="summary-sig-arg">port</span>,
+        <span class="summary-sig-arg">baud_rate</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.startSPMon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="closeSPMon"></a><span class="summary-sig-name">closeSPMon</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.closeSPMon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="suspendSPMon"></a><span class="summary-sig-name">suspendSPMon</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.suspendSPMon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="resumeSPMon"></a><span class="summary-sig-name">resumeSPMon</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.resumeSPMon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="interruptSPMon"></a><span class="summary-sig-name">interruptSPMon</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.interruptSPMon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="spmon"></a><span class="summary-name">spmon</span> = <code title="None">None</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">server</span>,
+        <span class="sig-arg">port</span>,
+        <span class="sig-arg">baud_rate</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This constructor should always be called with keyword arguments. 
+  Arguments are:</p>
+  <p>*group* should be None; reserved for future extension when a 
+  ThreadGroup class is implemented.</p>
+  <p>*target* is the callable object to be invoked by the run() method. 
+  Defaults to None, meaning nothing is called.</p>
+  <p>*name* is the thread name. By default, a unique name is constructed of
+  the form &quot;Thread-N&quot; where N is a small decimal number.</p>
+  <p>*args* is the argument tuple for the target invocation. Defaults to 
+  ().</p>
+  <p>*kwargs* is a dictionary of keyword arguments for the target 
+  invocation. Defaults to {}.</p>
+  <p>If a subclass overrides the constructor, it must make sure to invoke 
+  the base class constructor (Thread.__init__()) before doing anything else
+  to the thread.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="run"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">run</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.SerialSocket-pysrc.html#SerialMonitor.run">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Method representing the thread's activity.</p>
+  <p>You may override this method in a subclass. The standard run() method 
+  invokes the callable object passed to the object's constructor as the 
+  target argument, if any, with sequential and keyword arguments taken from
+  the args and kwargs arguments, respectively.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        threading.Thread.run
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:54 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

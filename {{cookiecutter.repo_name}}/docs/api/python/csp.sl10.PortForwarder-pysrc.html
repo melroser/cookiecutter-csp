@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl10.PortForwarder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl10-module.html">Package&nbsp;sl10</a> ::
+        Module&nbsp;PortForwarder
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl10.PortForwarder-module.html">Module csp.sl10.PortForwarder</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># $Id: //depot/csp/script/plugin/dev/main/PortForwarder.py#2 $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># Port forwarded URL opener</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">httplib</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">urllib2</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">socket</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">ConfigParser</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cspconfig</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="PortForwarderHTTPConnection"></a><div id="PortForwarderHTTPConnection-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPConnection-toggle" onclick="return toggle('PortForwarderHTTPConnection');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html">PortForwarderHTTPConnection</a><tt class="py-op">(</tt><tt class="py-base-class">httplib</tt><tt class="py-op">.</tt><tt class="py-base-class">HTTPConnection</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPConnection-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PortForwarderHTTPConnection-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">         </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt id="link-0" class="py-name" targets="Variable csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_HOST_CONFIG_KEY,Variable csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_HOST_CONFIG_KEY,Variable csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_HOST_CONFIG_KEY,Variable csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_HOST_CONFIG_KEY"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY" class="py-name" href="#" onclick="return doclink('link-0', 'FORWARDER_PROXY_HOST_CONFIG_KEY', 'link-0');">FORWARDER_PROXY_HOST_CONFIG_KEY</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'forwarderProxyHost'</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt id="link-1" class="py-name" targets="Variable csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_PORT_CONFIG_KEY,Variable csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_PORT_CONFIG_KEY,Variable csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_PORT_CONFIG_KEY,Variable csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html#FORWARDER_PROXY_PORT_CONFIG_KEY"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY" class="py-name" href="#" onclick="return doclink('link-1', 'FORWARDER_PROXY_PORT_CONFIG_KEY', 'link-1');">FORWARDER_PROXY_PORT_CONFIG_KEY</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'forwarderProxyPort'</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">         </tt>
+<a name="PortForwarderHTTPConnection.__init__"></a><div id="PortForwarderHTTPConnection.__init__-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPConnection.__init__-toggle" onclick="return toggle('PortForwarderHTTPConnection.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPConnection.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="PortForwarderHTTPConnection.__init__-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">                <tt class="py-name">parser</tt> <tt class="py-op">=</tt> <tt class="py-name">ConfigParser</tt><tt class="py-op">.</tt><tt class="py-name">ConfigParser</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">                <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">readfp</tt><tt class="py-op">(</tt><tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">cspconfig</tt><tt class="py-op">.</tt><tt class="py-name">configFile</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt> <tt class="py-op">=</tt> <tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">cspconfig</tt><tt class="py-op">.</tt><tt class="py-name">CONFIG_SECTION</tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Class csp.sl10.PortForwarder.PortForwarderHTTPConnection=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html,Class csp.sl12.PortForwarder.PortForwarderHTTPConnection=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html,Class csp.sl20.PortForwarder.PortForwarderHTTPConnection=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html,Class csp.sl21.PortForwarder.PortForwarderHTTPConnection=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection
+csp.sl12.PortForwarder.PortForwarderHTTPConnection
+csp.sl20.PortForwarder.PortForwarderHTTPConnection
+csp.sl21.PortForwarder.PortForwarderHTTPConnection" class="py-name" href="#" onclick="return doclink('link-2', 'PortForwarderHTTPConnection', 'link-2');">PortForwarderHTTPConnection</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_HOST_CONFIG_KEY" class="py-name" href="#" onclick="return doclink('link-3', 'FORWARDER_PROXY_HOST_CONFIG_KEY', 'link-0');">FORWARDER_PROXY_HOST_CONFIG_KEY</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">parser</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">cspconfig</tt><tt class="py-op">.</tt><tt class="py-name">CONFIG_SECTION</tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection
+csp.sl12.PortForwarder.PortForwarderHTTPConnection
+csp.sl20.PortForwarder.PortForwarderHTTPConnection
+csp.sl21.PortForwarder.PortForwarderHTTPConnection" class="py-name" href="#" onclick="return doclink('link-4', 'PortForwarderHTTPConnection', 'link-2');">PortForwarderHTTPConnection</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.FORWARDER_PROXY_PORT_CONFIG_KEY" class="py-name" href="#" onclick="return doclink('link-5', 'FORWARDER_PROXY_PORT_CONFIG_KEY', 'link-1');">FORWARDER_PROXY_PORT_CONFIG_KEY</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                 </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                <tt class="py-name">httplib</tt><tt class="py-op">.</tt><tt class="py-name">HTTPConnection</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method csp.sl10.DataDefines.Bunch.__init__()=csp.sl10.DataDefines.Bunch-class.html#__init__,Method csp.sl10.ErrorHandler.ScriptException.__init__()=csp.sl10.ErrorHandler.ScriptException-class.html#__init__,Method csp.sl10.FirmwareGetter.FirmwareGetter.__init__()=csp.sl10.FirmwareGetter.FirmwareGetter-class.html#__init__,Method csp.sl10.PortForwarder.PortForwarderHTTPConnection.__init__()=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#__init__,Method csp.sl10.ScriptFunctions.TempMonitor.__init__()=csp.sl10.ScriptFunctions.TempMonitor-class.html#__init__,Method csp.sl10.ScriptFunctions_IOC.IOClass.__init__()=csp.sl10.ScriptFunctions_IOC.IOClass-class.html#__init__,Method csp.sl10.SerialSocket.SerialCommander.FlushBufferThread.__init__()=csp.sl10.SerialSocket.SerialCommander.FlushBufferThread-class.html#__init__,Method csp.sl10.SerialSocket.SerialCommander.__init__()=csp.sl10.SerialSocket.SerialCommander-class.html#__init__,Method csp.sl10.SerialSocket.SerialMonitor.__init__()=csp.sl10.SerialSocket.SerialMonitor-class.html#__init__,Method csp.sl10.XmlToElementParser.Element.__init__()=csp.sl10.XmlToElementParser.Element-class.html#__init__,Method csp.sl10.XmlToElementParser.XmlToElementParser.__init__()=csp.sl10.XmlToElementParser.XmlToElementParser-class.html#__init__,Method csp.sl10.maincell_api.intArray.__init__()=csp.sl10.maincell_api.intArray-class.html#__init__,Method csp.sl10.maincell_api.io_data.__init__()=csp.sl10.maincell_api.io_data-class.html#__init__,Method csp.sl10.maincell_api.llArray.__init__()=csp.sl10.maincell_api.llArray-class.html#__init__,Method csp.sl10.userscript.InitializeException.__init__()=csp.sl10.userscript.InitializeException-class.html#__init__,Method csp.sl12.DataDefines.Bunch.__init__()=csp.sl12.DataDefines.Bunch-class.html#__init__,Method csp.sl12.ErrorHandler.ScriptException.__init__()=csp.sl12.ErrorHandler.ScriptException-class.html#__init__,Method csp.sl12.FirmwareGetter.FirmwareGetter.__init__()=csp.sl12.FirmwareGetter.FirmwareGetter-class.html#__init__,Method csp.sl12.PortForwarder.PortForwarderHTTPConnection.__init__()=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html#__init__,Method csp.sl12.ScriptFunctions.TempMonitor.__init__()=csp.sl12.ScriptFunctions.TempMonitor-class.html#__init__,Method csp.sl12.ScriptFunctions_IOC.IOClass.__init__()=csp.sl12.ScriptFunctions_IOC.IOClass-class.html#__init__,Method csp.sl12.SerialSocket.SerialCommander.FlushBufferThread.__init__()=csp.sl12.SerialSocket.SerialCommander.FlushBufferThread-class.html#__init__,Method csp.sl12.SerialSocket.SerialCommander.__init__()=csp.sl12.SerialSocket.SerialCommander-class.html#__init__,Method csp.sl12.SerialSocket.SerialMonitor.__init__()=csp.sl12.SerialSocket.SerialMonitor-class.html#__init__,Method csp.sl12.XmlToElementParser.Element.__init__()=csp.sl12.XmlToElementParser.Element-class.html#__init__,Method csp.sl12.XmlToElementParser.XmlToElementParser.__init__()=csp.sl12.XmlToElementParser.XmlToElementParser-class.html#__init__,Method csp.sl12.maincell_api.intArray.__init__()=csp.sl12.maincell_api.intArray-class.html#__init__,Method csp.sl12.maincell_api.io_data.__init__()=csp.sl12.maincell_api.io_data-class.html#__init__,Method csp.sl12.maincell_api.llArray.__init__()=csp.sl12.maincell_api.llArray-class.html#__init__,Method csp.sl12.userscript.InitializeException.__init__()=csp.sl12.userscript.InitializeException-class.html#__init__,Method csp.sl20.DataDefines.Bunch.__init__()=csp.sl20.DataDefines.Bunch-class.html#__init__,Method csp.sl20.ErrorHandler.ScriptException.__init__()=csp.sl20.ErrorHandler.ScriptException-class.html#__init__,Method csp.sl20.FirmwareGetter.FirmwareGetter.__init__()=csp.sl20.FirmwareGetter.FirmwareGetter-class.html#__init__,Method csp.sl20.PortForwarder.PortForwarderHTTPConnection.__init__()=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html#__init__,Method csp.sl20.ScriptFunctions.TempMonitor.__init__()=csp.sl20.ScriptFunctions.TempMonitor-class.html#__init__,Method csp.sl20.ScriptFunctions_IOC.IOClass.__init__()=csp.sl20.ScriptFunctions_IOC.IOClass-class.html#__init__,Method csp.sl20.SerialSocket.SerialCommander.FlushBufferThread.__init__()=csp.sl20.SerialSocket.SerialCommander.FlushBufferThread-class.html#__init__,Method csp.sl20.SerialSocket.SerialCommander.__init__()=csp.sl20.SerialSocket.SerialCommander-class.html#__init__,Method csp.sl20.SerialSocket.SerialMonitor.__init__()=csp.sl20.SerialSocket.SerialMonitor-class.html#__init__,Method csp.sl20.XmlToElementParser.Element.__init__()=csp.sl20.XmlToElementParser.Element-class.html#__init__,Method csp.sl20.XmlToElementParser.XmlToElementParser.__init__()=csp.sl20.XmlToElementParser.XmlToElementParser-class.html#__init__,Method csp.sl20.maincell_api.intArray.__init__()=csp.sl20.maincell_api.intArray-class.html#__init__,Method csp.sl20.maincell_api.io_data.__init__()=csp.sl20.maincell_api.io_data-class.html#__init__,Method csp.sl20.maincell_api.llArray.__init__()=csp.sl20.maincell_api.llArray-class.html#__init__,Method csp.sl20.userscript.InitializeException.__init__()=csp.sl20.userscript.InitializeException-class.html#__init__,Method csp.sl21.DataDefines.Bunch.__init__()=csp.sl21.DataDefines.Bunch-class.html#__init__,Method csp.sl21.ErrorHandler.ScriptException.__init__()=csp.sl21.ErrorHandler.ScriptException-class.html#__init__,Method csp.sl21.FirmwareGetter.FirmwareGetter.__init__()=csp.sl21.FirmwareGetter.FirmwareGetter-class.html#__init__,Method csp.sl21.PortForwarder.PortForwarderHTTPConnection.__init__()=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html#__init__,Method csp.sl21.ScriptFunctions.TempMonitor.__init__()=csp.sl21.ScriptFunctions.TempMonitor-class.html#__init__,Method csp.sl21.ScriptFunctions_IOC.IOClass.__init__()=csp.sl21.ScriptFunctions_IOC.IOClass-class.html#__init__,Method csp.sl21.SerialSocket.SerialCommander.FlushBufferThread.__init__()=csp.sl21.SerialSocket.SerialCommander.FlushBufferThread-class.html#__init__,Method csp.sl21.SerialSocket.SerialCommander.__init__()=csp.sl21.SerialSocket.SerialCommander-class.html#__init__,Method csp.sl21.SerialSocket.SerialMonitor.__init__()=csp.sl21.SerialSocket.SerialMonitor-class.html#__init__,Method csp.sl21.XmlToElementParser.Element.__init__()=csp.sl21.XmlToElementParser.Element-class.html#__init__,Method csp.sl21.XmlToElementParser.XmlToElementParser.__init__()=csp.sl21.XmlToElementParser.XmlToElementParser-class.html#__init__,Method csp.sl21.maincell_api.intArray.__init__()=csp.sl21.maincell_api.intArray-class.html#__init__,Method csp.sl21.maincell_api.io_data.__init__()=csp.sl21.maincell_api.io_data-class.html#__init__,Method csp.sl21.maincell_api.llArray.__init__()=csp.sl21.maincell_api.llArray-class.html#__init__,Method csp.sl21.userscript.InitializeException.__init__()=csp.sl21.userscript.InitializeException-class.html#__init__"><a title="csp.sl10.DataDefines.Bunch.__init__
+csp.sl10.ErrorHandler.ScriptException.__init__
+csp.sl10.FirmwareGetter.FirmwareGetter.__init__
+csp.sl10.PortForwarder.PortForwarderHTTPConnection.__init__
+csp.sl10.ScriptFunctions.TempMonitor.__init__
+csp.sl10.ScriptFunctions_IOC.IOClass.__init__
+csp.sl10.SerialSocket.SerialCommander.FlushBufferThread.__init__
+csp.sl10.SerialSocket.SerialCommander.__init__
+csp.sl10.SerialSocket.SerialMonitor.__init__
+csp.sl10.XmlToElementParser.Element.__init__
+csp.sl10.XmlToElementParser.XmlToElementParser.__init__
+csp.sl10.maincell_api.intArray.__init__
+csp.sl10.maincell_api.io_data.__init__
+csp.sl10.maincell_api.llArray.__init__
+csp.sl10.userscript.InitializeException.__init__
+csp.sl12.DataDefines.Bunch.__init__
+csp.sl12.ErrorHandler.ScriptException.__init__
+csp.sl12.FirmwareGetter.FirmwareGetter.__init__
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.__init__
+csp.sl12.ScriptFunctions.TempMonitor.__init__
+csp.sl12.ScriptFunctions_IOC.IOClass.__init__
+csp.sl12.SerialSocket.SerialCommander.FlushBufferThread.__init__
+csp.sl12.SerialSocket.SerialCommander.__init__
+csp.sl12.SerialSocket.SerialMonitor.__init__
+csp.sl12.XmlToElementParser.Element.__init__
+csp.sl12.XmlToElementParser.XmlToElementParser.__init__
+csp.sl12.maincell_api.intArray.__init__
+csp.sl12.maincell_api.io_data.__init__
+csp.sl12.maincell_api.llArray.__init__
+csp.sl12.userscript.InitializeException.__init__
+csp.sl20.DataDefines.Bunch.__init__
+csp.sl20.ErrorHandler.ScriptException.__init__
+csp.sl20.FirmwareGetter.FirmwareGetter.__init__
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.__init__
+csp.sl20.ScriptFunctions.TempMonitor.__init__
+csp.sl20.ScriptFunctions_IOC.IOClass.__init__
+csp.sl20.SerialSocket.SerialCommander.FlushBufferThread.__init__
+csp.sl20.SerialSocket.SerialCommander.__init__
+csp.sl20.SerialSocket.SerialMonitor.__init__
+csp.sl20.XmlToElementParser.Element.__init__
+csp.sl20.XmlToElementParser.XmlToElementParser.__init__
+csp.sl20.maincell_api.intArray.__init__
+csp.sl20.maincell_api.io_data.__init__
+csp.sl20.maincell_api.llArray.__init__
+csp.sl20.userscript.InitializeException.__init__
+csp.sl21.DataDefines.Bunch.__init__
+csp.sl21.ErrorHandler.ScriptException.__init__
+csp.sl21.FirmwareGetter.FirmwareGetter.__init__
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.__init__
+csp.sl21.ScriptFunctions.TempMonitor.__init__
+csp.sl21.ScriptFunctions_IOC.IOClass.__init__
+csp.sl21.SerialSocket.SerialCommander.FlushBufferThread.__init__
+csp.sl21.SerialSocket.SerialCommander.__init__
+csp.sl21.SerialSocket.SerialMonitor.__init__
+csp.sl21.XmlToElementParser.Element.__init__
+csp.sl21.XmlToElementParser.XmlToElementParser.__init__
+csp.sl21.maincell_api.intArray.__init__
+csp.sl21.maincell_api.io_data.__init__
+csp.sl21.maincell_api.llArray.__init__
+csp.sl21.userscript.InitializeException.__init__" class="py-name" href="#" onclick="return doclink('link-6', '__init__', 'link-6');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">                 </tt>
+<a name="PortForwarderHTTPConnection.__checkResponse"></a><div id="PortForwarderHTTPConnection.__checkResponse-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPConnection.__checkResponse-toggle" onclick="return toggle('PortForwarderHTTPConnection.__checkResponse');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#__checkResponse">__checkResponse</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">response</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPConnection.__checkResponse-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="PortForwarderHTTPConnection.__checkResponse-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                <tt class="py-name">pattern</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">r'^(\d\d\d)\s+.*$'</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">                <tt class="py-name">match</tt> <tt class="py-op">=</tt> <tt class="py-name">pattern</tt><tt class="py-op">.</tt><tt class="py-name">match</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">match</tt> <tt class="py-keyword">and</tt> <tt class="py-name">match</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                        <tt class="py-name">code</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">match</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">code</tt> <tt class="py-op">!=</tt> <tt class="py-number">200</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'bad command response: '</tt> <tt class="py-op">+</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'can not parse response string'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">         </tt>
+<a name="PortForwarderHTTPConnection.connect"></a><div id="PortForwarderHTTPConnection.connect-def"><a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPConnection.connect-toggle" onclick="return toggle('PortForwarderHTTPConnection.connect');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#connect">connect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPConnection.connect-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="PortForwarderHTTPConnection.connect-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                                <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'port forwarder port and host not set'</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">         </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt> <tt class="py-op">=</tt> <tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">socket</tt><tt class="py-op">(</tt><tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">AF_INET</tt><tt class="py-op">,</tt> <tt class="py-name">socket</tt><tt class="py-op">.</tt><tt class="py-name">SOCK_STREAM</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                         </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debuglevel</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">'connecting to port forwarder: (%s, %s)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">         </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method csp.sl10.PortForwarder.PortForwarderHTTPConnection.connect()=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#connect,Method csp.sl10.SerialSocket.SerialCommander.connect()=csp.sl10.SerialSocket.SerialCommander-class.html#connect,Method csp.sl10.SerialSocket.SerialMonitor.connect()=csp.sl10.SerialSocket.SerialMonitor-class.html#connect,Method csp.sl12.PortForwarder.PortForwarderHTTPConnection.connect()=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html#connect,Method csp.sl12.SerialSocket.SerialCommander.connect()=csp.sl12.SerialSocket.SerialCommander-class.html#connect,Method csp.sl12.SerialSocket.SerialMonitor.connect()=csp.sl12.SerialSocket.SerialMonitor-class.html#connect,Method csp.sl20.PortForwarder.PortForwarderHTTPConnection.connect()=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html#connect,Method csp.sl20.SerialSocket.SerialCommander.connect()=csp.sl20.SerialSocket.SerialCommander-class.html#connect,Method csp.sl20.SerialSocket.SerialMonitor.connect()=csp.sl20.SerialSocket.SerialMonitor-class.html#connect,Method csp.sl21.PortForwarder.PortForwarderHTTPConnection.connect()=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html#connect,Method csp.sl21.SerialSocket.SerialCommander.connect()=csp.sl21.SerialSocket.SerialCommander-class.html#connect,Method csp.sl21.SerialSocket.SerialMonitor.connect()=csp.sl21.SerialSocket.SerialMonitor-class.html#connect"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.connect
+csp.sl10.SerialSocket.SerialCommander.connect
+csp.sl10.SerialSocket.SerialMonitor.connect
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.connect
+csp.sl12.SerialSocket.SerialCommander.connect
+csp.sl12.SerialSocket.SerialMonitor.connect
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.connect
+csp.sl20.SerialSocket.SerialCommander.connect
+csp.sl20.SerialSocket.SerialMonitor.connect
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.connect
+csp.sl21.SerialSocket.SerialCommander.connect
+csp.sl21.SerialSocket.SerialMonitor.connect" class="py-name" href="#" onclick="return doclink('link-7', 'connect', 'link-7');">connect</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">         </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debuglevel</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">'connecting via port forwarder to: (%s, %s)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">         </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method csp.sl10.SerialSocket.SerialCommander.send()=csp.sl10.SerialSocket.SerialCommander-class.html#send,Method csp.sl10.SerialSocket.SerialMonitor.send()=csp.sl10.SerialSocket.SerialMonitor-class.html#send,Method csp.sl12.SerialSocket.SerialCommander.send()=csp.sl12.SerialSocket.SerialCommander-class.html#send,Method csp.sl12.SerialSocket.SerialMonitor.send()=csp.sl12.SerialSocket.SerialMonitor-class.html#send,Method csp.sl20.SerialSocket.SerialCommander.send()=csp.sl20.SerialSocket.SerialCommander-class.html#send,Method csp.sl20.SerialSocket.SerialMonitor.send()=csp.sl20.SerialSocket.SerialMonitor-class.html#send,Method csp.sl21.SerialSocket.SerialCommander.send()=csp.sl21.SerialSocket.SerialCommander-class.html#send,Method csp.sl21.SerialSocket.SerialMonitor.send()=csp.sl21.SerialSocket.SerialMonitor-class.html#send"><a title="csp.sl10.SerialSocket.SerialCommander.send
+csp.sl10.SerialSocket.SerialMonitor.send
+csp.sl12.SerialSocket.SerialCommander.send
+csp.sl12.SerialSocket.SerialMonitor.send
+csp.sl20.SerialSocket.SerialCommander.send
+csp.sl20.SerialSocket.SerialMonitor.send
+csp.sl21.SerialSocket.SerialCommander.send
+csp.sl21.SerialSocket.SerialMonitor.send" class="py-name" href="#" onclick="return doclink('link-8', 'send', 'link-8');">send</a></tt><tt class="py-op">(</tt><tt class="py-string">'CONNECT %s %s\n'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">host</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">port</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">         </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method csp.sl10.PortForwarder.PortForwarderHTTPConnection.__checkResponse()=csp.sl10.PortForwarder.PortForwarderHTTPConnection-class.html#__checkResponse,Method csp.sl12.PortForwarder.PortForwarderHTTPConnection.__checkResponse()=csp.sl12.PortForwarder.PortForwarderHTTPConnection-class.html#__checkResponse,Method csp.sl20.PortForwarder.PortForwarderHTTPConnection.__checkResponse()=csp.sl20.PortForwarder.PortForwarderHTTPConnection-class.html#__checkResponse,Method csp.sl21.PortForwarder.PortForwarderHTTPConnection.__checkResponse()=csp.sl21.PortForwarder.PortForwarderHTTPConnection-class.html#__checkResponse"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection.__checkResponse
+csp.sl12.PortForwarder.PortForwarderHTTPConnection.__checkResponse
+csp.sl20.PortForwarder.PortForwarderHTTPConnection.__checkResponse
+csp.sl21.PortForwarder.PortForwarderHTTPConnection.__checkResponse" class="py-name" href="#" onclick="return doclink('link-9', '__checkResponse', 'link-9');">__checkResponse</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt><tt class="py-op">.</tt><tt class="py-name">recv</tt><tt class="py-op">(</tt><tt class="py-number">1024</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">         </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">Exception</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">         </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debuglevel</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">'connect to (%s, %s) via port forwarder (%s, %s) failed'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">host</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">port</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderHost</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__portForwarderPort</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">         </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method csp.sl10.SerialSocket.SerialCommander.close()=csp.sl10.SerialSocket.SerialCommander-class.html#close,Method csp.sl10.SerialSocket.SerialMonitor.close()=csp.sl10.SerialSocket.SerialMonitor-class.html#close,Method csp.sl12.SerialSocket.SerialCommander.close()=csp.sl12.SerialSocket.SerialCommander-class.html#close,Method csp.sl12.SerialSocket.SerialMonitor.close()=csp.sl12.SerialSocket.SerialMonitor-class.html#close,Method csp.sl20.SerialSocket.SerialCommander.close()=csp.sl20.SerialSocket.SerialCommander-class.html#close,Method csp.sl20.SerialSocket.SerialMonitor.close()=csp.sl20.SerialSocket.SerialMonitor-class.html#close,Method csp.sl21.SerialSocket.SerialCommander.close()=csp.sl21.SerialSocket.SerialCommander-class.html#close,Method csp.sl21.SerialSocket.SerialMonitor.close()=csp.sl21.SerialSocket.SerialMonitor-class.html#close"><a title="csp.sl10.SerialSocket.SerialCommander.close
+csp.sl10.SerialSocket.SerialMonitor.close
+csp.sl12.SerialSocket.SerialCommander.close
+csp.sl12.SerialSocket.SerialMonitor.close
+csp.sl20.SerialSocket.SerialCommander.close
+csp.sl20.SerialSocket.SerialMonitor.close
+csp.sl21.SerialSocket.SerialCommander.close
+csp.sl21.SerialSocket.SerialMonitor.close" class="py-name" href="#" onclick="return doclink('link-10', 'close', 'link-10');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sock</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">         </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-name">e</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">         </tt>
+<a name="PortForwarderHTTPHandler"></a><div id="PortForwarderHTTPHandler-def"><a name="L68"></a><tt class="py-lineno">68</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPHandler-toggle" onclick="return toggle('PortForwarderHTTPHandler');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPHandler-class.html">PortForwarderHTTPHandler</a><tt class="py-op">(</tt><tt class="py-base-class">urllib2</tt><tt class="py-op">.</tt><tt class="py-base-class">HTTPHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPHandler-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PortForwarderHTTPHandler-expanded"><a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">         </tt>
+<a name="PortForwarderHTTPHandler.http_open"></a><div id="PortForwarderHTTPHandler.http_open-def"><a name="L70"></a><tt class="py-lineno">70</tt> <a class="py-toggle" href="#" id="PortForwarderHTTPHandler.http_open-toggle" onclick="return toggle('PortForwarderHTTPHandler.http_open');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.PortForwarder.PortForwarderHTTPHandler-class.html#http_open">http_open</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">req</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PortForwarderHTTPHandler.http_open-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="PortForwarderHTTPHandler.http_open-expanded"><a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">do_open</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="csp.sl10.PortForwarder.PortForwarderHTTPConnection
+csp.sl12.PortForwarder.PortForwarderHTTPConnection
+csp.sl20.PortForwarder.PortForwarderHTTPConnection
+csp.sl21.PortForwarder.PortForwarderHTTPConnection" class="py-name" href="#" onclick="return doclink('link-11', 'PortForwarderHTTPConnection', 'link-2');">PortForwarderHTTPConnection</a></tt><tt class="py-op">,</tt> <tt class="py-name">req</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt>
+<a name="urlopen"></a><div id="urlopen-def"><a name="L73"></a><tt class="py-lineno">73</tt> <a class="py-toggle" href="#" id="urlopen-toggle" onclick="return toggle('urlopen');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl10.PortForwarder-module.html#urlopen">urlopen</a><tt class="py-op">(</tt><tt class="py-param">url</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="urlopen-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="urlopen-expanded"><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">openerDirector</tt> <tt class="py-op">=</tt> <tt class="py-name">urllib2</tt><tt class="py-op">.</tt><tt class="py-name">build_opener</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Class csp.sl10.PortForwarder.PortForwarderHTTPHandler=csp.sl10.PortForwarder.PortForwarderHTTPHandler-class.html,Class csp.sl12.PortForwarder.PortForwarderHTTPHandler=csp.sl12.PortForwarder.PortForwarderHTTPHandler-class.html,Class csp.sl20.PortForwarder.PortForwarderHTTPHandler=csp.sl20.PortForwarder.PortForwarderHTTPHandler-class.html,Class csp.sl21.PortForwarder.PortForwarderHTTPHandler=csp.sl21.PortForwarder.PortForwarderHTTPHandler-class.html"><a title="csp.sl10.PortForwarder.PortForwarderHTTPHandler
+csp.sl12.PortForwarder.PortForwarderHTTPHandler
+csp.sl20.PortForwarder.PortForwarderHTTPHandler
+csp.sl21.PortForwarder.PortForwarderHTTPHandler" class="py-name" href="#" onclick="return doclink('link-12', 'PortForwarderHTTPHandler', 'link-12');">PortForwarderHTTPHandler</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">openerDirector</tt><tt class="py-op">.</tt><tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">url</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-name">f</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Function csp.sl10.PortForwarder.urlopen()=csp.sl10.PortForwarder-module.html#urlopen,Function csp.sl12.PortForwarder.urlopen()=csp.sl12.PortForwarder-module.html#urlopen,Function csp.sl20.PortForwarder.urlopen()=csp.sl20.PortForwarder-module.html#urlopen,Function csp.sl21.PortForwarder.urlopen()=csp.sl21.PortForwarder-module.html#urlopen"><a title="csp.sl10.PortForwarder.urlopen
+csp.sl12.PortForwarder.urlopen
+csp.sl20.PortForwarder.urlopen
+csp.sl21.PortForwarder.urlopen" class="py-name" href="#" onclick="return doclink('link-13', 'urlopen', 'link-13');">urlopen</a></tt><tt class="py-op">(</tt><tt class="py-string">'http://www.python.org/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">f</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method csp.sl10.SerialSocket.SerialCommander.read()=csp.sl10.SerialSocket.SerialCommander-class.html#read,Method csp.sl12.SerialSocket.SerialCommander.read()=csp.sl12.SerialSocket.SerialCommander-class.html#read,Method csp.sl20.SerialSocket.SerialCommander.read()=csp.sl20.SerialSocket.SerialCommander-class.html#read,Method csp.sl21.SerialSocket.SerialCommander.read()=csp.sl21.SerialSocket.SerialCommander-class.html#read"><a title="csp.sl10.SerialSocket.SerialCommander.read
+csp.sl12.SerialSocket.SerialCommander.read
+csp.sl20.SerialSocket.SerialCommander.read
+csp.sl21.SerialSocket.SerialCommander.read" class="py-name" href="#" onclick="return doclink('link-14', 'read', 'link-14');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:22 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

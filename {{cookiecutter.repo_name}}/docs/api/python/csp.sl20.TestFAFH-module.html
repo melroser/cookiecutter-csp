@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl20.TestFAFH</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl20-module.html">Package&nbsp;sl20</a> ::
+        Module&nbsp;TestFAFH
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module TestFAFH</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html">source&nbsp;code</a></span></p>
+<p>***************************************************************************
+  $File: //depot/csp/script/plugin/dev/branches/leet/TestFAFH.py $ 
+  SCRIPT_VERSION: $Revision: $    $DateTime: $</p>
+  <p>Plug-in to collect Field Adjustable Fly-Height (production data) 
+  ***************************************************************************</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#TestFAFH" class="summary-sig-name">TestFAFH</a>(<span class="summary-sig-arg">logToECHO</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Collects production FAFH data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#TestFAFH">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SaveLog"></a><span class="summary-sig-name">SaveLog</span>()</span><br />
+      Sends the level H&gt;l2 command to save the FAFH history log</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#SaveLog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetCurrentLogicalFrameInfo"></a><span class="summary-sig-name">GetCurrentLogicalFrameInfo</span>()</span><br />
+      Parses the FAFH frame header to determine what the current logical 
+      frame is.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetCurrentLogicalFrameInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFAFHFrame"></a><span class="summary-sig-name">GetFAFHFrame</span>(<span class="summary-sig-arg">FAFH_Interval</span>,
+        <span class="summary-sig-arg">FAFH_Frame</span>)</span><br />
+      Sends the level H&gt;l11 command to pull FAFH data from the specified
+      interval and frame.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHFrame">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFAFHFrameHeader"></a><span class="summary-sig-name">GetFAFHFrameHeader</span>()</span><br />
+      Sends the level H&gt;l12 command to get the FAFH frame header.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHFrameHeader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#EnableFAFH" class="summary-sig-name">EnableFAFH</a>()</span><br />
+      Enables FAFH data triggers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#EnableFAFH">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="EnableFAFHDebugMode"></a><span class="summary-sig-name">EnableFAFHDebugMode</span>()</span><br />
+      Enables FAFH debug mode, which reports additional data when FAFH 
+      triggers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#EnableFAFHDebugMode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DisableFAFHDebugMode"></a><span class="summary-sig-name">DisableFAFHDebugMode</span>()</span><br />
+      Disable FAFH debug mode</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#DisableFAFHDebugMode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DisableFAFH"></a><span class="summary-sig-name">DisableFAFH</span>()</span><br />
+      Disable FAFH triggers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#DisableFAFH">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DumpWorkingHeat"></a><span class="summary-sig-name">DumpWorkingHeat</span>()</span><br />
+      Dumps working heat</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#DumpWorkingHeat">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DumpChannelRegisters"></a><span class="summary-sig-name">DumpChannelRegisters</span>()</span><br />
+      Dumps channel registers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#DumpChannelRegisters">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#GetFrameTrigger" class="summary-sig-name">GetFrameTrigger</a>(<span class="summary-sig-arg">frameBuffer</span>)</span><br />
+      Parses the frame buffer for the frame trigger count</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFrameTrigger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#GetFAFHRevisions" class="summary-sig-name">GetFAFHRevisions</a>(<span class="summary-sig-arg">RevBuffer</span>)</span><br />
+      Parses for FAFH revision data</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHRevisions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#GetFAFHAttributes" class="summary-sig-name">GetFAFHAttributes</a>(<span class="summary-sig-arg">frameBuffer</span>)</span><br />
+      Parses the frame data for FAFH attributes</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHAttributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#GetLargestIterDataForDiameterHead" class="summary-sig-name">GetLargestIterDataForDiameterHead</a>(<span class="summary-sig-arg">sensorDataRes</span>,
+        <span class="summary-sig-arg">iterationDataRes</span>)</span><br />
+      Returns largest dictionary containing largest iteration data 
+for each Diameter and Head combination.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetLargestIterDataForDiameterHead">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#GetFAFHFrameTableData" class="summary-sig-name">GetFAFHFrameTableData</a>(<span class="summary-sig-arg">regEx</span>,
+        <span class="summary-sig-arg">bufferToFind</span>)</span><br />
+      Returns result from frameBuffer with supplied regular expression</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHFrameTableData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.TestFAFH-module.html#ParseFrame" class="summary-sig-name">ParseFrame</a>(<span class="summary-sig-arg">frameBuffer</span>,
+        <span class="summary-sig-arg">logToECHO</span>,
+        <span class="summary-sig-arg">enableVerboseCollection</span>)</span><br />
+      Parses the FAFH frame and sends data to the parametric database</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#ParseFrame">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="TestFAFH"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">TestFAFH</span>(<span class="sig-arg">logToECHO</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#TestFAFH">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Collects production FAFH data. Grabs data from the most recent FAFH log
+frame. If CollectVerboseFAFHData is set in test options, will grab data from
+all available log frames. 
+    
+Inputs:    
+    logToEcho: boolean:    Sends data to PAE_FAFH_STD/DEV if true (default yes)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableFAFH"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableFAFH</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#EnableFAFH">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables FAFH data triggers. Also ensures that FAFH debug serial port 
+  messages are Enabled/Disabled based on the CollectFAFHDebugData test 
+  option.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetFrameTrigger"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetFrameTrigger</span>(<span class="sig-arg">frameBuffer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFrameTrigger">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Parses the frame buffer for the frame trigger count
+
+Inputs:
+    frameBuffer: str, serial port output for the frame data
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetFAFHRevisions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetFAFHRevisions</span>(<span class="sig-arg">RevBuffer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHRevisions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Parses for FAFH revision data
+
+Inputs:
+    RevBuffer: str, the FAFH revision string to be parsed
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetFAFHAttributes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetFAFHAttributes</span>(<span class="sig-arg">frameBuffer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHAttributes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Parses the frame data for FAFH attributes
+
+Inputs:
+    frameBuffer: str, contains the FAFH frame data to be parsed
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetLargestIterDataForDiameterHead"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetLargestIterDataForDiameterHead</span>(<span class="sig-arg">sensorDataRes</span>,
+        <span class="sig-arg">iterationDataRes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetLargestIterDataForDiameterHead">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns largest dictionary containing largest iteration data 
+for each Diameter and Head combination.
+
+Inputs:
+    sensorDataRes: list of string;       Contains sensor data table string from ParseFrame()
+    iterationDataRes: list of string;    Contains iteration data table string from ParseFrame()
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetFAFHFrameTableData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetFAFHFrameTableData</span>(<span class="sig-arg">regEx</span>,
+        <span class="sig-arg">bufferToFind</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#GetFAFHFrameTableData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns result from frameBuffer with supplied regular expression
+
+Inputs:
+    regEx: string        Regular expression in string
+    buffer: string       Buffer to find matches from
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ParseFrame"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ParseFrame</span>(<span class="sig-arg">frameBuffer</span>,
+        <span class="sig-arg">logToECHO</span>,
+        <span class="sig-arg">enableVerboseCollection</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.TestFAFH-pysrc.html#ParseFrame">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Parses the FAFH frame and sends data to the parametric database
+
+Inputs:
+    frameBuffer: str, contains the frame buffer
+    logToECHO: bool, flag to set wheter data should be sent to parametric
+    enableVerboseCollection: bool, flags whether verbose collection test
+                             option was detected
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:48 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

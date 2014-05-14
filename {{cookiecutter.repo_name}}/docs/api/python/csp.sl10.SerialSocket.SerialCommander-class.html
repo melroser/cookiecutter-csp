@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl10.SerialSocket.SerialCommander</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl10-module.html">Package&nbsp;sl10</a> ::
+        <a href="csp.sl10.SerialSocket-module.html">Module&nbsp;SerialSocket</a> ::
+        Class&nbsp;SerialCommander
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SerialCommander</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_csp_sl10_6" name="uml_class_diagram_for_csp_sl10_6">
+<area shape="rect" id="node1_18" href="csp.sl10.SerialSocket.SerialCommander-class.html#MAX_BUFFER_SIZE" title="csp.sl10.SerialSocket.SerialCommander.MAX_BUFFER_SIZE" alt="" coords="17,33,701,55"/>
+<area shape="rect" id="node1_19" href="csp.sl10.SerialSocket.SerialCommander-class.html#MAX_BUFFER_SIZE_BINARY" title="csp.sl10.SerialSocket.SerialCommander.MAX_BUFFER_SIZE_BINARY" alt="" coords="17,55,701,76"/>
+<area shape="rect" id="node1_20" href="csp.sl10.SerialSocket.SerialCommander-class.html#sp_commander" title="csp.sl10.SerialSocket.SerialCommander.sp_commander" alt="" coords="17,76,701,97"/>
+<area shape="rect" id="node1_21" href="csp.sl10.SerialSocket.SerialCommander.FlushBufferThread-class.html" title="csp.sl10.SerialSocket.SerialCommander.FlushBufferThread" alt="" coords="17,97,701,119"/>
+<area shape="rect" id="node1_22" href="csp.sl10.SerialSocket.SerialCommander-class.html#__init__" title="x.__init__(...) initializes x; see help(type(x)) for signature" alt="" coords="17,121,701,143"/>
+<area shape="rect" id="node1_23" href="csp.sl10.SerialSocket.SerialCommander-class.html#getFilter" title="csp.sl10.SerialSocket.SerialCommander.getFilter" alt="" coords="17,143,701,164"/>
+<area shape="rect" id="node1_24" href="csp.sl10.SerialSocket.SerialCommander-class.html#setFilter" title="csp.sl10.SerialSocket.SerialCommander.setFilter" alt="" coords="17,164,701,185"/>
+<area shape="rect" id="node1_25" href="csp.sl10.SerialSocket.SerialCommander-class.html#log" title="csp.sl10.SerialSocket.SerialCommander.log" alt="" coords="17,185,701,207"/>
+<area shape="rect" id="node1_26" href="csp.sl10.SerialSocket.SerialCommander-class.html#setBaudRate" title="csp.sl10.SerialSocket.SerialCommander.setBaudRate" alt="" coords="17,207,701,228"/>
+<area shape="rect" id="node1_27" href="csp.sl10.SerialSocket.SerialCommander-class.html#getBaudRate" title="csp.sl10.SerialSocket.SerialCommander.getBaudRate" alt="" coords="17,228,701,249"/>
+<area shape="rect" id="node1_28" href="csp.sl10.SerialSocket.SerialCommander-class.html#connect" title="csp.sl10.SerialSocket.SerialCommander.connect" alt="" coords="17,249,701,271"/>
+<area shape="rect" id="node1_29" href="csp.sl10.SerialSocket.SerialCommander-class.html#close" title="csp.sl10.SerialSocket.SerialCommander.close" alt="" coords="17,271,701,292"/>
+<area shape="rect" id="node1_30" href="csp.sl10.SerialSocket.SerialCommander-class.html#send" title="csp.sl10.SerialSocket.SerialCommander.send" alt="" coords="17,292,701,313"/>
+<area shape="rect" id="node1_31" href="csp.sl10.SerialSocket.SerialCommander-class.html#read" title="csp.sl10.SerialSocket.SerialCommander.read" alt="" coords="17,313,701,335"/>
+<area shape="rect" id="node1_32" href="csp.sl10.SerialSocket.SerialCommander-class.html#ConfigureSerialCommander" title="csp.sl10.SerialSocket.SerialCommander.ConfigureSerialCommander" alt="" coords="17,335,701,356"/>
+<area shape="rect" id="node1_33" href="csp.sl10.SerialSocket.SerialCommander-class.html#CloseSerialCommander" title="csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander" alt="" coords="17,356,701,377"/>
+<area shape="rect" id="node1_34" href="csp.sl10.SerialSocket.SerialCommander-class.html#SendSerialCmd" title="csp.sl10.SerialSocket.SerialCommander.SendSerialCmd" alt="" coords="17,377,701,399"/>
+<area shape="rect" id="node1_35" href="csp.sl10.SerialSocket.SerialCommander-class.html#SendSerialCmdBinary" title="csp.sl10.SerialSocket.SerialCommander.SendSerialCmdBinary" alt="" coords="17,399,701,420"/>
+<area shape="rect" id="node1" href="csp.sl10.SerialSocket.SerialCommander-class.html" title="csp.sl10.SerialSocket.SerialCommander" alt="" coords="5,6,713,426"/>
+</map>
+  <img src="uml_class_diagram_for_csp_sl10_6.gif" alt='' usemap="#uml_class_diagram_for_csp_sl10_6" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="csp.sl10.SerialSocket.SerialCommander.FlushBufferThread-class.html" class="summary-name">FlushBufferThread</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl10.SerialSocket.SerialCommander-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">server</span>,
+        <span class="summary-sig-arg">port</span>,
+        <span class="summary-sig-arg">baud_rate</span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getFilter"></a><span class="summary-sig-name">getFilter</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.getFilter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setFilter"></a><span class="summary-sig-name">setFilter</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">serial_cmd_filter</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.setFilter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="log"></a><span class="summary-sig-name">log</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">buf</span>,
+        <span class="summary-sig-arg">tag</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setBaudRate"></a><span class="summary-sig-name">setBaudRate</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">baud_rate</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.setBaudRate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getBaudRate"></a><span class="summary-sig-name">getBaudRate</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.getBaudRate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="connect"></a><span class="summary-sig-name">connect</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.connect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="close"></a><span class="summary-sig-name">close</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.close">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="send"></a><span class="summary-sig-name">send</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cmd</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.send">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="read"></a><span class="summary-sig-name">read</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">recv_size</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.read">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ConfigureSerialCommander"></a><span class="summary-sig-name">ConfigureSerialCommander</span>(<span class="summary-sig-arg">baud_rate</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.ConfigureSerialCommander">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CloseSerialCommander"></a><span class="summary-sig-name">CloseSerialCommander</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.CloseSerialCommander">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SendSerialCmd"></a><span class="summary-sig-name">SendSerialCmd</span>(<span class="summary-sig-arg">cmd</span>,
+        <span class="summary-sig-arg">timeout</span>,
+        <span class="summary-sig-arg">endBuffer</span>,
+        <span class="summary-sig-arg">enable_failure_condition</span>=<span class="summary-sig-default">FailConditions.NO_FAIL</span>,
+        <span class="summary-sig-arg">checked_response</span>=<span class="summary-sig-default">''</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.SendSerialCmd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SendSerialCmdBinary"></a><span class="summary-sig-name">SendSerialCmdBinary</span>(<span class="summary-sig-arg">cmd</span>,
+        <span class="summary-sig-arg">timeout</span>,
+        <span class="summary-sig-arg">enable_failure_condition</span>=<span class="summary-sig-default">FailConditions.NO_FAIL</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.SendSerialCmdBinary">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MAX_BUFFER_SIZE"></a><span class="summary-name">MAX_BUFFER_SIZE</span> = <code title="1000000">1000000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MAX_BUFFER_SIZE_BINARY"></a><span class="summary-name">MAX_BUFFER_SIZE_BINARY</span> = <code title="2000000">2000000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="sp_commander"></a><span class="summary-name">sp_commander</span> = <code title="None">None</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">server</span>,
+        <span class="sig-arg">port</span>,
+        <span class="sig-arg">baud_rate</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl10.SerialSocket-pysrc.html#SerialCommander.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:52 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

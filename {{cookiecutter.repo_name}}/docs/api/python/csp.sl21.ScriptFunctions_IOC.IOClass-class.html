@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.ScriptFunctions_IOC.IOClass</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        <a href="csp.sl21.ScriptFunctions_IOC-module.html">Module&nbsp;ScriptFunctions_IOC</a> ::
+        Class&nbsp;IOClass
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class IOClass</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass">source&nbsp;code</a></span></p>
+<p>Class for access mode</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">access_Mode</span>,
+        <span class="summary-sig-arg">start_LBA</span>,
+        <span class="summary-sig-arg">end_LBA</span>,
+        <span class="summary-sig-arg">transfer_Length</span>,
+        <span class="summary-sig-arg">read_Percent</span>,
+        <span class="summary-sig-arg">fua_Percent</span>,
+        <span class="summary-sig-arg">skip_LBA</span>,
+        <span class="summary-sig-arg">verify_Mode</span>,
+        <span class="summary-sig-arg">native_4K_divisor</span>=<span class="summary-sig-default">8</span>)</span><br />
+      constructor
+access_Mode: int
+                     = 1 SEQUENTIAL sequential access mode
+                     = 2 SEQUENTIAL_REV
+                     = 3 RANDOM
+                     = 4 BUTTERFLY_IN
+                     = 5 BUTTERFLY_OUT
+                     = 6 TRACK_MAP
+start_LBA, end_LBA, transfer_Length: int, &gt;= 0
+read_Percent, fua_Percent: int, 0 ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="checkPositiveInteger"></a><span class="summary-sig-name">checkPositiveInteger</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">number</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.checkPositiveInteger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#runIO" class="summary-sig-name">runIO</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">performanceOn</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">queue_Depth</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">queue_Mode</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Method to run IOClass object...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.runIO">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setRunPasses"></a><span class="summary-sig-name">setRunPasses</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pass_number</span>)</span><br />
+      set up run pass operation number</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRunPasses">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setRunOps"></a><span class="summary-sig-name">setRunOps</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">op_number</span>)</span><br />
+      set up run op operation number</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRunOps">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setRunTime" class="summary-sig-name">setRunTime</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">run_Time</span>)</span><br />
+      set up run time.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRunTime">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setFixedDelayTimeMS" class="summary-sig-name">setFixedDelayTimeMS</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">delay_time</span>)</span><br />
+      Set fixed delay time.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setFixedDelayTimeMS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setRandomDelayTimeMS" class="summary-sig-name">setRandomDelayTimeMS</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">minDelay</span>,
+        <span class="summary-sig-arg">maxDelay</span>)</span><br />
+      set up random delay type and the min, max delay time.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomDelayTimeMS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setRandomFixedDelayTimeMS" class="summary-sig-name">setRandomFixedDelayTimeMS</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">delay_time</span>,
+        <span class="summary-sig-arg">delay_percent</span>)</span><br />
+      set up a fixed delay that occurs randomly a specified percent of the 
+      time Time is in millisecond delay_percent: int, 0 ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomFixedDelayTimeMS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setRandomXfrLength"></a><span class="summary-sig-name">setRandomXfrLength</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">xfrLow</span>,
+        <span class="summary-sig-arg">xfrHigh</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomXfrLength">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setRandomXfrList"></a><span class="summary-sig-name">setRandomXfrList</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">xfrList</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomXfrList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setCommandMode"></a><span class="summary-sig-name">setCommandMode</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command_mode</span>,
+        <span class="summary-sig-arg">cmd_list</span>=<span class="summary-sig-default">[]</span>)</span><br />
+      set up command mode command_mode: integer: 0 = RW Percent, 1 = 
+      Command List, 2 = Command List Repeating cmd_list: integer array: 
+      list of command directions, 0 = Read, 1 = Write (ex: [1,0,0] is 
+      [Write, Read, Read])</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setCommandMode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setTrackMap"></a><span class="summary-sig-name">setTrackMap</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">track_map</span>)</span><br />
+      set up track map operation track_map: List</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setTrackMap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setCustomWriteReadCmd"></a><span class="summary-sig-name">setCustomWriteReadCmd</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">read_CmdOp</span>,
+        <span class="summary-sig-arg">read_CmdLength</span>,
+        <span class="summary-sig-arg">write_CmdOp</span>,
+        <span class="summary-sig-arg">write_CmdLength</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setCustomWriteReadCmd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setNumberLBAs"></a><span class="summary-sig-name">setNumberLBAs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">num_lba</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setNumberLBAs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setRandomTypeAndSeed" class="summary-sig-name">setRandomTypeAndSeed</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">random_type</span>,
+        <span class="summary-sig-arg">random_seed</span>)</span><br />
+      random_type can have the following values...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomTypeAndSeed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setSeekIncrement"></a><span class="summary-sig-name">setSeekIncrement</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">seek_inc</span>)</span><br />
+      seek_inc is &gt; 0 and &lt;=0xFF</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setSeekIncrement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="disableLBAMisalignment"></a><span class="summary-sig-name">disableLBAMisalignment</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Disable forcing LBA alignment/misalignment</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.disableLBAMisalignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#enableLBAMisalignment" class="summary-sig-name">enableLBAMisalignment</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">misalignmentPercent</span>)</span><br />
+      Force LBA alignment/misalignment misalignmentPercent is 0 ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.enableLBAMisalignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl21.ScriptFunctions_IOC.IOClass-class.html#setVerifyMode" class="summary-sig-name">setVerifyMode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verify_mode</span>)</span><br />
+      Set verify mode verify_mode is 0 ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setVerifyMode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">access_Mode</span>,
+        <span class="sig-arg">start_LBA</span>,
+        <span class="sig-arg">end_LBA</span>,
+        <span class="sig-arg">transfer_Length</span>,
+        <span class="sig-arg">read_Percent</span>,
+        <span class="sig-arg">fua_Percent</span>,
+        <span class="sig-arg">skip_LBA</span>,
+        <span class="sig-arg">verify_Mode</span>,
+        <span class="sig-arg">native_4K_divisor</span>=<span class="sig-default">8</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+constructor
+access_Mode: int
+                     = 1 SEQUENTIAL sequential access mode
+                     = 2 SEQUENTIAL_REV
+                     = 3 RANDOM
+                     = 4 BUTTERFLY_IN
+                     = 5 BUTTERFLY_OUT
+                     = 6 TRACK_MAP
+start_LBA, end_LBA, transfer_Length: int, &gt;= 0
+read_Percent, fua_Percent: int, 0 ... 100
+skip_LBA: number of block to skip, int, &gt;= 0
+verify_Mode: int 0 ... 2; none (0), read follows write (1), or write verify cmd (2)
+native_4K_divisor: int. &gt;0, This is used to divide xfr length to get the xfr length for 4K sector drives. Default is set to 8.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="runIO"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">runIO</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">performanceOn</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">queue_Depth</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">queue_Mode</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.runIO">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Method to run IOClass object
+performanceOn: boolean - True, or False
+queue_Mode: int 
+                    = 0 none queue
+                    = 20 simple queue
+                    = 21 ordered queue
+queue_Depth: int
+                    = 0 - 128
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setRunTime"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setRunTime</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">run_Time</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRunTime">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>set up run time. Time is in second</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setFixedDelayTimeMS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setFixedDelayTimeMS</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">delay_time</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setFixedDelayTimeMS">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set fixed delay time.  Time is in millisecond</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setRandomDelayTimeMS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setRandomDelayTimeMS</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">minDelay</span>,
+        <span class="sig-arg">maxDelay</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomDelayTimeMS">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>set up random delay type and the min, max delay time. Time is in 
+  millisecond</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setRandomFixedDelayTimeMS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setRandomFixedDelayTimeMS</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">delay_time</span>,
+        <span class="sig-arg">delay_percent</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomFixedDelayTimeMS">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>set up a fixed delay that occurs randomly a specified percent of the 
+  time Time is in millisecond delay_percent: int, 0 ... 100</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setRandomTypeAndSeed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setRandomTypeAndSeed</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">random_type</span>,
+        <span class="sig-arg">random_seed</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setRandomTypeAndSeed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+random_type can have the following values
+    'Xfr' - transfer length
+    'FUA'
+    'RvW'  - read over write
+    'Delay' - time delay
+    'Misalignment' - LBA misalignment
+random_seed: long
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="enableLBAMisalignment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">enableLBAMisalignment</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">misalignmentPercent</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.enableLBAMisalignment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Force LBA alignment/misalignment misalignmentPercent is 0 ... 100 
+  percent</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setVerifyMode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setVerifyMode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">verify_mode</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl21.ScriptFunctions_IOC-pysrc.html#IOClass.setVerifyMode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set verify mode verify_mode is 0 ... 2; 0=None, 1=read follows write, 
+  2= write verify cmd (SCSI only)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:55 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

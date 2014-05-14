@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl20.ErrorHandler</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl20-module.html">Package&nbsp;sl20</a> ::
+        Module&nbsp;ErrorHandler
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module ErrorHandler</h1><p class="nomargin-top"><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+***************************************************************************
+$File: //depot/csp/script/plugin/dev/branches/leet/ErrorHandler.py $
+SCRIPT_VERSION: $Revision: $    $DateTime: $
+Collection of plug-in functions that handle errors, get failure data,
+    parse and report SCSI sense codes.
+***************************************************************************
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="csp.sl20.ErrorHandler.ScriptException-class.html" class="summary-name">ScriptException</a><br />
+      Used to handle test / drive errors gracefully.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#RaiseException" class="summary-sig-name">RaiseException</a>(<span class="summary-sig-arg">label</span>,
+        <span class="summary-sig-arg">ec</span>)</span><br />
+      Raise a CSP script exception, indicating a CSP or drive failure, 
+      rather than a Python or main_cell failure.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#RaiseException">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#ScriptErrorHandler" class="summary-sig-name">ScriptErrorHandler</a>(<span class="summary-sig-arg">label</span>,
+        <span class="summary-sig-arg">ec</span>,
+        <span class="summary-sig-arg">clear_Gemini_SN</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Perform error handling sequence to gather drive data after a test failure.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ScriptErrorHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#ForceTestFail" class="summary-sig-name">ForceTestFail</a>(<span class="summary-sig-arg">label</span>,
+        <span class="summary-sig-arg">ec</span>)</span><br />
+      Alternate name for RaiseException.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ForceTestFail">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#ReportSense" class="summary-sig-name">ReportSense</a>(<span class="summary-sig-arg">error_code</span>,
+        <span class="summary-sig-arg">senseBuf_string</span>,
+        <span class="summary-sig-arg">CDB_issued</span>)</span><br />
+      Decode and report sense data to REL_ERROR table, as well as keeping 
+      track of RunSummary counters.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ReportSense">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ClearLastSenseData"></a><span class="summary-sig-name">ClearLastSenseData</span>()</span><br />
+      Resets all df.Sense_Data variables populated by last DecodeSense()</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ClearLastSenseData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#GetLastSense" class="summary-sig-name">GetLastSense</a>()</span><br />
+      Get last sense data in cases where failing or passing by specific 
+      sense codes is required.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#GetLastSense">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DecodeSense"></a><span class="summary-sig-name">DecodeSense</span>(<span class="summary-sig-arg">senseBuf</span>)</span><br />
+      Decode sense data given in string senseBuf: list of integers: Full 
+      sense data, each byte as an element of list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#DecodeSense">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="csp.sl20.ErrorHandler-module.html#CreatePFLFile" class="summary-sig-name">CreatePFLFile</a>(<span class="summary-sig-arg">ec</span>)</span><br />
+      Create PFL file using fail data ec: integer: Error code</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#CreatePFLFile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="StoreFailingSenseInfo"></a><span class="summary-sig-name">StoreFailingSenseInfo</span>()</span><br />
+      Saves failing sense data in a separate location from regular bunch 
+      variables used to store sense data to avoid overwriting critical 
+      sense data in case of multiple sense returned on failure.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#StoreFailingSenseInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ContinueOnError"></a><span class="summary-sig-name">ContinueOnError</span>(<span class="summary-sig-arg">func</span>,
+        <span class="summary-sig-arg">*args</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ContinueOnError">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetFailureDataF3"></a><span class="summary-sig-name">GetFailureDataF3</span>(<span class="summary-sig-arg">error_code</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#GetFailureDataF3">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Hard_Error_Serial_Cmds"></a><span class="summary-sig-name">Hard_Error_Serial_Cmds</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#Hard_Error_Serial_Cmds">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Check_Enable_SP"></a><span class="summary-sig-name">Check_Enable_SP</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#Check_Enable_SP">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Serial_Offline_Cmds"></a><span class="summary-sig-name">Serial_Offline_Cmds</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#Serial_Offline_Cmds">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Serial_Online_Cmds"></a><span class="summary-sig-name">Serial_Online_Cmds</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#Serial_Online_Cmds">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OTC_Plot"></a><span class="summary-sig-name">OTC_Plot</span>(<span class="summary-sig-arg">Fail_Cyl</span>,
+        <span class="summary-sig-arg">Phy_Hd</span>,
+        <span class="summary-sig-arg">Fail_Sector</span>,
+        <span class="summary-sig-arg">Pre_Cyl</span>,
+        <span class="summary-sig-arg">Post_Cyl</span>,
+        <span class="summary-sig-arg">Max_Tk_Sector</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#OTC_Plot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="LBAtoCHS"></a><span class="summary-sig-name">LBAtoCHS</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#LBAtoCHS">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Start"></a><span class="summary-name">Start</span> = <code title="'User'">'User'</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="RaiseException"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RaiseException</span>(<span class="sig-arg">label</span>,
+        <span class="sig-arg">ec</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#RaiseException">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Raise a CSP script exception, indicating a CSP or drive failure, 
+  rather than a Python or main_cell failure.</p>
+  <p>label: String describing the failure. ec: integer: Error code to 
+  raise.  EC_BASE will be added to the error code</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ScriptErrorHandler"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ScriptErrorHandler</span>(<span class="sig-arg">label</span>,
+        <span class="sig-arg">ec</span>,
+        <span class="sig-arg">clear_Gemini_SN</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ScriptErrorHandler">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Perform error handling sequence to gather drive data after a test failure.
+Will power cycle the drive.
+
+label: string describing the error that occurred.
+ec: the error code of the failure
+clear_Gemini_SN: boolean: optional: whether to clear a Gemini's host 
+    database of the current drive's serial number.  Used to prevent cell
+    errors from reporting an error for the previous drive when there is 
+    no robotic gantry to update the host database before the test.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ForceTestFail"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ForceTestFail</span>(<span class="sig-arg">label</span>,
+        <span class="sig-arg">ec</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ForceTestFail">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Alternate name for RaiseException.  Should be deprecated.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReportSense"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReportSense</span>(<span class="sig-arg">error_code</span>,
+        <span class="sig-arg">senseBuf_string</span>,
+        <span class="sig-arg">CDB_issued</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#ReportSense">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Decode and report sense data to REL_ERROR table, as well as keeping 
+  track of RunSummary counters. Called by main cell as pyCallBack. 
+  error_code: integer:     Returned error code generated by maincell 
+  senseBuf_string: string: Returned sense buffer in hex string CDB_issued: 
+  string:      Last CDB issued to the drive</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetLastSense"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetLastSense</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#GetLastSense">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get last sense data in cases where failing or passing by specific 
+  sense codes is required. Return a tuple of key, code, qualifier, and 
+  field replaceable unit (FRU) as integers.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CreatePFLFile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CreatePFLFile</span>(<span class="sig-arg">ec</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="csp.sl20.ErrorHandler-pysrc.html#CreatePFLFile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create PFL file using fail data ec: integer: Error code</p>
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@misc.restorePluginParameters</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:46:48 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

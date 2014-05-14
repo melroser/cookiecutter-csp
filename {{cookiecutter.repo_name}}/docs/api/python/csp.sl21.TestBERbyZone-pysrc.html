@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl21.TestBERbyZone</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl21-module.html">Package&nbsp;sl21</a> ::
+        Module&nbsp;TestBERbyZone
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl21.TestBERbyZone-module.html">Module csp.sl21.TestBERbyZone</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""****************************************************************************</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">$File: //depot/csp/script/plugin/rel/CSP_Plugin/TestBERbyZone.py $</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">SCRIPT_VERSION: $Revision: #9 $    $DateTime: 2013/12/20 15:10:16 $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">****************************************************************************"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.DataDefines=csp.sl10.DataDefines-module.html,Module csp.sl12.DataDefines=csp.sl12.DataDefines-module.html,Module csp.sl20.DataDefines=csp.sl20.DataDefines-module.html,Module csp.sl21.DataDefines=csp.sl21.DataDefines-module.html"><a title="csp.sl10.DataDefines
+csp.sl12.DataDefines
+csp.sl20.DataDefines
+csp.sl21.DataDefines" class="py-name" href="#" onclick="return doclink('link-0', 'DataDefines', 'link-0');">DataDefines</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">df</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module csp.sl10.ErrorHandler=csp.sl10.ErrorHandler-module.html,Module csp.sl12.ErrorHandler=csp.sl12.ErrorHandler-module.html,Module csp.sl20.ErrorHandler=csp.sl20.ErrorHandler-module.html,Module csp.sl21.ErrorHandler=csp.sl21.ErrorHandler-module.html"><a title="csp.sl10.ErrorHandler
+csp.sl12.ErrorHandler
+csp.sl20.ErrorHandler
+csp.sl21.ErrorHandler" class="py-name" href="#" onclick="return doclink('link-1', 'ErrorHandler', 'link-1');">ErrorHandler</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">err</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module csp.sl10.ScriptFunctions=csp.sl10.ScriptFunctions-module.html,Module csp.sl12.ScriptFunctions=csp.sl12.ScriptFunctions-module.html,Module csp.sl20.ScriptFunctions=csp.sl20.ScriptFunctions-module.html,Module csp.sl21.ScriptFunctions=csp.sl21.ScriptFunctions-module.html"><a title="csp.sl10.ScriptFunctions
+csp.sl12.ScriptFunctions
+csp.sl20.ScriptFunctions
+csp.sl21.ScriptFunctions" class="py-name" href="#" onclick="return doclink('link-2', 'ScriptFunctions', 'link-2');">ScriptFunctions</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">sf</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module csp.sl10.ScriptFunctions_DT=csp.sl10.ScriptFunctions_DT-module.html,Module csp.sl12.ScriptFunctions_DT=csp.sl12.ScriptFunctions_DT-module.html,Module csp.sl20.ScriptFunctions_DT=csp.sl20.ScriptFunctions_DT-module.html,Module csp.sl21.ScriptFunctions_DT=csp.sl21.ScriptFunctions_DT-module.html"><a title="csp.sl10.ScriptFunctions_DT
+csp.sl12.ScriptFunctions_DT
+csp.sl20.ScriptFunctions_DT
+csp.sl21.ScriptFunctions_DT" class="py-name" href="#" onclick="return doclink('link-3', 'ScriptFunctions_DT', 'link-3');">ScriptFunctions_DT</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">dt</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module csp.sl10.ScriptFunctions_Misc=csp.sl10.ScriptFunctions_Misc-module.html,Module csp.sl12.ScriptFunctions_Misc=csp.sl12.ScriptFunctions_Misc-module.html,Module csp.sl20.ScriptFunctions_Misc=csp.sl20.ScriptFunctions_Misc-module.html,Module csp.sl21.ScriptFunctions_Misc=csp.sl21.ScriptFunctions_Misc-module.html"><a title="csp.sl10.ScriptFunctions_Misc
+csp.sl12.ScriptFunctions_Misc
+csp.sl20.ScriptFunctions_Misc
+csp.sl21.ScriptFunctions_Misc" class="py-name" href="#" onclick="return doclink('link-4', 'ScriptFunctions_Misc', 'link-4');">ScriptFunctions_Misc</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">misc</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module csp.sl10.TestScanDrive=csp.sl10.TestScanDrive-module.html,Function csp.sl10.TestScanDrive.TestScanDrive()=csp.sl10.TestScanDrive-module.html#TestScanDrive,Module csp.sl12.TestScanDrive=csp.sl12.TestScanDrive-module.html,Function csp.sl12.TestScanDrive.TestScanDrive()=csp.sl12.TestScanDrive-module.html#TestScanDrive,Module csp.sl20.TestScanDrive=csp.sl20.TestScanDrive-module.html,Function csp.sl20.TestScanDrive.TestScanDrive()=csp.sl20.TestScanDrive-module.html#TestScanDrive,Module csp.sl21.TestScanDrive=csp.sl21.TestScanDrive-module.html,Function csp.sl21.TestScanDrive.TestScanDrive()=csp.sl21.TestScanDrive-module.html#TestScanDrive"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-5', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">ts</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable csp.sl10.TestBERbyZone.INVALID_DIAG_CMD=csp.sl10.TestBERbyZone-module.html#INVALID_DIAG_CMD,Variable csp.sl10.TestBiasCal.INVALID_DIAG_CMD=csp.sl10.TestBiasCal-module.html#INVALID_DIAG_CMD,Variable csp.sl12.TestBERbyZone.INVALID_DIAG_CMD=csp.sl12.TestBERbyZone-module.html#INVALID_DIAG_CMD,Variable csp.sl12.TestBiasCal.INVALID_DIAG_CMD=csp.sl12.TestBiasCal-module.html#INVALID_DIAG_CMD,Variable csp.sl20.TestBERbyZone.INVALID_DIAG_CMD=csp.sl20.TestBERbyZone-module.html#INVALID_DIAG_CMD,Variable csp.sl20.TestBiasCal.INVALID_DIAG_CMD=csp.sl20.TestBiasCal-module.html#INVALID_DIAG_CMD,Variable csp.sl21.TestBERbyZone.INVALID_DIAG_CMD=csp.sl21.TestBERbyZone-module.html#INVALID_DIAG_CMD,Variable csp.sl21.TestBiasCal.INVALID_DIAG_CMD=csp.sl21.TestBiasCal-module.html#INVALID_DIAG_CMD"><a title="csp.sl10.TestBERbyZone.INVALID_DIAG_CMD
+csp.sl10.TestBiasCal.INVALID_DIAG_CMD
+csp.sl12.TestBERbyZone.INVALID_DIAG_CMD
+csp.sl12.TestBiasCal.INVALID_DIAG_CMD
+csp.sl20.TestBERbyZone.INVALID_DIAG_CMD
+csp.sl20.TestBiasCal.INVALID_DIAG_CMD
+csp.sl21.TestBERbyZone.INVALID_DIAG_CMD
+csp.sl21.TestBiasCal.INVALID_DIAG_CMD" class="py-name" href="#" onclick="return doclink('link-6', 'INVALID_DIAG_CMD', 'link-6');">INVALID_DIAG_CMD</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'Invalid Diag Cmd'</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">misc</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Function csp.sl10.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl10.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl12.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl12.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl20.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl20.ScriptFunctions_Misc-module.html#restoreSubtestParameters,Function csp.sl21.ScriptFunctions_Misc.restoreSubtestParameters()=csp.sl21.ScriptFunctions_Misc-module.html#restoreSubtestParameters"><a title="csp.sl10.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl12.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl20.ScriptFunctions_Misc.restoreSubtestParameters
+csp.sl21.ScriptFunctions_Misc.restoreSubtestParameters" class="py-name" href="#" onclick="return doclink('link-7', 'restoreSubtestParameters', 'link-7');">restoreSubtestParameters</a></tt> </tt>
+<a name="GetBERbyZone"></a><div id="GetBERbyZone-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="GetBERbyZone-toggle" onclick="return toggle('GetBERbyZone');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl21.TestBERbyZone-module.html#GetBERbyZone">GetBERbyZone</a><tt class="py-op">(</tt><tt class="py-param">logToECHO</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="GetBERbyZone-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="GetBERbyZone-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">     </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function csp.sl10.ScriptFunctions.WriteToResultsFile()=csp.sl10.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl10.maincell_api.WriteToResultsFile=csp.sl10.maincell_api-module.html#WriteToResultsFile,Function csp.sl12.ScriptFunctions.WriteToResultsFile()=csp.sl12.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl12.maincell_api.WriteToResultsFile=csp.sl12.maincell_api-module.html#WriteToResultsFile,Function csp.sl20.ScriptFunctions.WriteToResultsFile()=csp.sl20.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl20.maincell_api.WriteToResultsFile=csp.sl20.maincell_api-module.html#WriteToResultsFile,Function csp.sl21.ScriptFunctions.WriteToResultsFile()=csp.sl21.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl21.maincell_api.WriteToResultsFile=csp.sl21.maincell_api-module.html#WriteToResultsFile"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-8', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"CHAIN::BERbyZone"</tt><tt class="py-op">,</tt><tt class="py-string">"chn"</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetFunctionName()=csp.sl10.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl10.maincell_api.SetFunctionName=csp.sl10.maincell_api-module.html#SetFunctionName,Function csp.sl12.ScriptFunctions.SetFunctionName()=csp.sl12.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl12.maincell_api.SetFunctionName=csp.sl12.maincell_api-module.html#SetFunctionName,Function csp.sl20.ScriptFunctions.SetFunctionName()=csp.sl20.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl20.maincell_api.SetFunctionName=csp.sl20.maincell_api-module.html#SetFunctionName,Function csp.sl21.ScriptFunctions.SetFunctionName()=csp.sl21.ScriptFunctions-module.html#SetFunctionName,Variable csp.sl21.maincell_api.SetFunctionName=csp.sl21.maincell_api-module.html#SetFunctionName"><a title="csp.sl10.ScriptFunctions.SetFunctionName
+csp.sl10.maincell_api.SetFunctionName
+csp.sl12.ScriptFunctions.SetFunctionName
+csp.sl12.maincell_api.SetFunctionName
+csp.sl20.ScriptFunctions.SetFunctionName
+csp.sl20.maincell_api.SetFunctionName
+csp.sl21.ScriptFunctions.SetFunctionName
+csp.sl21.maincell_api.SetFunctionName" class="py-name" href="#" onclick="return doclink('link-9', 'SetFunctionName', 'link-9');">SetFunctionName</a></tt><tt class="py-op">(</tt><tt class="py-string">"GetBERbyZone"</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-name">TestOptions</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetTestOptions()=csp.sl10.ScriptFunctions-module.html#GetTestOptions,Function csp.sl12.ScriptFunctions.GetTestOptions()=csp.sl12.ScriptFunctions-module.html#GetTestOptions,Function csp.sl20.ScriptFunctions.GetTestOptions()=csp.sl20.ScriptFunctions-module.html#GetTestOptions,Function csp.sl21.ScriptFunctions.GetTestOptions()=csp.sl21.ScriptFunctions-module.html#GetTestOptions"><a title="csp.sl10.ScriptFunctions.GetTestOptions
+csp.sl12.ScriptFunctions.GetTestOptions
+csp.sl20.ScriptFunctions.GetTestOptions
+csp.sl21.ScriptFunctions.GetTestOptions" class="py-name" href="#" onclick="return doclink('link-10', 'GetTestOptions', 'link-10');">GetTestOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">TestOptions</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'NoSerialPort'</tt><tt class="py-op">,</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-11', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"No Serial Port Test Option Selected - doing nothing in GetBERbyZone()"</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">     </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-comment"># Check EPC &amp; APM, disable if enabled:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Function csp.sl10.ScriptFunctions.PowerMgtInterrupt()=csp.sl10.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl12.ScriptFunctions.PowerMgtInterrupt()=csp.sl12.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl20.ScriptFunctions.PowerMgtInterrupt()=csp.sl20.ScriptFunctions-module.html#PowerMgtInterrupt,Function csp.sl21.ScriptFunctions.PowerMgtInterrupt()=csp.sl21.ScriptFunctions-module.html#PowerMgtInterrupt"><a title="csp.sl10.ScriptFunctions.PowerMgtInterrupt
+csp.sl12.ScriptFunctions.PowerMgtInterrupt
+csp.sl20.ScriptFunctions.PowerMgtInterrupt
+csp.sl21.ScriptFunctions.PowerMgtInterrupt" class="py-name" href="#" onclick="return doclink('link-12', 'PowerMgtInterrupt', 'link-12');">PowerMgtInterrupt</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">         </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-name">isF3Drive</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetDriveType()=csp.sl10.ScriptFunctions-module.html#GetDriveType,Variable csp.sl10.maincell_api.GetDriveType=csp.sl10.maincell_api-module.html#GetDriveType,Function csp.sl12.ScriptFunctions.GetDriveType()=csp.sl12.ScriptFunctions-module.html#GetDriveType,Variable csp.sl12.maincell_api.GetDriveType=csp.sl12.maincell_api-module.html#GetDriveType,Function csp.sl20.ScriptFunctions.GetDriveType()=csp.sl20.ScriptFunctions-module.html#GetDriveType,Variable csp.sl20.maincell_api.GetDriveType=csp.sl20.maincell_api-module.html#GetDriveType,Function csp.sl21.ScriptFunctions.GetDriveType()=csp.sl21.ScriptFunctions-module.html#GetDriveType,Variable csp.sl21.maincell_api.GetDriveType=csp.sl21.maincell_api-module.html#GetDriveType"><a title="csp.sl10.ScriptFunctions.GetDriveType
+csp.sl10.maincell_api.GetDriveType
+csp.sl12.ScriptFunctions.GetDriveType
+csp.sl12.maincell_api.GetDriveType
+csp.sl20.ScriptFunctions.GetDriveType
+csp.sl20.maincell_api.GetDriveType
+csp.sl21.ScriptFunctions.GetDriveType
+csp.sl21.maincell_api.GetDriveType" class="py-name" href="#" onclick="return doclink('link-13', 'GetDriveType', 'link-13');">GetDriveType</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable csp.sl10.DataDefines.F3_TYPE=csp.sl10.DataDefines-module.html#F3_TYPE,Variable csp.sl12.DataDefines.F3_TYPE=csp.sl12.DataDefines-module.html#F3_TYPE,Variable csp.sl20.DataDefines.F3_TYPE=csp.sl20.DataDefines-module.html#F3_TYPE,Variable csp.sl21.DataDefines.F3_TYPE=csp.sl21.DataDefines-module.html#F3_TYPE"><a title="csp.sl10.DataDefines.F3_TYPE
+csp.sl12.DataDefines.F3_TYPE
+csp.sl20.DataDefines.F3_TYPE
+csp.sl21.DataDefines.F3_TYPE" class="py-name" href="#" onclick="return doclink('link-14', 'F3_TYPE', 'link-14');">F3_TYPE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">_</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Function csp.sl10.ScriptFunctions.SendSerialCmd()=csp.sl10.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl10.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl10.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl12.ScriptFunctions.SendSerialCmd()=csp.sl12.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl12.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl12.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl20.ScriptFunctions.SendSerialCmd()=csp.sl20.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl20.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl20.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl21.ScriptFunctions.SendSerialCmd()=csp.sl21.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl21.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl21.SerialSocket.SerialCommander-class.html#SendSerialCmd"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-15', 'SendSerialCmd', 'link-15');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-string">"."</tt><tt class="py-op">,</tt><tt class="py-number">5</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> <tt class="py-comment"># Ensure SP is active</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-name">n</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">_</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-16', 'SendSerialCmd', 'link-15');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable csp.sl10.DataDefines.CTRL_R=csp.sl10.DataDefines-module.html#CTRL_R,Variable csp.sl12.DataDefines.CTRL_R=csp.sl12.DataDefines-module.html#CTRL_R,Variable csp.sl20.DataDefines.CTRL_R=csp.sl20.DataDefines-module.html#CTRL_R,Variable csp.sl21.DataDefines.CTRL_R=csp.sl21.DataDefines-module.html#CTRL_R"><a title="csp.sl10.DataDefines.CTRL_R
+csp.sl12.DataDefines.CTRL_R
+csp.sl20.DataDefines.CTRL_R
+csp.sl21.DataDefines.CTRL_R" class="py-name" href="#" onclick="return doclink('link-17', 'CTRL_R', 'link-17');">CTRL_R</a></tt><tt class="py-op">,</tt><tt class="py-number">5</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> <tt class="py-comment"># Ensure SP is in ASCII mode</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">_</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-18', 'SendSerialCmd', 'link-15');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-string">"."</tt><tt class="py-op">,</tt><tt class="py-number">5</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> <tt class="py-comment"># Recheck if SP is active</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-19', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"BERbyZone: no response from serial port"</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-20', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Function csp.sl10.ScriptFunctions.PowerMgtResume()=csp.sl10.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl12.ScriptFunctions.PowerMgtResume()=csp.sl12.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl20.ScriptFunctions.PowerMgtResume()=csp.sl20.ScriptFunctions-module.html#PowerMgtResume,Function csp.sl21.ScriptFunctions.PowerMgtResume()=csp.sl21.ScriptFunctions-module.html#PowerMgtResume"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-21', 'PowerMgtResume', 'link-21');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-comment">#end if</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">     </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">BERZrcvBuffer</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-22', 'SendSerialCmd', 'link-15');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-string">"$"</tt><tt class="py-op">,</tt><tt class="py-number">20</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> <tt class="py-comment"># GetBER by Zone Stats</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-name">BERZrcvBuffer</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'DiagError'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-23', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"BERbyZone: unable to retrieve statistics"</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-24', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"BERbyZone: $ results:\n %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">BERZrcvBuffer</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-25', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-26', 'PowerMgtResume', 'link-21');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">isF3Drive</tt> <tt class="py-op">==</tt> <tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-27', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"BERbyZone: not implemented for non-F3 drives"</tt><tt class="py-op">,</tt><tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-28', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">     </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-comment">################ REPLACED WITH A VERSION USING REG EX ###############################</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-comment">#</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-comment"># Finds column BER field tag names</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-name">find_column_tag_pattern</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">'(Hd {1,3}Zn.+)\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">     </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">find_column_tag_pattern</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-name">BERZrcvBuffer</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># Check to see if the result is empty</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">         </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">tagsZoneHeader</tt> <tt class="py-op">=</tt> <tt class="py-name">find_column_tag_pattern</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-name">BERZrcvBuffer</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">         </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">tagsZoneHeader</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Function csp.sl10.ErrorHandler.RaiseException()=csp.sl10.ErrorHandler-module.html#RaiseException,Function csp.sl12.ErrorHandler.RaiseException()=csp.sl12.ErrorHandler-module.html#RaiseException,Function csp.sl20.ErrorHandler.RaiseException()=csp.sl20.ErrorHandler-module.html#RaiseException,Function csp.sl21.ErrorHandler.RaiseException()=csp.sl21.ErrorHandler-module.html#RaiseException"><a title="csp.sl10.ErrorHandler.RaiseException
+csp.sl12.ErrorHandler.RaiseException
+csp.sl20.ErrorHandler.RaiseException
+csp.sl21.ErrorHandler.RaiseException" class="py-name" href="#" onclick="return doclink('link-29', 'RaiseException', 'link-29');">RaiseException</a></tt><tt class="py-op">(</tt><tt class="py-string">'Non-uniform BER by Zone headers'</tt><tt class="py-op">,</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Variable csp.sl10.DataDefines.EC_INVALID_SP_RESPONSE=csp.sl10.DataDefines-module.html#EC_INVALID_SP_RESPONSE,Variable csp.sl12.DataDefines.EC_INVALID_SP_RESPONSE=csp.sl12.DataDefines-module.html#EC_INVALID_SP_RESPONSE,Variable csp.sl20.DataDefines.EC_INVALID_SP_RESPONSE=csp.sl20.DataDefines-module.html#EC_INVALID_SP_RESPONSE,Variable csp.sl21.DataDefines.EC_INVALID_SP_RESPONSE=csp.sl21.DataDefines-module.html#EC_INVALID_SP_RESPONSE"><a title="csp.sl10.DataDefines.EC_INVALID_SP_RESPONSE
+csp.sl12.DataDefines.EC_INVALID_SP_RESPONSE
+csp.sl20.DataDefines.EC_INVALID_SP_RESPONSE
+csp.sl21.DataDefines.EC_INVALID_SP_RESPONSE" class="py-name" href="#" onclick="return doclink('link-30', 'EC_INVALID_SP_RESPONSE', 'link-30');">EC_INVALID_SP_RESPONSE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">             </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">tagsBER_spc</tt> <tt class="py-op">=</tt> <tt class="py-name">tagsZoneHeader</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">tagsBER</tt> <tt class="py-op">=</tt> <tt class="py-name">tagsBER_spc</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-comment">## *** Array containing all used BER tags without spaces</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt>  </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-31', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Unable to find BER by Zone table from serial port buffer - possibly overrun with other messages"</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-comment">#sf.ResetFromDiagMode(True)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-32', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-33', 'PowerMgtResume', 'link-21');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">     </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-comment"># Finds head and BER rates for each column</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-comment">#find_BER_pattern = re.compile('(.+\w.+\w{1,2}.+\d{1,2}\.\d.+)')</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">    <tt class="py-name">find_BER_pattern</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">'^\W*([0-9a-fA-F]{1,2}\W+[0-9a-fA-F]{1,3}.+\d+\.\d{1,3})'</tt><tt class="py-op">,</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">MULTILINE</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-name">BERarray</tt> <tt class="py-op">=</tt> <tt class="py-name">find_BER_pattern</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-name">BERZrcvBuffer</tt><tt class="py-op">)</tt> <tt class="py-comment">## *** Array containing head number and BER info - still has spaces in it!!!</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-comment">#numHead = len(BERarray) ## *** Number of Heads</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                 </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-comment"># Older serial port BER by zone format (Hd Zn Rbit Hard Soft OTF Raw Rsym Sym Wbit Whrd Wrty)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-comment"># Newer serial port BER by zone format (Hd Zn Rbit Hard Soft OTF BER Wbit Whrd Wrty) - No Rsym &amp; Sym and Raw name field changed to BER</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-comment"># </tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-comment"># Have to be able to handle both cases</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">          </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-name">prmHeader</tt> <tt class="py-op">=</tt> <tt class="py-string">'&lt;PAE_FDT_ERR_RATE_ZN&gt;'</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-name">prmCommon</tt> <tt class="py-op">=</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Function csp.sl10.ScriptFunctions_DT.CommonPAEData()=csp.sl10.ScriptFunctions_DT-module.html#CommonPAEData,Function csp.sl12.ScriptFunctions_DT.CommonPAEData()=csp.sl12.ScriptFunctions_DT-module.html#CommonPAEData,Function csp.sl20.ScriptFunctions_DT.CommonPAEData()=csp.sl20.ScriptFunctions_DT-module.html#CommonPAEData,Function csp.sl21.ScriptFunctions_DT.CommonPAEData()=csp.sl21.ScriptFunctions_DT-module.html#CommonPAEData"><a title="csp.sl10.ScriptFunctions_DT.CommonPAEData
+csp.sl12.ScriptFunctions_DT.CommonPAEData
+csp.sl20.ScriptFunctions_DT.CommonPAEData
+csp.sl21.ScriptFunctions_DT.CommonPAEData" class="py-name" href="#" onclick="return doclink('link-34', 'CommonPAEData', 'link-34');">CommonPAEData</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">prmUnitSourceType</tt> <tt class="py-op">=</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Function csp.sl10.ScriptFunctions_DT.AppendXML()=csp.sl10.ScriptFunctions_DT-module.html#AppendXML,Function csp.sl12.ScriptFunctions_DT.AppendXML()=csp.sl12.ScriptFunctions_DT-module.html#AppendXML,Function csp.sl20.ScriptFunctions_DT.AppendXML()=csp.sl20.ScriptFunctions_DT-module.html#AppendXML,Function csp.sl21.ScriptFunctions_DT.AppendXML()=csp.sl21.ScriptFunctions_DT-module.html#AppendXML"><a title="csp.sl10.ScriptFunctions_DT.AppendXML
+csp.sl12.ScriptFunctions_DT.AppendXML
+csp.sl20.ScriptFunctions_DT.AppendXML
+csp.sl21.ScriptFunctions_DT.AppendXML" class="py-name" href="#" onclick="return doclink('link-35', 'AppendXML', 'link-35');">AppendXML</a></tt><tt class="py-op">(</tt><tt class="py-string">'UNIT_SOURCE_TYPE'</tt><tt class="py-op">,</tt> <tt class="py-string">"SERIAL_PORT"</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-name">prmFooter</tt> <tt class="py-op">=</tt> <tt class="py-string">'&lt;/PAE_FDT_ERR_RATE_ZN&gt;'</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">     </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-comment"># Go through each row in the parsed BER by zone</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">entry</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">BERarray</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">currEntry</tt> <tt class="py-op">=</tt> <tt class="py-name">BERarray</tt><tt class="py-op">[</tt><tt class="py-name">entry</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-comment">## *** This array now contains hd number as well as BER rates for this head and zone without spaces </tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-36', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Number of column tags do not match BER fields"</tt><tt class="py-op">,</tt> <tt class="py-string">"rep"</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-keyword">continue</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">         </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt class="py-comment"># Go through each BER column tag</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">berTag</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-comment"># Head Position</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'HD'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                    <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;HEAD_POS&gt;'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;/HEAD_POS&gt;\n'</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-comment"># BER or Raw (Rraw on ECHO table)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'BER'</tt> <tt class="py-keyword">or</tt> <tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'RAW'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                    <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;RRAW&gt;'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;/RRAW&gt;\n'</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                <tt class="py-comment"># Zone</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'ZN'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                    <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;ZONE&gt;'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;/ZONE&gt;\n'</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-comment"># Wrty (Wraw on ECHO table)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'WRTY'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                    <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;WRAW&gt;'</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;/WRAW&gt;\n'</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                <tt class="py-comment"># Everything else</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt>       </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable csp.sl10.DataDefines.BER_COLUMN_TAGS=csp.sl10.DataDefines-module.html#BER_COLUMN_TAGS,Variable csp.sl12.DataDefines.BER_COLUMN_TAGS=csp.sl12.DataDefines-module.html#BER_COLUMN_TAGS,Variable csp.sl20.DataDefines.BER_COLUMN_TAGS=csp.sl20.DataDefines-module.html#BER_COLUMN_TAGS,Variable csp.sl21.DataDefines.BER_COLUMN_TAGS=csp.sl21.DataDefines-module.html#BER_COLUMN_TAGS"><a title="csp.sl10.DataDefines.BER_COLUMN_TAGS
+csp.sl12.DataDefines.BER_COLUMN_TAGS
+csp.sl20.DataDefines.BER_COLUMN_TAGS
+csp.sl21.DataDefines.BER_COLUMN_TAGS" class="py-name" href="#" onclick="return doclink('link-37', 'BER_COLUMN_TAGS', 'link-37');">BER_COLUMN_TAGS</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># If not in the list of BER tags, ignore</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                        <tt class="py-keyword">continue</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                    <tt class="py-name">currBERTagUpper</tt> <tt class="py-op">=</tt> <tt class="py-name">tagsBER</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>  </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                    <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;%s&gt;'</tt> <tt class="py-op">%</tt><tt class="py-name">currBERTagUpper</tt>  <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">currEntry</tt><tt class="py-op">[</tt><tt class="py-name">berTag</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'&lt;/%s&gt;'</tt> <tt class="py-op">%</tt><tt class="py-name">currBERTagUpper</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                     </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">IndexError</tt><tt class="py-op">,</tt><tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-38', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Encountered an issue parsing BER table due to %s - quitting"</tt> <tt class="py-op">%</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"trc"</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-comment">#sf.ResetFromDiagMode(True)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-39', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-40', 'PowerMgtResume', 'link-21');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">          </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">=</tt> <tt class="py-name">prmBERZoneData</tt> <tt class="py-op">+</tt> <tt class="py-name">prmFooter</tt> <tt class="py-comment"># Don't want double \n's between end of data and footer</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-name">prmListBERZone</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">prmHeader</tt><tt class="py-op">,</tt> <tt class="py-name">prmCommon</tt><tt class="py-op">,</tt> <tt class="py-name">prmUnitSourceType</tt><tt class="py-op">,</tt> <tt class="py-name">prmBERZoneData</tt><tt class="py-op">]</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-name">prmBERZone</tt> <tt class="py-op">=</tt> <tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">prmListBERZone</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">         </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-41', 'WriteToResultsFile', 'link-8');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">prmBERZone</tt> <tt class="py-op">,</tt> <tt class="py-string">'prm'</tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">logToECHO</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Function csp.sl10.ScriptFunctions.UploadPrmData()=csp.sl10.ScriptFunctions-module.html#UploadPrmData,Variable csp.sl10.maincell_api.UploadPrmData=csp.sl10.maincell_api-module.html#UploadPrmData,Function csp.sl12.ScriptFunctions.UploadPrmData()=csp.sl12.ScriptFunctions-module.html#UploadPrmData,Variable csp.sl12.maincell_api.UploadPrmData=csp.sl12.maincell_api-module.html#UploadPrmData,Function csp.sl20.ScriptFunctions.UploadPrmData()=csp.sl20.ScriptFunctions-module.html#UploadPrmData,Variable csp.sl20.maincell_api.UploadPrmData=csp.sl20.maincell_api-module.html#UploadPrmData,Function csp.sl21.ScriptFunctions.UploadPrmData()=csp.sl21.ScriptFunctions-module.html#UploadPrmData,Variable csp.sl21.maincell_api.UploadPrmData=csp.sl21.maincell_api-module.html#UploadPrmData"><a title="csp.sl10.ScriptFunctions.UploadPrmData
+csp.sl10.maincell_api.UploadPrmData
+csp.sl12.ScriptFunctions.UploadPrmData
+csp.sl12.maincell_api.UploadPrmData
+csp.sl20.ScriptFunctions.UploadPrmData
+csp.sl20.maincell_api.UploadPrmData
+csp.sl21.ScriptFunctions.UploadPrmData
+csp.sl21.maincell_api.UploadPrmData" class="py-name" href="#" onclick="return doclink('link-42', 'UploadPrmData', 'link-42');">UploadPrmData</a></tt><tt class="py-op">(</tt><tt class="py-name">prmBERZone</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">             </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-name">ts</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="csp.sl10.TestScanDrive
+csp.sl10.TestScanDrive.TestScanDrive
+csp.sl12.TestScanDrive
+csp.sl12.TestScanDrive.TestScanDrive
+csp.sl20.TestScanDrive
+csp.sl20.TestScanDrive.TestScanDrive
+csp.sl21.TestScanDrive
+csp.sl21.TestScanDrive.TestScanDrive" class="py-name" href="#" onclick="return doclink('link-43', 'TestScanDrive', 'link-5');">TestScanDrive</a></tt><tt class="py-op">(</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="csp.sl10.ScriptFunctions.PowerMgtResume
+csp.sl12.ScriptFunctions.PowerMgtResume
+csp.sl20.ScriptFunctions.PowerMgtResume
+csp.sl21.ScriptFunctions.PowerMgtResume" class="py-name" href="#" onclick="return doclink('link-44', 'PowerMgtResume', 'link-21');">PowerMgtResume</a></tt><tt class="py-op">(</tt><tt class="py-name">DPM</tt><tt class="py-op">,</tt><tt class="py-name">PMType</tt><tt class="py-op">,</tt><tt class="py-name">PrevPowerMode</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">     </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> </tt>
+</div><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:29 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

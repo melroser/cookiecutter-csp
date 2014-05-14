@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>csp.sl12.userscript</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="csp-module.html">Package&nbsp;csp</a> ::
+        <a href="csp.sl12-module.html">Package&nbsp;sl12</a> ::
+        Module&nbsp;userscript
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="csp.sl12.userscript-module.html">Module csp.sl12.userscript</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''***************************************************************************</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">$File: //depot/csp/script/plugin/rel/CSP_Plugin/userscript.py $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">$Revision: #7 $    $DateTime: 2013/10/31 15:35:34 $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">Plugin version of userscript.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">***************************************************************************'''</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">traceback</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module csp.sl10.maincell_api=csp.sl10.maincell_api-module.html,Module csp.sl12.maincell_api=csp.sl12.maincell_api-module.html,Module csp.sl20.maincell_api=csp.sl20.maincell_api-module.html,Module csp.sl21.maincell_api=csp.sl21.maincell_api-module.html"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-0', 'maincell_api', 'link-0');">maincell_api</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">scriptenv</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">csperr</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module csp.sl10.DataDefines=csp.sl10.DataDefines-module.html,Module csp.sl12.DataDefines=csp.sl12.DataDefines-module.html,Module csp.sl20.DataDefines=csp.sl20.DataDefines-module.html,Module csp.sl21.DataDefines=csp.sl21.DataDefines-module.html"><a title="csp.sl10.DataDefines
+csp.sl12.DataDefines
+csp.sl20.DataDefines
+csp.sl21.DataDefines" class="py-name" href="#" onclick="return doclink('link-1', 'DataDefines', 'link-1');">DataDefines</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">df</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module csp.sl10.ErrorHandler=csp.sl10.ErrorHandler-module.html,Module csp.sl12.ErrorHandler=csp.sl12.ErrorHandler-module.html,Module csp.sl20.ErrorHandler=csp.sl20.ErrorHandler-module.html,Module csp.sl21.ErrorHandler=csp.sl21.ErrorHandler-module.html"><a title="csp.sl10.ErrorHandler
+csp.sl12.ErrorHandler
+csp.sl20.ErrorHandler
+csp.sl21.ErrorHandler" class="py-name" href="#" onclick="return doclink('link-2', 'ErrorHandler', 'link-2');">ErrorHandler</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">err</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module csp.sl10.ScriptFunctions=csp.sl10.ScriptFunctions-module.html,Module csp.sl12.ScriptFunctions=csp.sl12.ScriptFunctions-module.html,Module csp.sl20.ScriptFunctions=csp.sl20.ScriptFunctions-module.html,Module csp.sl21.ScriptFunctions=csp.sl21.ScriptFunctions-module.html"><a title="csp.sl10.ScriptFunctions
+csp.sl12.ScriptFunctions
+csp.sl20.ScriptFunctions
+csp.sl21.ScriptFunctions" class="py-name" href="#" onclick="return doclink('link-3', 'ScriptFunctions', 'link-3');">ScriptFunctions</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">sf</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module csp.sl10.ScriptFunctions_DETS=csp.sl10.ScriptFunctions_DETS-module.html,Module csp.sl12.ScriptFunctions_DETS=csp.sl12.ScriptFunctions_DETS-module.html,Module csp.sl20.ScriptFunctions_DETS=csp.sl20.ScriptFunctions_DETS-module.html,Module csp.sl21.ScriptFunctions_DETS=csp.sl21.ScriptFunctions_DETS-module.html"><a title="csp.sl10.ScriptFunctions_DETS
+csp.sl12.ScriptFunctions_DETS
+csp.sl20.ScriptFunctions_DETS
+csp.sl21.ScriptFunctions_DETS" class="py-name" href="#" onclick="return doclink('link-4', 'ScriptFunctions_DETS', 'link-4');">ScriptFunctions_DETS</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">dets</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module csp.sl10.ScriptFunctions_DT=csp.sl10.ScriptFunctions_DT-module.html,Module csp.sl12.ScriptFunctions_DT=csp.sl12.ScriptFunctions_DT-module.html,Module csp.sl20.ScriptFunctions_DT=csp.sl20.ScriptFunctions_DT-module.html,Module csp.sl21.ScriptFunctions_DT=csp.sl21.ScriptFunctions_DT-module.html"><a title="csp.sl10.ScriptFunctions_DT
+csp.sl12.ScriptFunctions_DT
+csp.sl20.ScriptFunctions_DT
+csp.sl21.ScriptFunctions_DT" class="py-name" href="#" onclick="return doclink('link-5', 'ScriptFunctions_DT', 'link-5');">ScriptFunctions_DT</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">dt</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Module csp.sl10.ScriptFunctions_FIS=csp.sl10.ScriptFunctions_FIS-module.html,Module csp.sl12.ScriptFunctions_FIS=csp.sl12.ScriptFunctions_FIS-module.html,Module csp.sl20.ScriptFunctions_FIS=csp.sl20.ScriptFunctions_FIS-module.html,Module csp.sl21.ScriptFunctions_FIS=csp.sl21.ScriptFunctions_FIS-module.html"><a title="csp.sl10.ScriptFunctions_FIS
+csp.sl12.ScriptFunctions_FIS
+csp.sl20.ScriptFunctions_FIS
+csp.sl21.ScriptFunctions_FIS" class="py-name" href="#" onclick="return doclink('link-6', 'ScriptFunctions_FIS', 'link-6');">ScriptFunctions_FIS</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">FIS</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Module csp.sl10.ScriptFunctions_Sec=csp.sl10.ScriptFunctions_Sec-module.html,Module csp.sl12.ScriptFunctions_Sec=csp.sl12.ScriptFunctions_Sec-module.html,Module csp.sl20.ScriptFunctions_Sec=csp.sl20.ScriptFunctions_Sec-module.html,Module csp.sl21.ScriptFunctions_Sec=csp.sl21.ScriptFunctions_Sec-module.html"><a title="csp.sl10.ScriptFunctions_Sec
+csp.sl12.ScriptFunctions_Sec
+csp.sl20.ScriptFunctions_Sec
+csp.sl21.ScriptFunctions_Sec" class="py-name" href="#" onclick="return doclink('link-7', 'ScriptFunctions_Sec', 'link-7');">ScriptFunctions_Sec</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">sec</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Module csp.sl10.SerialSocket=csp.sl10.SerialSocket-module.html,Module csp.sl12.SerialSocket=csp.sl12.SerialSocket-module.html,Module csp.sl20.SerialSocket=csp.sl20.SerialSocket-module.html,Module csp.sl21.SerialSocket=csp.sl21.SerialSocket-module.html"><a title="csp.sl10.SerialSocket
+csp.sl12.SerialSocket
+csp.sl20.SerialSocket
+csp.sl21.SerialSocket" class="py-name" href="#" onclick="return doclink('link-8', 'SerialSocket', 'link-8');">SerialSocket</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">SS</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Module csp.sl10.ServerRevs=csp.sl10.ServerRevs-module.html,Module csp.sl12.ServerRevs=csp.sl12.ServerRevs-module.html,Module csp.sl20.ServerRevs=csp.sl20.ServerRevs-module.html,Module csp.sl21.ServerRevs=csp.sl21.ServerRevs-module.html"><a title="csp.sl10.ServerRevs
+csp.sl12.ServerRevs
+csp.sl20.ServerRevs
+csp.sl21.ServerRevs" class="py-name" href="#" onclick="return doclink('link-9', 'ServerRevs', 'link-9');">ServerRevs</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">SVR</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">TestName</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable csp.sl10.DataDefines.EC_BASE=csp.sl10.DataDefines-module.html#EC_BASE,Variable csp.sl10.ScriptFunctions_EPC.EC_BASE=csp.sl10.ScriptFunctions_EPC-module.html#EC_BASE,Variable csp.sl10.userscript.EC_BASE=csp.sl10.userscript-module.html#EC_BASE,Variable csp.sl12.DataDefines.EC_BASE=csp.sl12.DataDefines-module.html#EC_BASE,Variable csp.sl12.ScriptFunctions_EPC.EC_BASE=csp.sl12.ScriptFunctions_EPC-module.html#EC_BASE,Variable csp.sl12.userscript.EC_BASE=csp.sl12.userscript-module.html#EC_BASE,Variable csp.sl20.DataDefines.EC_BASE=csp.sl20.DataDefines-module.html#EC_BASE,Variable csp.sl20.ScriptFunctions_EPC.EC_BASE=csp.sl20.ScriptFunctions_EPC-module.html#EC_BASE,Variable csp.sl20.userscript.EC_BASE=csp.sl20.userscript-module.html#EC_BASE,Variable csp.sl21.DataDefines.EC_BASE=csp.sl21.DataDefines-module.html#EC_BASE,Variable csp.sl21.ScriptFunctions_EPC.EC_BASE=csp.sl21.ScriptFunctions_EPC-module.html#EC_BASE,Variable csp.sl21.userscript.EC_BASE=csp.sl21.userscript-module.html#EC_BASE"><a title="csp.sl10.DataDefines.EC_BASE
+csp.sl10.ScriptFunctions_EPC.EC_BASE
+csp.sl10.userscript.EC_BASE
+csp.sl12.DataDefines.EC_BASE
+csp.sl12.ScriptFunctions_EPC.EC_BASE
+csp.sl12.userscript.EC_BASE
+csp.sl20.DataDefines.EC_BASE
+csp.sl20.ScriptFunctions_EPC.EC_BASE
+csp.sl20.userscript.EC_BASE
+csp.sl21.DataDefines.EC_BASE
+csp.sl21.ScriptFunctions_EPC.EC_BASE
+csp.sl21.userscript.EC_BASE" class="py-name" href="#" onclick="return doclink('link-10', 'EC_BASE', 'link-10');">EC_BASE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10000</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-string">This dictionary is used for script-specific configuration that does not </tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-string">include algorithm changes. It includes options like what function to use as the</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-string">main test function, whether to send FIS events, etc.  This specific dictionary</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-string">holds default values, so that userscript will always work.  The actual values</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-string">for each script should be stored in that script's TestName.py.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable csp.sl10.userscript.userscript_config=csp.sl10.userscript-module.html#userscript_config,Variable csp.sl12.userscript.userscript_config=csp.sl12.userscript-module.html#userscript_config,Variable csp.sl20.userscript.userscript_config=csp.sl20.userscript-module.html#userscript_config,Variable csp.sl21.userscript.userscript_config=csp.sl21.userscript-module.html#userscript_config"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-11', 'userscript_config', 'link-11');">userscript_config</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-string">'main_test'</tt> <tt class="py-op">:</tt> <tt class="py-keyword">lambda</tt> <tt class="py-op">:</tt> <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Function csp.sl10.ErrorHandler.RaiseException()=csp.sl10.ErrorHandler-module.html#RaiseException,Function csp.sl12.ErrorHandler.RaiseException()=csp.sl12.ErrorHandler-module.html#RaiseException,Function csp.sl20.ErrorHandler.RaiseException()=csp.sl20.ErrorHandler-module.html#RaiseException,Function csp.sl21.ErrorHandler.RaiseException()=csp.sl21.ErrorHandler-module.html#RaiseException"><a title="csp.sl10.ErrorHandler.RaiseException
+csp.sl12.ErrorHandler.RaiseException
+csp.sl20.ErrorHandler.RaiseException
+csp.sl21.ErrorHandler.RaiseException" class="py-name" href="#" onclick="return doclink('link-12', 'RaiseException', 'link-12');">RaiseException</a></tt><tt class="py-op">(</tt><tt class="py-string">"No main test!"</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-comment">#The main function for the test to run</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-string">'use_FIS'</tt> <tt class="py-op">:</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-comment">#On non-Gemini HW, whether to send FIS events or not.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-string">'op_type'</tt> <tt class="py-op">:</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-comment">#On non-Gemini HW, a string &lt; length 4, the FIS op_type.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-string">'clear_SN'</tt><tt class="py-op">:</tt> <tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-comment">#On Gemini HW, whether to clear the SN from Host database </tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-comment">#after the test finishes. Done to prevent slot/drive issues on the next </tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-comment">#test from affecting the current drive's FIS attributes when the SN is </tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-comment">#updated during the test, rather than being entered before the test starts.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">     </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-comment">#Update the default values with any values stored in TestName.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt id="link-13" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-13', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">.</tt><tt class="py-name">update</tt><tt class="py-op">(</tt><tt class="py-name">TestName</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-14', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetVersion()=csp.sl10.ScriptFunctions-module.html#GetVersion,Variable csp.sl10.maincell_api.GetVersion=csp.sl10.maincell_api-module.html#GetVersion,Function csp.sl12.ScriptFunctions.GetVersion()=csp.sl12.ScriptFunctions-module.html#GetVersion,Variable csp.sl12.maincell_api.GetVersion=csp.sl12.maincell_api-module.html#GetVersion,Function csp.sl20.ScriptFunctions.GetVersion()=csp.sl20.ScriptFunctions-module.html#GetVersion,Variable csp.sl20.maincell_api.GetVersion=csp.sl20.maincell_api-module.html#GetVersion,Function csp.sl21.ScriptFunctions.GetVersion()=csp.sl21.ScriptFunctions-module.html#GetVersion,Variable csp.sl21.maincell_api.GetVersion=csp.sl21.maincell_api-module.html#GetVersion"><a title="csp.sl10.ScriptFunctions.GetVersion
+csp.sl10.maincell_api.GetVersion
+csp.sl12.ScriptFunctions.GetVersion
+csp.sl12.maincell_api.GetVersion
+csp.sl20.ScriptFunctions.GetVersion
+csp.sl20.maincell_api.GetVersion
+csp.sl21.ScriptFunctions.GetVersion
+csp.sl21.maincell_api.GetVersion" class="py-name" href="#" onclick="return doclink('link-15', 'GetVersion', 'link-15');">GetVersion</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetScriptPackageBuildNotes()=csp.sl10.ScriptFunctions-module.html#GetScriptPackageBuildNotes,Function csp.sl12.ScriptFunctions.GetScriptPackageBuildNotes()=csp.sl12.ScriptFunctions-module.html#GetScriptPackageBuildNotes,Function csp.sl20.ScriptFunctions.GetScriptPackageBuildNotes()=csp.sl20.ScriptFunctions-module.html#GetScriptPackageBuildNotes,Function csp.sl21.ScriptFunctions.GetScriptPackageBuildNotes()=csp.sl21.ScriptFunctions-module.html#GetScriptPackageBuildNotes"><a title="csp.sl10.ScriptFunctions.GetScriptPackageBuildNotes
+csp.sl12.ScriptFunctions.GetScriptPackageBuildNotes
+csp.sl20.ScriptFunctions.GetScriptPackageBuildNotes
+csp.sl21.ScriptFunctions.GetScriptPackageBuildNotes" class="py-name" href="#" onclick="return doclink('link-16', 'GetScriptPackageBuildNotes', 'link-16');">GetScriptPackageBuildNotes</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-name">SVR</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Function csp.sl10.ServerRevs.GetHostServerRevisions()=csp.sl10.ServerRevs-module.html#GetHostServerRevisions,Function csp.sl12.ServerRevs.GetHostServerRevisions()=csp.sl12.ServerRevs-module.html#GetHostServerRevisions,Function csp.sl20.ServerRevs.GetHostServerRevisions()=csp.sl20.ServerRevs-module.html#GetHostServerRevisions,Function csp.sl21.ServerRevs.GetHostServerRevisions()=csp.sl21.ServerRevs-module.html#GetHostServerRevisions"><a title="csp.sl10.ServerRevs.GetHostServerRevisions
+csp.sl12.ServerRevs.GetHostServerRevisions
+csp.sl20.ServerRevs.GetHostServerRevisions
+csp.sl21.ServerRevs.GetHostServerRevisions" class="py-name" href="#" onclick="return doclink('link-17', 'GetHostServerRevisions', 'link-17');">GetHostServerRevisions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Function csp.sl10.ScriptFunctions.calculate_checksum_for_files_in_folder()=csp.sl10.ScriptFunctions-module.html#calculate_checksum_for_files_in_folder,Function csp.sl12.ScriptFunctions.calculate_checksum_for_files_in_folder()=csp.sl12.ScriptFunctions-module.html#calculate_checksum_for_files_in_folder,Function csp.sl20.ScriptFunctions.calculate_checksum_for_files_in_folder()=csp.sl20.ScriptFunctions-module.html#calculate_checksum_for_files_in_folder,Function csp.sl21.ScriptFunctions.calculate_checksum_for_files_in_folder()=csp.sl21.ScriptFunctions-module.html#calculate_checksum_for_files_in_folder"><a title="csp.sl10.ScriptFunctions.calculate_checksum_for_files_in_folder
+csp.sl12.ScriptFunctions.calculate_checksum_for_files_in_folder
+csp.sl20.ScriptFunctions.calculate_checksum_for_files_in_folder
+csp.sl21.ScriptFunctions.calculate_checksum_for_files_in_folder" class="py-name" href="#" onclick="return doclink('link-18', 'calculate_checksum_for_files_in_folder', 'link-18');">calculate_checksum_for_files_in_folder</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt>      <tt class="py-comment">#Get checksum for files in current working directory</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Function csp.sl10.ScriptFunctions.CheckCellMemory()=csp.sl10.ScriptFunctions-module.html#CheckCellMemory,Variable csp.sl10.maincell_api.CheckCellMemory=csp.sl10.maincell_api-module.html#CheckCellMemory,Function csp.sl12.ScriptFunctions.CheckCellMemory()=csp.sl12.ScriptFunctions-module.html#CheckCellMemory,Variable csp.sl12.maincell_api.CheckCellMemory=csp.sl12.maincell_api-module.html#CheckCellMemory,Function csp.sl20.ScriptFunctions.CheckCellMemory()=csp.sl20.ScriptFunctions-module.html#CheckCellMemory,Variable csp.sl20.maincell_api.CheckCellMemory=csp.sl20.maincell_api-module.html#CheckCellMemory,Function csp.sl21.ScriptFunctions.CheckCellMemory()=csp.sl21.ScriptFunctions-module.html#CheckCellMemory,Variable csp.sl21.maincell_api.CheckCellMemory=csp.sl21.maincell_api-module.html#CheckCellMemory"><a title="csp.sl10.ScriptFunctions.CheckCellMemory
+csp.sl10.maincell_api.CheckCellMemory
+csp.sl12.ScriptFunctions.CheckCellMemory
+csp.sl12.maincell_api.CheckCellMemory
+csp.sl20.ScriptFunctions.CheckCellMemory
+csp.sl20.maincell_api.CheckCellMemory
+csp.sl21.ScriptFunctions.CheckCellMemory
+csp.sl21.maincell_api.CheckCellMemory" class="py-name" href="#" onclick="return doclink('link-19', 'CheckCellMemory', 'link-19');">CheckCellMemory</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment">#******************************************************************************</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="InitializeException"></a><div id="InitializeException-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="InitializeException-toggle" onclick="return toggle('InitializeException');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="csp.sl12.userscript.InitializeException-class.html">InitializeException</a><tt class="py-op">(</tt><tt class="py-base-class">csperr</tt><tt class="py-op">.</tt><tt class="py-base-class">CspException</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="InitializeException-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="InitializeException-expanded"><a name="InitializeException.__init__"></a><div id="InitializeException.__init__-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="InitializeException.__init__-toggle" onclick="return toggle('InitializeException.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.userscript.InitializeException-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">errorMessage</tt><tt class="py-op">,</tt> <tt class="py-param">errorCode</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="InitializeException.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="InitializeException.__init__-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_errorMessage</tt> <tt class="py-op">=</tt> <tt class="py-name">errorMessage</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_errorCode</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="csp.sl10.DataDefines.EC_BASE
+csp.sl10.ScriptFunctions_EPC.EC_BASE
+csp.sl10.userscript.EC_BASE
+csp.sl12.DataDefines.EC_BASE
+csp.sl12.ScriptFunctions_EPC.EC_BASE
+csp.sl12.userscript.EC_BASE
+csp.sl20.DataDefines.EC_BASE
+csp.sl20.ScriptFunctions_EPC.EC_BASE
+csp.sl20.userscript.EC_BASE
+csp.sl21.DataDefines.EC_BASE
+csp.sl21.ScriptFunctions_EPC.EC_BASE
+csp.sl21.userscript.EC_BASE" class="py-name" href="#" onclick="return doclink('link-20', 'EC_BASE', 'link-10');">EC_BASE</a></tt> <tt class="py-op">+</tt> <tt class="py-name">errorCode</tt> </tt>
+</div></div><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-comment">#####################################################</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="FormatError"></a><div id="FormatError-def"><a name="L63"></a><tt class="py-lineno"> 63</tt> <a class="py-toggle" href="#" id="FormatError-toggle" onclick="return toggle('FormatError');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.userscript-module.html#FormatError">FormatError</a><tt class="py-op">(</tt><tt class="py-param">traceBack</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FormatError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FormatError-expanded"><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-string">'gemini'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">script</tt> <tt class="py-op">=</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">getTestEnvironment</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">"ConfigVars"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">getTestEnvironment</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">"ConfigId"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"OperationType"</tt><tt class="py-op">]</tt><tt class="py-op">;</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">script</tt> <tt class="py-op">=</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">getTestEnvironment</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'testName'</tt><tt class="py-op">]</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-name">done</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-name">endPtr</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">traceBack</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-keyword">not</tt> <tt class="py-name">done</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">startToken</tt> <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">.</tt><tt class="py-name">rfind</tt><tt class="py-op">(</tt><tt class="py-string">"File \""</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">endPtr</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">endPtr</tt> <tt class="py-op">=</tt> <tt class="py-name">startToken</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">startToken</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-name">endToken</tt>   <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">", "</tt><tt class="py-op">,</tt><tt class="py-name">startToken</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">startToken</tt> <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">.</tt><tt class="py-name">rfind</tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">,</tt><tt class="py-name">startToken</tt><tt class="py-op">,</tt><tt class="py-name">endToken</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-name">file</tt>     <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">[</tt><tt class="py-name">startToken</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-name">endToken</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-name">startToken</tt> <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"line "</tt><tt class="py-op">,</tt> <tt class="py-name">endToken</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">endToken</tt>   <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">", "</tt><tt class="py-op">,</tt> <tt class="py-name">startToken</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-name">lineNo</tt>     <tt class="py-op">=</tt> <tt class="py-name">traceBack</tt><tt class="py-op">[</tt><tt class="py-name">startToken</tt><tt class="py-op">+</tt><tt class="py-number">5</tt><tt class="py-op">:</tt><tt class="py-name">endToken</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-string">"SCRIPT:"</tt> <tt class="py-op">+</tt> <tt class="py-name">script</tt> <tt class="py-op">+</tt> <tt class="py-string">" FILE:"</tt> <tt class="py-op">+</tt> <tt class="py-name">file</tt> <tt class="py-op">+</tt> <tt class="py-string">" LINE:"</tt> <tt class="py-op">+</tt> <tt class="py-name">lineNo</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt class="py-name">file</tt> <tt class="py-op">==</tt> <tt class="py-string">"ScriptFunctions.py"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-name">done</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-comment">#end if</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment"># No more files</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">done</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-comment">#end if</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-comment">#end loop</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">line</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="ReportScriptStart"></a><div id="ReportScriptStart-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="ReportScriptStart-toggle" onclick="return toggle('ReportScriptStart');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.userscript-module.html#ReportScriptStart">ReportScriptStart</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ReportScriptStart-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ReportScriptStart-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-docstring">''''''</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">     </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">testEnv</tt> <tt class="py-op">=</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">getTestEnvironment</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">     </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-comment">#Get the operation type; hardware specific</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">PLATFORM_GEMINI</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">ConfigVars</tt> <tt class="py-op">=</tt> <tt class="py-name">testEnv</tt><tt class="py-op">[</tt><tt class="py-string">'ConfigVars'</tt><tt class="py-op">]</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">ConfigId</tt> <tt class="py-op">=</tt> <tt class="py-name">testEnv</tt><tt class="py-op">[</tt><tt class="py-string">'ConfigId'</tt><tt class="py-op">]</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt class="py-name">ConfigVars</tt><tt class="py-op">[</tt><tt class="py-name">ConfigId</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'OperationType'</tt><tt class="py-op">,</tt> <tt class="py-string">'UNK'</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">PLATFORM_FLEXSTAR</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-21', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'op_type'</tt><tt class="py-op">]</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment">#Unknown hardware type</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Function csp.sl10.ScriptFunctions.WriteToResultsFile()=csp.sl10.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl10.maincell_api.WriteToResultsFile=csp.sl10.maincell_api-module.html#WriteToResultsFile,Function csp.sl12.ScriptFunctions.WriteToResultsFile()=csp.sl12.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl12.maincell_api.WriteToResultsFile=csp.sl12.maincell_api-module.html#WriteToResultsFile,Function csp.sl20.ScriptFunctions.WriteToResultsFile()=csp.sl20.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl20.maincell_api.WriteToResultsFile=csp.sl20.maincell_api-module.html#WriteToResultsFile,Function csp.sl21.ScriptFunctions.WriteToResultsFile()=csp.sl21.ScriptFunctions-module.html#WriteToResultsFile,Variable csp.sl21.maincell_api.WriteToResultsFile=csp.sl21.maincell_api-module.html#WriteToResultsFile"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-22', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"FIS not compatible with hardware type."</tt><tt class="py-op">,</tt> <tt class="py-string">'log'</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">     </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-comment">#Handle Gemini-specific setup</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">PLATFORM_GEMINI</tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-comment">#Update the host database with drive attributes.</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-name">SerialNum</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetSerialNumber()=csp.sl10.ScriptFunctions-module.html#GetSerialNumber,Variable csp.sl10.maincell_api.GetSerialNumber=csp.sl10.maincell_api-module.html#GetSerialNumber,Function csp.sl12.ScriptFunctions.GetSerialNumber()=csp.sl12.ScriptFunctions-module.html#GetSerialNumber,Variable csp.sl12.maincell_api.GetSerialNumber=csp.sl12.maincell_api-module.html#GetSerialNumber,Function csp.sl20.ScriptFunctions.GetSerialNumber()=csp.sl20.ScriptFunctions-module.html#GetSerialNumber,Variable csp.sl20.maincell_api.GetSerialNumber=csp.sl20.maincell_api-module.html#GetSerialNumber,Function csp.sl21.ScriptFunctions.GetSerialNumber()=csp.sl21.ScriptFunctions-module.html#GetSerialNumber,Variable csp.sl21.maincell_api.GetSerialNumber=csp.sl21.maincell_api-module.html#GetSerialNumber"><a title="csp.sl10.ScriptFunctions.GetSerialNumber
+csp.sl10.maincell_api.GetSerialNumber
+csp.sl12.ScriptFunctions.GetSerialNumber
+csp.sl12.maincell_api.GetSerialNumber
+csp.sl20.ScriptFunctions.GetSerialNumber
+csp.sl20.maincell_api.GetSerialNumber
+csp.sl21.ScriptFunctions.GetSerialNumber
+csp.sl21.maincell_api.GetSerialNumber" class="py-name" href="#" onclick="return doclink('link-23', 'GetSerialNumber', 'link-23');">GetSerialNumber</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">requestService</tt><tt class="py-op">(</tt><tt class="py-string">"SetDriveSN"</tt><tt class="py-op">,</tt> <tt class="py-name">SerialNum</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">requestService</tt><tt class="py-op">(</tt><tt class="py-string">"GetAttributes"</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">         </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-comment"># Report restart flags (for automation)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">reportRestartFlags</tt><tt class="py-op">(</tt><tt class="py-op">{</tt><tt class="py-string">'doRestart'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'sendRun'</tt> <tt class="py-op">:</tt> <tt class="py-number">3</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-comment"># Set operation type</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">requestService</tt><tt class="py-op">(</tt><tt class="py-string">'SetOperation'</tt><tt class="py-op">,</tt> <tt class="py-name">operation</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">         </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-comment">#Calculate TUID, if needed, before START event is sent.</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-string">'''NOTE: maincell calculates one TUID for Geminis upon initialization</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-string">        of the form UNK_[timestamp].  Following this, in StartDrive, the TUID</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-string">        is reset using the form [op]_Unknown_[year][month][day][hour]_[hostid]</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-string">        The following code sets the TUID to be what would be calculated in</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-string">        StartDrive, but does so before the START event is sent.  If maincell </tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-string">        ever changes to handle Gemini TUIDs differently, this code should be </tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-string">        re-evaluated.</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-string">        '''</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-name">curTuid</tt> <tt class="py-op">=</tt> <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetTUID()=csp.sl10.ScriptFunctions-module.html#GetTUID,Variable csp.sl10.maincell_api.GetTUID=csp.sl10.maincell_api-module.html#GetTUID,Function csp.sl12.ScriptFunctions.GetTUID()=csp.sl12.ScriptFunctions-module.html#GetTUID,Variable csp.sl12.maincell_api.GetTUID=csp.sl12.maincell_api-module.html#GetTUID,Function csp.sl20.ScriptFunctions.GetTUID()=csp.sl20.ScriptFunctions-module.html#GetTUID,Variable csp.sl20.maincell_api.GetTUID=csp.sl20.maincell_api-module.html#GetTUID,Function csp.sl21.ScriptFunctions.GetTUID()=csp.sl21.ScriptFunctions-module.html#GetTUID,Variable csp.sl21.maincell_api.GetTUID=csp.sl21.maincell_api-module.html#GetTUID"><a title="csp.sl10.ScriptFunctions.GetTUID
+csp.sl10.maincell_api.GetTUID
+csp.sl12.ScriptFunctions.GetTUID
+csp.sl12.maincell_api.GetTUID
+csp.sl20.ScriptFunctions.GetTUID
+csp.sl20.maincell_api.GetTUID
+csp.sl21.ScriptFunctions.GetTUID
+csp.sl21.maincell_api.GetTUID" class="py-name" href="#" onclick="return doclink('link-24', 'GetTUID', 'link-24');">GetTUID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">curTuid</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'UNK'</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">             </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-name">now</tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">now</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-name">host_id</tt> <tt class="py-op">=</tt> <tt class="py-name">testEnv</tt><tt class="py-op">[</tt><tt class="py-string">'HOST_ID'</tt><tt class="py-op">]</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-name">newTuid</tt> <tt class="py-op">=</tt> <tt class="py-string">"%s_UNKNOWN_%i%i%i%i_%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">operation</tt><tt class="py-op">,</tt> <tt class="py-name">now</tt><tt class="py-op">.</tt><tt class="py-name">year</tt><tt class="py-op">,</tt> \ </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                                                  <tt class="py-name">now</tt><tt class="py-op">.</tt><tt class="py-name">month</tt><tt class="py-op">,</tt> <tt class="py-name">now</tt><tt class="py-op">.</tt><tt class="py-name">day</tt><tt class="py-op">,</tt> <tt class="py-name">now</tt><tt class="py-op">.</tt><tt class="py-name">hour</tt><tt class="py-op">,</tt>\ </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                                                  <tt class="py-name">host_id</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-25', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Created new TUID prior to Start event: %s"</tt>\ </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                                  <tt class="py-op">%</tt><tt class="py-name">newTuid</tt><tt class="py-op">,</tt> <tt class="py-string">'log'</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetTUID()=csp.sl10.ScriptFunctions-module.html#SetTUID,Variable csp.sl10.maincell_api.SetTUID=csp.sl10.maincell_api-module.html#SetTUID,Function csp.sl12.ScriptFunctions.SetTUID()=csp.sl12.ScriptFunctions-module.html#SetTUID,Variable csp.sl12.maincell_api.SetTUID=csp.sl12.maincell_api-module.html#SetTUID,Function csp.sl20.ScriptFunctions.SetTUID()=csp.sl20.ScriptFunctions-module.html#SetTUID,Variable csp.sl20.maincell_api.SetTUID=csp.sl20.maincell_api-module.html#SetTUID,Function csp.sl21.ScriptFunctions.SetTUID()=csp.sl21.ScriptFunctions-module.html#SetTUID,Variable csp.sl21.maincell_api.SetTUID=csp.sl21.maincell_api-module.html#SetTUID"><a title="csp.sl10.ScriptFunctions.SetTUID
+csp.sl10.maincell_api.SetTUID
+csp.sl12.ScriptFunctions.SetTUID
+csp.sl12.maincell_api.SetTUID
+csp.sl20.ScriptFunctions.SetTUID
+csp.sl20.maincell_api.SetTUID
+csp.sl21.ScriptFunctions.SetTUID
+csp.sl21.maincell_api.SetTUID" class="py-name" href="#" onclick="return doclink('link-26', 'SetTUID', 'link-26');">SetTUID</a></tt><tt class="py-op">(</tt><tt class="py-name">newTuid</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">         </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">     </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-comment">#Send FIS start event, if needed</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">PLATFORM_GEMINI</tt> <tt class="py-keyword">or</tt> \ </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">PLATFORM_FLEXSTAR</tt> <tt class="py-keyword">and</tt> \ </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt id="link-27" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-27', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'use_FIS'</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">True</tt> <tt class="py-keyword">and</tt> <tt class="py-name">operation</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-name">FIS</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Function csp.sl10.ScriptFunctions_FIS.SendStartFIS()=csp.sl10.ScriptFunctions_FIS-module.html#SendStartFIS,Function csp.sl12.ScriptFunctions_FIS.SendStartFIS()=csp.sl12.ScriptFunctions_FIS-module.html#SendStartFIS,Function csp.sl20.ScriptFunctions_FIS.SendStartFIS()=csp.sl20.ScriptFunctions_FIS-module.html#SendStartFIS,Function csp.sl21.ScriptFunctions_FIS.SendStartFIS()=csp.sl21.ScriptFunctions_FIS-module.html#SendStartFIS"><a title="csp.sl10.ScriptFunctions_FIS.SendStartFIS
+csp.sl12.ScriptFunctions_FIS.SendStartFIS
+csp.sl20.ScriptFunctions_FIS.SendStartFIS
+csp.sl21.ScriptFunctions_FIS.SendStartFIS" class="py-name" href="#" onclick="return doclink('link-28', 'SendStartFIS', 'link-28');">SendStartFIS</a></tt><tt class="py-op">(</tt><tt class="py-name">operation</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">         </tt>
+<a name="ReportScriptComplete"></a><div id="ReportScriptComplete-def"><a name="L148"></a><tt class="py-lineno">148</tt> <a class="py-toggle" href="#" id="ReportScriptComplete-toggle" onclick="return toggle('ReportScriptComplete');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="csp.sl12.userscript-module.html#ReportScriptComplete">ReportScriptComplete</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ReportScriptComplete-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ReportScriptComplete-expanded"><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-docstring">''''''</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-29" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-29', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'use_FIS'</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-name">FIS</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Function csp.sl10.ScriptFunctions_FIS.SendEndFIS()=csp.sl10.ScriptFunctions_FIS-module.html#SendEndFIS,Function csp.sl12.ScriptFunctions_FIS.SendEndFIS()=csp.sl12.ScriptFunctions_FIS-module.html#SendEndFIS,Function csp.sl20.ScriptFunctions_FIS.SendEndFIS()=csp.sl20.ScriptFunctions_FIS-module.html#SendEndFIS,Function csp.sl21.ScriptFunctions_FIS.SendEndFIS()=csp.sl21.ScriptFunctions_FIS-module.html#SendEndFIS"><a title="csp.sl10.ScriptFunctions_FIS.SendEndFIS
+csp.sl12.ScriptFunctions_FIS.SendEndFIS
+csp.sl20.ScriptFunctions_FIS.SendEndFIS
+csp.sl21.ScriptFunctions_FIS.SendEndFIS" class="py-name" href="#" onclick="return doclink('link-30', 'SendEndFIS', 'link-30');">SendEndFIS</a></tt><tt class="py-op">(</tt><tt class="py-name">csperr</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Variable csp.sl10.DataDefines.NO_ERROR=csp.sl10.DataDefines-module.html#NO_ERROR,Variable csp.sl12.DataDefines.NO_ERROR=csp.sl12.DataDefines-module.html#NO_ERROR,Variable csp.sl20.DataDefines.NO_ERROR=csp.sl20.DataDefines-module.html#NO_ERROR,Variable csp.sl21.DataDefines.NO_ERROR=csp.sl21.DataDefines-module.html#NO_ERROR"><a title="csp.sl10.DataDefines.NO_ERROR
+csp.sl12.DataDefines.NO_ERROR
+csp.sl20.DataDefines.NO_ERROR
+csp.sl21.DataDefines.NO_ERROR" class="py-name" href="#" onclick="return doclink('link-31', 'NO_ERROR', 'link-31');">NO_ERROR</a></tt><tt class="py-op">,</tt> <tt id="link-32" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-32', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'clear_SN'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-comment">#####################################################</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt id="link-33" class="py-name" targets="Variable csp.sl10.userscript.tray=csp.sl10.userscript-module.html#tray,Variable csp.sl12.userscript.tray=csp.sl12.userscript-module.html#tray,Variable csp.sl20.userscript.tray=csp.sl20.userscript-module.html#tray,Variable csp.sl21.userscript.tray=csp.sl21.userscript-module.html#tray"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-33', 'tray', 'link-33');">tray</a></tt> <tt class="py-op">=</tt> <tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">trayIndex</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">scriptenv</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-string">'gemini'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Class csp.sl10.SerialSocket.SerialMonitor=csp.sl10.SerialSocket.SerialMonitor-class.html,Class csp.sl12.SerialSocket.SerialMonitor=csp.sl12.SerialSocket.SerialMonitor-class.html,Class csp.sl20.SerialSocket.SerialMonitor=csp.sl20.SerialSocket.SerialMonitor-class.html,Class csp.sl21.SerialSocket.SerialMonitor=csp.sl21.SerialSocket.SerialMonitor-class.html"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-34', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Static Method csp.sl10.SerialSocket.SerialMonitor.startSPMon()=csp.sl10.SerialSocket.SerialMonitor-class.html#startSPMon,Static Method csp.sl12.SerialSocket.SerialMonitor.startSPMon()=csp.sl12.SerialSocket.SerialMonitor-class.html#startSPMon,Static Method csp.sl20.SerialSocket.SerialMonitor.startSPMon()=csp.sl20.SerialSocket.SerialMonitor-class.html#startSPMon,Static Method csp.sl21.SerialSocket.SerialMonitor.startSPMon()=csp.sl21.SerialSocket.SerialMonitor-class.html#startSPMon"><a title="csp.sl10.SerialSocket.SerialMonitor.startSPMon
+csp.sl12.SerialSocket.SerialMonitor.startSPMon
+csp.sl20.SerialSocket.SerialMonitor.startSPMon
+csp.sl21.SerialSocket.SerialMonitor.startSPMon" class="py-name" href="#" onclick="return doclink('link-35', 'startSPMon', 'link-35');">startSPMon</a></tt><tt class="py-op">(</tt><tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">1971</tt> <tt class="py-op">-</tt> <tt id="link-36" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-36', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable csp.sl10.DataDefines.BAUD38400=csp.sl10.DataDefines-module.html#BAUD38400,Variable csp.sl12.DataDefines.BAUD38400=csp.sl12.DataDefines-module.html#BAUD38400,Variable csp.sl20.DataDefines.BAUD38400=csp.sl20.DataDefines-module.html#BAUD38400,Variable csp.sl21.DataDefines.BAUD38400=csp.sl21.DataDefines-module.html#BAUD38400"><a title="csp.sl10.DataDefines.BAUD38400
+csp.sl12.DataDefines.BAUD38400
+csp.sl20.DataDefines.BAUD38400
+csp.sl21.DataDefines.BAUD38400" class="py-name" href="#" onclick="return doclink('link-37', 'BAUD38400', 'link-37');">BAUD38400</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-38', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor.startSPMon
+csp.sl12.SerialSocket.SerialMonitor.startSPMon
+csp.sl20.SerialSocket.SerialMonitor.startSPMon
+csp.sl21.SerialSocket.SerialMonitor.startSPMon" class="py-name" href="#" onclick="return doclink('link-39', 'startSPMon', 'link-35');">startSPMon</a></tt><tt class="py-op">(</tt><tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">1971</tt> <tt class="py-op">+</tt> <tt id="link-40" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-40', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="csp.sl10.DataDefines.BAUD38400
+csp.sl12.DataDefines.BAUD38400
+csp.sl20.DataDefines.BAUD38400
+csp.sl21.DataDefines.BAUD38400" class="py-name" href="#" onclick="return doclink('link-41', 'BAUD38400', 'link-37');">BAUD38400</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-comment"># Change MainCell operation mode from MODE_REGULAR_SCRIPT </tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-comment"># to MODE_NO_INITIAL_SPINUP if you don't want automatic initial spinup</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-comment"># at the beginning of a test.</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"># Supported only by the releases starting from:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"># GemStar_Env_Rev_2.0.15</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-comment"># GemStar_Plugin_Rev_2.0.15 </tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-comment"># WARNING: </tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"># Certain parametric data may not be reported correctly without initial spinup </tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt id="link-42" class="py-name" targets="Variable csp.sl10.userscript.mode=csp.sl10.userscript-module.html#mode,Variable csp.sl12.userscript.mode=csp.sl12.userscript-module.html#mode,Variable csp.sl20.userscript.mode=csp.sl20.userscript-module.html#mode,Variable csp.sl21.userscript.mode=csp.sl21.userscript-module.html#mode"><a title="csp.sl10.userscript.mode
+csp.sl12.userscript.mode
+csp.sl20.userscript.mode
+csp.sl21.userscript.mode" class="py-name" href="#" onclick="return doclink('link-42', 'mode', 'link-42');">mode</a></tt> <tt class="py-op">=</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Variable csp.sl10.DataDefines.MODE_REGULAR_SCRIPT=csp.sl10.DataDefines-module.html#MODE_REGULAR_SCRIPT,Variable csp.sl12.DataDefines.MODE_REGULAR_SCRIPT=csp.sl12.DataDefines-module.html#MODE_REGULAR_SCRIPT,Variable csp.sl20.DataDefines.MODE_REGULAR_SCRIPT=csp.sl20.DataDefines-module.html#MODE_REGULAR_SCRIPT,Variable csp.sl21.DataDefines.MODE_REGULAR_SCRIPT=csp.sl21.DataDefines-module.html#MODE_REGULAR_SCRIPT"><a title="csp.sl10.DataDefines.MODE_REGULAR_SCRIPT
+csp.sl12.DataDefines.MODE_REGULAR_SCRIPT
+csp.sl20.DataDefines.MODE_REGULAR_SCRIPT
+csp.sl21.DataDefines.MODE_REGULAR_SCRIPT" class="py-name" href="#" onclick="return doclink('link-43', 'MODE_REGULAR_SCRIPT', 'link-43');">MODE_REGULAR_SCRIPT</a></tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt id="link-44" class="py-name" targets="Variable csp.sl10.userscript.ec=csp.sl10.userscript-module.html#ec,Variable csp.sl12.userscript.ec=csp.sl12.userscript-module.html#ec,Variable csp.sl20.userscript.ec=csp.sl20.userscript-module.html#ec,Variable csp.sl21.userscript.ec=csp.sl21.userscript-module.html#ec"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-44', 'ec', 'link-44');">ec</a></tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-45', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name" targets="Variable csp.sl10.maincell_api.initMainCell=csp.sl10.maincell_api-module.html#initMainCell,Variable csp.sl12.maincell_api.initMainCell=csp.sl12.maincell_api-module.html#initMainCell,Variable csp.sl20.maincell_api.initMainCell=csp.sl20.maincell_api-module.html#initMainCell,Variable csp.sl21.maincell_api.initMainCell=csp.sl21.maincell_api-module.html#initMainCell"><a title="csp.sl10.maincell_api.initMainCell
+csp.sl12.maincell_api.initMainCell
+csp.sl20.maincell_api.initMainCell
+csp.sl21.maincell_api.initMainCell" class="py-name" href="#" onclick="return doclink('link-46', 'initMainCell', 'link-46');">initMainCell</a></tt><tt class="py-op">(</tt><tt id="link-47" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-47', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt> <tt id="link-48" class="py-name"><a title="csp.sl10.userscript.mode
+csp.sl12.userscript.mode
+csp.sl20.userscript.mode
+csp.sl21.userscript.mode" class="py-name" href="#" onclick="return doclink('link-48', 'mode', 'link-42');">mode</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-comment"># Register Python Callback for sense data reporting</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt id="link-49" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-49', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Variable csp.sl10.maincell_api.registerPyCallback=csp.sl10.maincell_api-module.html#registerPyCallback,Variable csp.sl12.maincell_api.registerPyCallback=csp.sl12.maincell_api-module.html#registerPyCallback,Variable csp.sl20.maincell_api.registerPyCallback=csp.sl20.maincell_api-module.html#registerPyCallback,Variable csp.sl21.maincell_api.registerPyCallback=csp.sl21.maincell_api-module.html#registerPyCallback"><a title="csp.sl10.maincell_api.registerPyCallback
+csp.sl12.maincell_api.registerPyCallback
+csp.sl20.maincell_api.registerPyCallback
+csp.sl21.maincell_api.registerPyCallback" class="py-name" href="#" onclick="return doclink('link-50', 'registerPyCallback', 'link-50');">registerPyCallback</a></tt><tt class="py-op">(</tt><tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Function csp.sl10.ErrorHandler.ReportSense()=csp.sl10.ErrorHandler-module.html#ReportSense,Function csp.sl12.ErrorHandler.ReportSense()=csp.sl12.ErrorHandler-module.html#ReportSense,Function csp.sl20.ErrorHandler.ReportSense()=csp.sl20.ErrorHandler-module.html#ReportSense,Function csp.sl21.ErrorHandler.ReportSense()=csp.sl21.ErrorHandler-module.html#ReportSense"><a title="csp.sl10.ErrorHandler.ReportSense
+csp.sl12.ErrorHandler.ReportSense
+csp.sl20.ErrorHandler.ReportSense
+csp.sl21.ErrorHandler.ReportSense" class="py-name" href="#" onclick="return doclink('link-51', 'ReportSense', 'link-51');">ReportSense</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Class csp.sl10.SerialSocket.SerialCommander=csp.sl10.SerialSocket.SerialCommander-class.html,Class csp.sl12.SerialSocket.SerialCommander=csp.sl12.SerialSocket.SerialCommander-class.html,Class csp.sl20.SerialSocket.SerialCommander=csp.sl20.SerialSocket.SerialCommander-class.html,Class csp.sl21.SerialSocket.SerialCommander=csp.sl21.SerialSocket.SerialCommander-class.html"><a title="csp.sl10.SerialSocket.SerialCommander
+csp.sl12.SerialSocket.SerialCommander
+csp.sl20.SerialSocket.SerialCommander
+csp.sl21.SerialSocket.SerialCommander" class="py-name" href="#" onclick="return doclink('link-52', 'SerialCommander', 'link-52');">SerialCommander</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Static Method csp.sl10.SerialSocket.SerialCommander.ConfigureSerialCommander()=csp.sl10.SerialSocket.SerialCommander-class.html#ConfigureSerialCommander,Static Method csp.sl12.SerialSocket.SerialCommander.ConfigureSerialCommander()=csp.sl12.SerialSocket.SerialCommander-class.html#ConfigureSerialCommander,Static Method csp.sl20.SerialSocket.SerialCommander.ConfigureSerialCommander()=csp.sl20.SerialSocket.SerialCommander-class.html#ConfigureSerialCommander,Static Method csp.sl21.SerialSocket.SerialCommander.ConfigureSerialCommander()=csp.sl21.SerialSocket.SerialCommander-class.html#ConfigureSerialCommander"><a title="csp.sl10.SerialSocket.SerialCommander.ConfigureSerialCommander
+csp.sl12.SerialSocket.SerialCommander.ConfigureSerialCommander
+csp.sl20.SerialSocket.SerialCommander.ConfigureSerialCommander
+csp.sl21.SerialSocket.SerialCommander.ConfigureSerialCommander" class="py-name" href="#" onclick="return doclink('link-53', 'ConfigureSerialCommander', 'link-53');">ConfigureSerialCommander</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="csp.sl10.DataDefines.BAUD38400
+csp.sl12.DataDefines.BAUD38400
+csp.sl20.DataDefines.BAUD38400
+csp.sl21.DataDefines.BAUD38400" class="py-name" href="#" onclick="return doclink('link-54', 'BAUD38400', 'link-37');">BAUD38400</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-55', 'ec', 'link-44');">ec</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">    <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Variable csp.sl10.DataDefines.MAINCELL_INITIALIZED=csp.sl10.DataDefines-module.html#MAINCELL_INITIALIZED,Variable csp.sl12.DataDefines.MAINCELL_INITIALIZED=csp.sl12.DataDefines-module.html#MAINCELL_INITIALIZED,Variable csp.sl20.DataDefines.MAINCELL_INITIALIZED=csp.sl20.DataDefines-module.html#MAINCELL_INITIALIZED,Variable csp.sl21.DataDefines.MAINCELL_INITIALIZED=csp.sl21.DataDefines-module.html#MAINCELL_INITIALIZED"><a title="csp.sl10.DataDefines.MAINCELL_INITIALIZED
+csp.sl12.DataDefines.MAINCELL_INITIALIZED
+csp.sl20.DataDefines.MAINCELL_INITIALIZED
+csp.sl21.DataDefines.MAINCELL_INITIALIZED" class="py-name" href="#" onclick="return doclink('link-56', 'MAINCELL_INITIALIZED', 'link-56');">MAINCELL_INITIALIZED</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt id="link-57" class="py-name"><a title="csp.sl10.userscript.mode
+csp.sl12.userscript.mode
+csp.sl20.userscript.mode
+csp.sl21.userscript.mode" class="py-name" href="#" onclick="return doclink('link-57', 'mode', 'link-42');">mode</a></tt> <tt class="py-op">==</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name" targets="Variable csp.sl10.DataDefines.MODE_NO_INITIAL_SPINUP=csp.sl10.DataDefines-module.html#MODE_NO_INITIAL_SPINUP,Variable csp.sl12.DataDefines.MODE_NO_INITIAL_SPINUP=csp.sl12.DataDefines-module.html#MODE_NO_INITIAL_SPINUP,Variable csp.sl20.DataDefines.MODE_NO_INITIAL_SPINUP=csp.sl20.DataDefines-module.html#MODE_NO_INITIAL_SPINUP,Variable csp.sl21.DataDefines.MODE_NO_INITIAL_SPINUP=csp.sl21.DataDefines-module.html#MODE_NO_INITIAL_SPINUP"><a title="csp.sl10.DataDefines.MODE_NO_INITIAL_SPINUP
+csp.sl12.DataDefines.MODE_NO_INITIAL_SPINUP
+csp.sl20.DataDefines.MODE_NO_INITIAL_SPINUP
+csp.sl21.DataDefines.MODE_NO_INITIAL_SPINUP" class="py-name" href="#" onclick="return doclink('link-58', 'MODE_NO_INITIAL_SPINUP', 'link-58');">MODE_NO_INITIAL_SPINUP</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt id="link-59" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-59', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-60', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"**********************************************"</tt><tt class="py-op">,</tt> <tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt id="link-61" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-61', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-62', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"*  No automatic initial spinup at test start *"</tt><tt class="py-op">,</tt> <tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">            <tt id="link-63" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-63', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-64', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"**********************************************"</tt><tt class="py-op">,</tt> <tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-comment"># Call your serial port test function here</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetHWInfo()=csp.sl10.ScriptFunctions-module.html#GetHWInfo,Variable csp.sl10.maincell_api.GetHWInfo=csp.sl10.maincell_api-module.html#GetHWInfo,Function csp.sl12.ScriptFunctions.GetHWInfo()=csp.sl12.ScriptFunctions-module.html#GetHWInfo,Variable csp.sl12.maincell_api.GetHWInfo=csp.sl12.maincell_api-module.html#GetHWInfo,Function csp.sl20.ScriptFunctions.GetHWInfo()=csp.sl20.ScriptFunctions-module.html#GetHWInfo,Variable csp.sl20.maincell_api.GetHWInfo=csp.sl20.maincell_api-module.html#GetHWInfo,Function csp.sl21.ScriptFunctions.GetHWInfo()=csp.sl21.ScriptFunctions-module.html#GetHWInfo,Variable csp.sl21.maincell_api.GetHWInfo=csp.sl21.maincell_api-module.html#GetHWInfo"><a title="csp.sl10.ScriptFunctions.GetHWInfo
+csp.sl10.maincell_api.GetHWInfo
+csp.sl12.ScriptFunctions.GetHWInfo
+csp.sl12.maincell_api.GetHWInfo
+csp.sl20.ScriptFunctions.GetHWInfo
+csp.sl20.maincell_api.GetHWInfo
+csp.sl21.ScriptFunctions.GetHWInfo
+csp.sl21.maincell_api.GetHWInfo" class="py-name" href="#" onclick="return doclink('link-65', 'GetHWInfo', 'link-65');">GetHWInfo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt class="py-name">TestName</tt><tt class="py-op">.</tt><tt class="py-name">pre_unlock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetTestOptions()=csp.sl10.ScriptFunctions-module.html#GetTestOptions,Function csp.sl12.ScriptFunctions.GetTestOptions()=csp.sl12.ScriptFunctions-module.html#GetTestOptions,Function csp.sl20.ScriptFunctions.GetTestOptions()=csp.sl20.ScriptFunctions-module.html#GetTestOptions,Function csp.sl21.ScriptFunctions.GetTestOptions()=csp.sl21.ScriptFunctions-module.html#GetTestOptions"><a title="csp.sl10.ScriptFunctions.GetTestOptions
+csp.sl12.ScriptFunctions.GetTestOptions
+csp.sl20.ScriptFunctions.GetTestOptions
+csp.sl21.ScriptFunctions.GetTestOptions" class="py-name" href="#" onclick="return doclink('link-66', 'GetTestOptions', 'link-66');">GetTestOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">            <tt class="py-name">sec</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name" targets="Function csp.sl10.ScriptFunctions_Sec.UnlockSecurityDrive()=csp.sl10.ScriptFunctions_Sec-module.html#UnlockSecurityDrive,Function csp.sl12.ScriptFunctions_Sec.UnlockSecurityDrive()=csp.sl12.ScriptFunctions_Sec-module.html#UnlockSecurityDrive,Function csp.sl20.ScriptFunctions_Sec.UnlockSecurityDrive()=csp.sl20.ScriptFunctions_Sec-module.html#UnlockSecurityDrive,Function csp.sl21.ScriptFunctions_Sec.UnlockSecurityDrive()=csp.sl21.ScriptFunctions_Sec-module.html#UnlockSecurityDrive"><a title="csp.sl10.ScriptFunctions_Sec.UnlockSecurityDrive
+csp.sl12.ScriptFunctions_Sec.UnlockSecurityDrive
+csp.sl20.ScriptFunctions_Sec.UnlockSecurityDrive
+csp.sl21.ScriptFunctions_Sec.UnlockSecurityDrive" class="py-name" href="#" onclick="return doclink('link-67', 'UnlockSecurityDrive', 'link-67');">UnlockSecurityDrive</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">            <tt class="py-name">dets</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name" targets="Function csp.sl10.ScriptFunctions_DETS.DETS_Lock_Unlock()=csp.sl10.ScriptFunctions_DETS-module.html#DETS_Lock_Unlock,Function csp.sl12.ScriptFunctions_DETS.DETS_Lock_Unlock()=csp.sl12.ScriptFunctions_DETS-module.html#DETS_Lock_Unlock,Function csp.sl20.ScriptFunctions_DETS.DETS_Lock_Unlock()=csp.sl20.ScriptFunctions_DETS-module.html#DETS_Lock_Unlock,Function csp.sl21.ScriptFunctions_DETS.DETS_Lock_Unlock()=csp.sl21.ScriptFunctions_DETS-module.html#DETS_Lock_Unlock"><a title="csp.sl10.ScriptFunctions_DETS.DETS_Lock_Unlock
+csp.sl12.ScriptFunctions_DETS.DETS_Lock_Unlock
+csp.sl20.ScriptFunctions_DETS.DETS_Lock_Unlock
+csp.sl21.ScriptFunctions_DETS.DETS_Lock_Unlock" class="py-name" href="#" onclick="return doclink('link-68', 'DETS_Lock_Unlock', 'link-68');">DETS_Lock_Unlock</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name" targets="Variable csp.sl10.DataDefines.DETS_SP_UNLOCK_KEY=csp.sl10.DataDefines-module.html#DETS_SP_UNLOCK_KEY,Variable csp.sl12.DataDefines.DETS_SP_UNLOCK_KEY=csp.sl12.DataDefines-module.html#DETS_SP_UNLOCK_KEY,Variable csp.sl20.DataDefines.DETS_SP_UNLOCK_KEY=csp.sl20.DataDefines-module.html#DETS_SP_UNLOCK_KEY,Variable csp.sl21.DataDefines.DETS_SP_UNLOCK_KEY=csp.sl21.DataDefines-module.html#DETS_SP_UNLOCK_KEY"><a title="csp.sl10.DataDefines.DETS_SP_UNLOCK_KEY
+csp.sl12.DataDefines.DETS_SP_UNLOCK_KEY
+csp.sl20.DataDefines.DETS_SP_UNLOCK_KEY
+csp.sl21.DataDefines.DETS_SP_UNLOCK_KEY" class="py-name" href="#" onclick="return doclink('link-69', 'DETS_SP_UNLOCK_KEY', 'link-69');">DETS_SP_UNLOCK_KEY</a></tt><tt class="py-op">,</tt> <tt class="py-name">doDITSunlock</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name" targets="Function csp.sl10.ScriptFunctions.SendSerialCmd()=csp.sl10.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl10.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl10.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl12.ScriptFunctions.SendSerialCmd()=csp.sl12.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl12.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl12.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl20.ScriptFunctions.SendSerialCmd()=csp.sl20.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl20.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl20.SerialSocket.SerialCommander-class.html#SendSerialCmd,Function csp.sl21.ScriptFunctions.SendSerialCmd()=csp.sl21.ScriptFunctions-module.html#SendSerialCmd,Static Method csp.sl21.SerialSocket.SerialCommander.SendSerialCmd()=csp.sl21.SerialSocket.SerialCommander-class.html#SendSerialCmd"><a title="csp.sl10.ScriptFunctions.SendSerialCmd
+csp.sl10.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl12.ScriptFunctions.SendSerialCmd
+csp.sl12.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl20.ScriptFunctions.SendSerialCmd
+csp.sl20.SerialSocket.SerialCommander.SendSerialCmd
+csp.sl21.ScriptFunctions.SendSerialCmd
+csp.sl21.SerialSocket.SerialCommander.SendSerialCmd" class="py-name" href="#" onclick="return doclink('link-70', 'SendSerialCmd', 'link-70');">SendSerialCmd</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name" targets="Variable csp.sl10.DataDefines.CTRL_R=csp.sl10.DataDefines-module.html#CTRL_R,Variable csp.sl12.DataDefines.CTRL_R=csp.sl12.DataDefines-module.html#CTRL_R,Variable csp.sl20.DataDefines.CTRL_R=csp.sl20.DataDefines-module.html#CTRL_R,Variable csp.sl21.DataDefines.CTRL_R=csp.sl21.DataDefines-module.html#CTRL_R"><a title="csp.sl10.DataDefines.CTRL_R
+csp.sl12.DataDefines.CTRL_R
+csp.sl20.DataDefines.CTRL_R
+csp.sl21.DataDefines.CTRL_R" class="py-name" href="#" onclick="return doclink('link-71', 'CTRL_R', 'link-71');">CTRL_R</a></tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">,</tt> <tt class="py-string">'ASCII Online'</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">             </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetParamStartTime()=csp.sl10.ScriptFunctions-module.html#SetParamStartTime,Function csp.sl12.ScriptFunctions.SetParamStartTime()=csp.sl12.ScriptFunctions-module.html#SetParamStartTime,Function csp.sl20.ScriptFunctions.SetParamStartTime()=csp.sl20.ScriptFunctions-module.html#SetParamStartTime,Function csp.sl21.ScriptFunctions.SetParamStartTime()=csp.sl21.ScriptFunctions-module.html#SetParamStartTime"><a title="csp.sl10.ScriptFunctions.SetParamStartTime
+csp.sl12.ScriptFunctions.SetParamStartTime
+csp.sl20.ScriptFunctions.SetParamStartTime
+csp.sl21.ScriptFunctions.SetParamStartTime" class="py-name" href="#" onclick="return doclink('link-72', 'SetParamStartTime', 'link-72');">SetParamStartTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetEventDate()=csp.sl10.ScriptFunctions-module.html#SetEventDate,Variable csp.sl10.maincell_api.SetEventDate=csp.sl10.maincell_api-module.html#SetEventDate,Function csp.sl12.ScriptFunctions.SetEventDate()=csp.sl12.ScriptFunctions-module.html#SetEventDate,Variable csp.sl12.maincell_api.SetEventDate=csp.sl12.maincell_api-module.html#SetEventDate,Function csp.sl20.ScriptFunctions.SetEventDate()=csp.sl20.ScriptFunctions-module.html#SetEventDate,Variable csp.sl20.maincell_api.SetEventDate=csp.sl20.maincell_api-module.html#SetEventDate,Function csp.sl21.ScriptFunctions.SetEventDate()=csp.sl21.ScriptFunctions-module.html#SetEventDate,Variable csp.sl21.maincell_api.SetEventDate=csp.sl21.maincell_api-module.html#SetEventDate"><a title="csp.sl10.ScriptFunctions.SetEventDate
+csp.sl10.maincell_api.SetEventDate
+csp.sl12.ScriptFunctions.SetEventDate
+csp.sl12.maincell_api.SetEventDate
+csp.sl20.ScriptFunctions.SetEventDate
+csp.sl20.maincell_api.SetEventDate
+csp.sl21.ScriptFunctions.SetEventDate
+csp.sl21.maincell_api.SetEventDate" class="py-name" href="#" onclick="return doclink('link-73', 'SetEventDate', 'link-73');">SetEventDate</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">             </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">            <tt id="link-74" class="py-name" targets="Function csp.sl10.userscript.ReportScriptStart()=csp.sl10.userscript-module.html#ReportScriptStart,Function csp.sl12.userscript.ReportScriptStart()=csp.sl12.userscript-module.html#ReportScriptStart,Function csp.sl20.userscript.ReportScriptStart()=csp.sl20.userscript-module.html#ReportScriptStart,Function csp.sl21.userscript.ReportScriptStart()=csp.sl21.userscript-module.html#ReportScriptStart"><a title="csp.sl10.userscript.ReportScriptStart
+csp.sl12.userscript.ReportScriptStart
+csp.sl20.userscript.ReportScriptStart
+csp.sl21.userscript.ReportScriptStart" class="py-name" href="#" onclick="return doclink('link-74', 'ReportScriptStart', 'link-74');">ReportScriptStart</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>                 <tt class="py-comment">#Check restart, send FIS attributes</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">            <tt class="py-name">TestName</tt><tt class="py-op">.</tt><tt class="py-name">pre_test</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>                 <tt class="py-comment">#Script specific code (e.g. runtime trace)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">            <tt id="link-75" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-75', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'main_test'</tt><tt class="py-op">]</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>   <tt class="py-comment">#Start the main function of the test</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">             </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">            <tt class="py-comment"># Check for any deferred failures if everything else passes in the main script (CSP-493)</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name" targets="Variable csp.sl10.DataDefines.Deferred_Failure_Description=csp.sl10.DataDefines-module.html#Deferred_Failure_Description,Variable csp.sl12.DataDefines.Deferred_Failure_Description=csp.sl12.DataDefines-module.html#Deferred_Failure_Description,Variable csp.sl20.DataDefines.Deferred_Failure_Description=csp.sl20.DataDefines-module.html#Deferred_Failure_Description,Variable csp.sl21.DataDefines.Deferred_Failure_Description=csp.sl21.DataDefines-module.html#Deferred_Failure_Description"><a title="csp.sl10.DataDefines.Deferred_Failure_Description
+csp.sl12.DataDefines.Deferred_Failure_Description
+csp.sl20.DataDefines.Deferred_Failure_Description
+csp.sl21.DataDefines.Deferred_Failure_Description" class="py-name" href="#" onclick="return doclink('link-76', 'Deferred_Failure_Description', 'link-76');">Deferred_Failure_Description</a></tt> <tt class="py-op">!=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">                <tt id="link-77" class="py-name" targets="Variable csp.sl10.userscript.deferredFailDesc=csp.sl10.userscript-module.html#deferredFailDesc,Variable csp.sl12.userscript.deferredFailDesc=csp.sl12.userscript-module.html#deferredFailDesc,Variable csp.sl20.userscript.deferredFailDesc=csp.sl20.userscript-module.html#deferredFailDesc,Variable csp.sl21.userscript.deferredFailDesc=csp.sl21.userscript-module.html#deferredFailDesc"><a title="csp.sl10.userscript.deferredFailDesc
+csp.sl12.userscript.deferredFailDesc
+csp.sl20.userscript.deferredFailDesc
+csp.sl21.userscript.deferredFailDesc" class="py-name" href="#" onclick="return doclink('link-77', 'deferredFailDesc', 'link-77');">deferredFailDesc</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"\n\t\t"</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="csp.sl10.DataDefines.Deferred_Failure_Description
+csp.sl12.DataDefines.Deferred_Failure_Description
+csp.sl20.DataDefines.Deferred_Failure_Description
+csp.sl21.DataDefines.Deferred_Failure_Description" class="py-name" href="#" onclick="return doclink('link-78', 'Deferred_Failure_Description', 'link-76');">Deferred_Failure_Description</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">                <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="csp.sl10.ErrorHandler.RaiseException
+csp.sl12.ErrorHandler.RaiseException
+csp.sl20.ErrorHandler.RaiseException
+csp.sl21.ErrorHandler.RaiseException" class="py-name" href="#" onclick="return doclink('link-79', 'RaiseException', 'link-12');">RaiseException</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s: User deferred failure due to; \n\t\t%s"</tt> <tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name" targets="Function csp.sl10.ScriptFunctions.GetScriptName()=csp.sl10.ScriptFunctions-module.html#GetScriptName,Function csp.sl12.ScriptFunctions.GetScriptName()=csp.sl12.ScriptFunctions-module.html#GetScriptName,Function csp.sl20.ScriptFunctions.GetScriptName()=csp.sl20.ScriptFunctions-module.html#GetScriptName,Function csp.sl21.ScriptFunctions.GetScriptName()=csp.sl21.ScriptFunctions-module.html#GetScriptName"><a title="csp.sl10.ScriptFunctions.GetScriptName
+csp.sl12.ScriptFunctions.GetScriptName
+csp.sl20.ScriptFunctions.GetScriptName
+csp.sl21.ScriptFunctions.GetScriptName" class="py-name" href="#" onclick="return doclink('link-80', 'GetScriptName', 'link-80');">GetScriptName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-81" class="py-name"><a title="csp.sl10.userscript.deferredFailDesc
+csp.sl12.userscript.deferredFailDesc
+csp.sl20.userscript.deferredFailDesc
+csp.sl21.userscript.deferredFailDesc" class="py-name" href="#" onclick="return doclink('link-81', 'deferredFailDesc', 'link-77');">deferredFailDesc</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name" targets="Variable csp.sl10.DataDefines.EC_DEFERRED_FAILURE=csp.sl10.DataDefines-module.html#EC_DEFERRED_FAILURE,Variable csp.sl12.DataDefines.EC_DEFERRED_FAILURE=csp.sl12.DataDefines-module.html#EC_DEFERRED_FAILURE,Variable csp.sl20.DataDefines.EC_DEFERRED_FAILURE=csp.sl20.DataDefines-module.html#EC_DEFERRED_FAILURE,Variable csp.sl21.DataDefines.EC_DEFERRED_FAILURE=csp.sl21.DataDefines-module.html#EC_DEFERRED_FAILURE"><a title="csp.sl10.DataDefines.EC_DEFERRED_FAILURE
+csp.sl12.DataDefines.EC_DEFERRED_FAILURE
+csp.sl20.DataDefines.EC_DEFERRED_FAILURE
+csp.sl21.DataDefines.EC_DEFERRED_FAILURE" class="py-name" href="#" onclick="return doclink('link-82', 'EC_DEFERRED_FAILURE', 'link-82');">EC_DEFERRED_FAILURE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">                                  </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt class="py-name">TestName</tt><tt class="py-op">.</tt><tt class="py-name">post_test</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>                <tt class="py-comment">#Script specific code</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">            <tt id="link-83" class="py-name" targets="Function csp.sl10.userscript.ReportScriptComplete()=csp.sl10.userscript-module.html#ReportScriptComplete,Function csp.sl12.userscript.ReportScriptComplete()=csp.sl12.userscript-module.html#ReportScriptComplete,Function csp.sl20.userscript.ReportScriptComplete()=csp.sl20.userscript-module.html#ReportScriptComplete,Function csp.sl21.userscript.ReportScriptComplete()=csp.sl21.userscript-module.html#ReportScriptComplete"><a title="csp.sl10.userscript.ReportScriptComplete
+csp.sl12.userscript.ReportScriptComplete
+csp.sl20.userscript.ReportScriptComplete
+csp.sl21.userscript.ReportScriptComplete" class="py-name" href="#" onclick="return doclink('link-83', 'ReportScriptComplete', 'link-83');">ReportScriptComplete</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>              <tt class="py-comment">#Report FIS Pass event</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">             </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">            <tt id="link-84" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-84', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name" targets="Variable csp.sl10.maincell_api.SetHaltErrorTime=csp.sl10.maincell_api-module.html#SetHaltErrorTime,Variable csp.sl12.maincell_api.SetHaltErrorTime=csp.sl12.maincell_api-module.html#SetHaltErrorTime,Variable csp.sl20.maincell_api.SetHaltErrorTime=csp.sl20.maincell_api-module.html#SetHaltErrorTime,Variable csp.sl21.maincell_api.SetHaltErrorTime=csp.sl21.maincell_api-module.html#SetHaltErrorTime"><a title="csp.sl10.maincell_api.SetHaltErrorTime
+csp.sl12.maincell_api.SetHaltErrorTime
+csp.sl20.maincell_api.SetHaltErrorTime
+csp.sl21.maincell_api.SetHaltErrorTime" class="py-name" href="#" onclick="return doclink('link-85', 'SetHaltErrorTime', 'link-85');">SetHaltErrorTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name" targets="Function csp.sl10.ScriptFunctions.SetDriveState()=csp.sl10.ScriptFunctions-module.html#SetDriveState,Variable csp.sl10.maincell_api.SetDriveState=csp.sl10.maincell_api-module.html#SetDriveState,Function csp.sl12.ScriptFunctions.SetDriveState()=csp.sl12.ScriptFunctions-module.html#SetDriveState,Variable csp.sl12.maincell_api.SetDriveState=csp.sl12.maincell_api-module.html#SetDriveState,Function csp.sl20.ScriptFunctions.SetDriveState()=csp.sl20.ScriptFunctions-module.html#SetDriveState,Variable csp.sl20.maincell_api.SetDriveState=csp.sl20.maincell_api-module.html#SetDriveState,Function csp.sl21.ScriptFunctions.SetDriveState()=csp.sl21.ScriptFunctions-module.html#SetDriveState,Variable csp.sl21.maincell_api.SetDriveState=csp.sl21.maincell_api-module.html#SetDriveState"><a title="csp.sl10.ScriptFunctions.SetDriveState
+csp.sl10.maincell_api.SetDriveState
+csp.sl12.ScriptFunctions.SetDriveState
+csp.sl12.maincell_api.SetDriveState
+csp.sl20.ScriptFunctions.SetDriveState
+csp.sl20.maincell_api.SetDriveState
+csp.sl21.ScriptFunctions.SetDriveState
+csp.sl21.maincell_api.SetDriveState" class="py-name" href="#" onclick="return doclink('link-86', 'SetDriveState', 'link-86');">SetDriveState</a></tt><tt class="py-op">(</tt><tt class="py-name">df</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name" targets="Variable csp.sl10.DataDefines.DRIVE_STATE_PASS=csp.sl10.DataDefines-module.html#DRIVE_STATE_PASS,Variable csp.sl12.DataDefines.DRIVE_STATE_PASS=csp.sl12.DataDefines-module.html#DRIVE_STATE_PASS,Variable csp.sl20.DataDefines.DRIVE_STATE_PASS=csp.sl20.DataDefines-module.html#DRIVE_STATE_PASS,Variable csp.sl21.DataDefines.DRIVE_STATE_PASS=csp.sl21.DataDefines-module.html#DRIVE_STATE_PASS"><a title="csp.sl10.DataDefines.DRIVE_STATE_PASS
+csp.sl12.DataDefines.DRIVE_STATE_PASS
+csp.sl20.DataDefines.DRIVE_STATE_PASS
+csp.sl21.DataDefines.DRIVE_STATE_PASS" class="py-name" href="#" onclick="return doclink('link-87', 'DRIVE_STATE_PASS', 'link-87');">DRIVE_STATE_PASS</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">            <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name" targets="Function csp.sl10.ScriptFunctions_DT.SendSNAllPacket()=csp.sl10.ScriptFunctions_DT-module.html#SendSNAllPacket,Function csp.sl12.ScriptFunctions_DT.SendSNAllPacket()=csp.sl12.ScriptFunctions_DT-module.html#SendSNAllPacket,Function csp.sl20.ScriptFunctions_DT.SendSNAllPacket()=csp.sl20.ScriptFunctions_DT-module.html#SendSNAllPacket,Function csp.sl21.ScriptFunctions_DT.SendSNAllPacket()=csp.sl21.ScriptFunctions_DT-module.html#SendSNAllPacket"><a title="csp.sl10.ScriptFunctions_DT.SendSNAllPacket
+csp.sl12.ScriptFunctions_DT.SendSNAllPacket
+csp.sl20.ScriptFunctions_DT.SendSNAllPacket
+csp.sl21.ScriptFunctions_DT.SendSNAllPacket" class="py-name" href="#" onclick="return doclink('link-88', 'SendSNAllPacket', 'link-88');">SendSNAllPacket</a></tt><tt class="py-op">(</tt><tt id="link-89" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-89', 'ec', 'link-44');">ec</a></tt><tt class="py-op">,</tt> <tt class="py-name">SendOnlyDriveState</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">             </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name" targets="Class csp.sl10.ErrorHandler.ScriptException=csp.sl10.ErrorHandler.ScriptException-class.html,Class csp.sl12.ErrorHandler.ScriptException=csp.sl12.ErrorHandler.ScriptException-class.html,Class csp.sl20.ErrorHandler.ScriptException=csp.sl20.ErrorHandler.ScriptException-class.html,Class csp.sl21.ErrorHandler.ScriptException=csp.sl21.ErrorHandler.ScriptException-class.html"><a title="csp.sl10.ErrorHandler.ScriptException
+csp.sl12.ErrorHandler.ScriptException
+csp.sl20.ErrorHandler.ScriptException
+csp.sl21.ErrorHandler.ScriptException" class="py-name" href="#" onclick="return doclink('link-90', 'ScriptException', 'link-90');">ScriptException</a></tt><tt class="py-op">,</tt> <tt class="py-name">se</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt id="link-91" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-91', 'ec', 'link-44');">ec</a></tt> <tt class="py-op">=</tt> <tt class="py-name">se</tt><tt class="py-op">.</tt><tt class="py-name">getErrorCode</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt id="link-92" class="py-name"><a title="csp.sl10.DataDefines.EC_BASE
+csp.sl10.ScriptFunctions_EPC.EC_BASE
+csp.sl10.userscript.EC_BASE
+csp.sl12.DataDefines.EC_BASE
+csp.sl12.ScriptFunctions_EPC.EC_BASE
+csp.sl12.userscript.EC_BASE
+csp.sl20.DataDefines.EC_BASE
+csp.sl20.ScriptFunctions_EPC.EC_BASE
+csp.sl20.userscript.EC_BASE
+csp.sl21.DataDefines.EC_BASE
+csp.sl21.ScriptFunctions_EPC.EC_BASE
+csp.sl21.userscript.EC_BASE" class="py-name" href="#" onclick="return doclink('link-92', 'EC_BASE', 'link-10');">EC_BASE</a></tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt id="link-93" class="py-name" targets="Variable csp.sl10.userscript.label=csp.sl10.userscript-module.html#label,Variable csp.sl12.userscript.label=csp.sl12.userscript-module.html#label,Variable csp.sl20.userscript.label=csp.sl20.userscript-module.html#label,Variable csp.sl21.userscript.label=csp.sl21.userscript-module.html#label"><a title="csp.sl10.userscript.label
+csp.sl12.userscript.label
+csp.sl20.userscript.label
+csp.sl21.userscript.label" class="py-name" href="#" onclick="return doclink('link-93', 'label', 'link-93');">label</a></tt> <tt class="py-op">=</tt> <tt class="py-name">se</tt><tt class="py-op">.</tt><tt class="py-name">getErrorMessage</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt id="link-94" class="py-name" targets="Variable csp.sl10.userscript.exc_info=csp.sl10.userscript-module.html#exc_info,Variable csp.sl12.userscript.exc_info=csp.sl12.userscript-module.html#exc_info,Variable csp.sl20.userscript.exc_info=csp.sl20.userscript-module.html#exc_info,Variable csp.sl21.userscript.exc_info=csp.sl21.userscript-module.html#exc_info"><a title="csp.sl10.userscript.exc_info
+csp.sl12.userscript.exc_info
+csp.sl20.userscript.exc_info
+csp.sl21.userscript.exc_info" class="py-name" href="#" onclick="return doclink('link-94', 'exc_info', 'link-94');">exc_info</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="csp.sl10.userscript.exc_info
+csp.sl12.userscript.exc_info
+csp.sl20.userscript.exc_info
+csp.sl21.userscript.exc_info" class="py-name" href="#" onclick="return doclink('link-95', 'exc_info', 'link-94');">exc_info</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">        <tt id="link-96" class="py-name" targets="Variable csp.sl10.userscript.tb=csp.sl10.userscript-module.html#tb,Variable csp.sl12.userscript.tb=csp.sl12.userscript-module.html#tb,Variable csp.sl20.userscript.tb=csp.sl20.userscript-module.html#tb,Variable csp.sl21.userscript.tb=csp.sl21.userscript-module.html#tb"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-96', 'tb', 'link-96');">tb</a></tt> <tt class="py-op">=</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt id="link-97" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-97', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-98', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt id="link-99" class="py-name" targets="Function csp.sl10.userscript.FormatError()=csp.sl10.userscript-module.html#FormatError,Function csp.sl12.userscript.FormatError()=csp.sl12.userscript-module.html#FormatError,Function csp.sl20.userscript.FormatError()=csp.sl20.userscript-module.html#FormatError,Function csp.sl21.userscript.FormatError()=csp.sl21.userscript-module.html#FormatError"><a title="csp.sl10.userscript.FormatError
+csp.sl12.userscript.FormatError
+csp.sl20.userscript.FormatError
+csp.sl21.userscript.FormatError" class="py-name" href="#" onclick="return doclink('link-99', 'FormatError', 'link-99');">FormatError</a></tt><tt class="py-op">(</tt><tt id="link-100" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-100', 'tb', 'link-96');">tb</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"xxx"</tt><tt class="py-op">)</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">        <tt id="link-101" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-101', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-102', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt id="link-103" class="py-name"><a title="csp.sl10.userscript.FormatError
+csp.sl12.userscript.FormatError
+csp.sl20.userscript.FormatError
+csp.sl21.userscript.FormatError" class="py-name" href="#" onclick="return doclink('link-103', 'FormatError', 'link-99');">FormatError</a></tt><tt class="py-op">(</tt><tt id="link-104" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-104', 'tb', 'link-96');">tb</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">            <tt class="py-name">err</tt><tt class="py-op">.</tt><tt id="link-105" class="py-name" targets="Function csp.sl10.ErrorHandler.ScriptErrorHandler()=csp.sl10.ErrorHandler-module.html#ScriptErrorHandler,Function csp.sl12.ErrorHandler.ScriptErrorHandler()=csp.sl12.ErrorHandler-module.html#ScriptErrorHandler,Function csp.sl20.ErrorHandler.ScriptErrorHandler()=csp.sl20.ErrorHandler-module.html#ScriptErrorHandler,Function csp.sl21.ErrorHandler.ScriptErrorHandler()=csp.sl21.ErrorHandler-module.html#ScriptErrorHandler"><a title="csp.sl10.ErrorHandler.ScriptErrorHandler
+csp.sl12.ErrorHandler.ScriptErrorHandler
+csp.sl20.ErrorHandler.ScriptErrorHandler
+csp.sl21.ErrorHandler.ScriptErrorHandler" class="py-name" href="#" onclick="return doclink('link-105', 'ScriptErrorHandler', 'link-105');">ScriptErrorHandler</a></tt><tt class="py-op">(</tt><tt id="link-106" class="py-name"><a title="csp.sl10.userscript.label
+csp.sl12.userscript.label
+csp.sl20.userscript.label
+csp.sl21.userscript.label" class="py-name" href="#" onclick="return doclink('link-106', 'label', 'link-93');">label</a></tt><tt class="py-op">,</tt> <tt id="link-107" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-107', 'ec', 'link-44');">ec</a></tt><tt class="py-op">,</tt> <tt id="link-108" class="py-name"><a title="csp.sl10.userscript.userscript_config
+csp.sl12.userscript.userscript_config
+csp.sl20.userscript.userscript_config
+csp.sl21.userscript.userscript_config" class="py-name" href="#" onclick="return doclink('link-108', 'userscript_config', 'link-11');">userscript_config</a></tt><tt class="py-op">[</tt><tt class="py-string">'clear_SN'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt>    </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">csperr</tt><tt class="py-op">.</tt><tt class="py-name">CspException</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">            <tt id="link-109" class="py-name" targets="Variable csp.sl10.userscript.error_code=csp.sl10.userscript-module.html#error_code,Variable csp.sl12.userscript.error_code=csp.sl12.userscript-module.html#error_code,Variable csp.sl20.userscript.error_code=csp.sl20.userscript-module.html#error_code,Variable csp.sl21.userscript.error_code=csp.sl21.userscript-module.html#error_code"><a title="csp.sl10.userscript.error_code
+csp.sl12.userscript.error_code
+csp.sl20.userscript.error_code
+csp.sl21.userscript.error_code" class="py-name" href="#" onclick="return doclink('link-109', 'error_code', 'link-109');">error_code</a></tt> <tt class="py-op">=</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">getErrorCode</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">            <tt id="link-110" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-110', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-111', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Script error handler failed with error code %d"</tt> <tt class="py-op">%</tt> <tt id="link-112" class="py-name"><a title="csp.sl10.userscript.error_code
+csp.sl12.userscript.error_code
+csp.sl20.userscript.error_code
+csp.sl21.userscript.error_code" class="py-name" href="#" onclick="return doclink('link-112', 'error_code', 'link-109');">error_code</a></tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt id="link-113" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-113', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-114', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">            <tt id="link-115" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-115', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-116" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-116', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt id="link-117" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-117', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-118" class="py-name" targets="Variable csp.sl10.maincell_api.closeMainCell=csp.sl10.maincell_api-module.html#closeMainCell,Variable csp.sl12.maincell_api.closeMainCell=csp.sl12.maincell_api-module.html#closeMainCell,Variable csp.sl20.maincell_api.closeMainCell=csp.sl20.maincell_api-module.html#closeMainCell,Variable csp.sl21.maincell_api.closeMainCell=csp.sl21.maincell_api-module.html#closeMainCell"><a title="csp.sl10.maincell_api.closeMainCell
+csp.sl12.maincell_api.closeMainCell
+csp.sl20.maincell_api.closeMainCell
+csp.sl21.maincell_api.closeMainCell" class="py-name" href="#" onclick="return doclink('link-118', 'closeMainCell', 'link-118');">closeMainCell</a></tt><tt class="py-op">(</tt><tt id="link-119" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-119', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt><tt id="link-120" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-120', 'ec', 'link-44');">ec</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-121" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-121', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-122" class="py-name" targets="Static Method csp.sl10.SerialSocket.SerialMonitor.closeSPMon()=csp.sl10.SerialSocket.SerialMonitor-class.html#closeSPMon,Static Method csp.sl12.SerialSocket.SerialMonitor.closeSPMon()=csp.sl12.SerialSocket.SerialMonitor-class.html#closeSPMon,Static Method csp.sl20.SerialSocket.SerialMonitor.closeSPMon()=csp.sl20.SerialSocket.SerialMonitor-class.html#closeSPMon,Static Method csp.sl21.SerialSocket.SerialMonitor.closeSPMon()=csp.sl21.SerialSocket.SerialMonitor-class.html#closeSPMon"><a title="csp.sl10.SerialSocket.SerialMonitor.closeSPMon
+csp.sl12.SerialSocket.SerialMonitor.closeSPMon
+csp.sl20.SerialSocket.SerialMonitor.closeSPMon
+csp.sl21.SerialSocket.SerialMonitor.closeSPMon" class="py-name" href="#" onclick="return doclink('link-122', 'closeSPMon', 'link-122');">closeSPMon</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-123" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander
+csp.sl12.SerialSocket.SerialCommander
+csp.sl20.SerialSocket.SerialCommander
+csp.sl21.SerialSocket.SerialCommander" class="py-name" href="#" onclick="return doclink('link-123', 'SerialCommander', 'link-52');">SerialCommander</a></tt><tt class="py-op">.</tt><tt id="link-124" class="py-name" targets="Static Method csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander()=csp.sl10.SerialSocket.SerialCommander-class.html#CloseSerialCommander,Static Method csp.sl12.SerialSocket.SerialCommander.CloseSerialCommander()=csp.sl12.SerialSocket.SerialCommander-class.html#CloseSerialCommander,Static Method csp.sl20.SerialSocket.SerialCommander.CloseSerialCommander()=csp.sl20.SerialSocket.SerialCommander-class.html#CloseSerialCommander,Static Method csp.sl21.SerialSocket.SerialCommander.CloseSerialCommander()=csp.sl21.SerialSocket.SerialCommander-class.html#CloseSerialCommander"><a title="csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl12.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl20.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl21.SerialSocket.SerialCommander.CloseSerialCommander" class="py-name" href="#" onclick="return doclink('link-124', 'CloseSerialCommander', 'link-124');">CloseSerialCommander</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt id="link-125" class="py-name"><a title="csp.sl10.userscript.exc_info
+csp.sl12.userscript.exc_info
+csp.sl20.userscript.exc_info
+csp.sl21.userscript.exc_info" class="py-name" href="#" onclick="return doclink('link-125', 'exc_info', 'link-94');">exc_info</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">None</tt><tt class="py-op">,</tt><tt id="link-126" class="py-name"><a title="csp.sl10.userscript.exc_info
+csp.sl12.userscript.exc_info
+csp.sl20.userscript.exc_info
+csp.sl21.userscript.exc_info" class="py-name" href="#" onclick="return doclink('link-126', 'exc_info', 'link-94');">exc_info</a></tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">        <tt id="link-127" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-127', 'tb', 'link-96');">tb</a></tt> <tt class="py-op">=</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt id="link-128" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-128', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-129" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-129', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt id="link-130" class="py-name"><a title="csp.sl10.userscript.FormatError
+csp.sl12.userscript.FormatError
+csp.sl20.userscript.FormatError
+csp.sl21.userscript.FormatError" class="py-name" href="#" onclick="return doclink('link-130', 'FormatError', 'link-99');">FormatError</a></tt><tt class="py-op">(</tt><tt id="link-131" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-131', 'tb', 'link-96');">tb</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"xxx"</tt><tt class="py-op">)</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">        <tt id="link-132" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-132', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-133" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-133', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt id="link-134" class="py-name"><a title="csp.sl10.userscript.FormatError
+csp.sl12.userscript.FormatError
+csp.sl20.userscript.FormatError
+csp.sl21.userscript.FormatError" class="py-name" href="#" onclick="return doclink('link-134', 'FormatError', 'link-99');">FormatError</a></tt><tt class="py-op">(</tt><tt id="link-135" class="py-name"><a title="csp.sl10.userscript.tb
+csp.sl12.userscript.tb
+csp.sl20.userscript.tb
+csp.sl21.userscript.tb" class="py-name" href="#" onclick="return doclink('link-135', 'tb', 'link-96');">tb</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">        <tt class="py-comment"># Dump run summary if test is manually stopped</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-136" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-136', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"*** Partial Run Summary data due to abort ***"</tt><tt class="py-op">,</tt> <tt class="py-string">"sum"</tt><tt class="py-op">)</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">         </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">            <tt class="py-name">sf</tt><tt class="py-op">.</tt><tt id="link-137" class="py-name" targets="Function csp.sl10.ScriptFunctions.RunSummary()=csp.sl10.ScriptFunctions-module.html#RunSummary,Function csp.sl12.ScriptFunctions.RunSummary()=csp.sl12.ScriptFunctions-module.html#RunSummary,Function csp.sl20.ScriptFunctions.RunSummary()=csp.sl20.ScriptFunctions-module.html#RunSummary,Function csp.sl21.ScriptFunctions.RunSummary()=csp.sl21.ScriptFunctions-module.html#RunSummary"><a title="csp.sl10.ScriptFunctions.RunSummary
+csp.sl12.ScriptFunctions.RunSummary
+csp.sl20.ScriptFunctions.RunSummary
+csp.sl21.ScriptFunctions.RunSummary" class="py-name" href="#" onclick="return doclink('link-137', 'RunSummary', 'link-137');">RunSummary</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">csperr</tt><tt class="py-op">.</tt><tt class="py-name">CspException</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">            <tt id="link-138" class="py-name"><a title="csp.sl10.userscript.error_code
+csp.sl12.userscript.error_code
+csp.sl20.userscript.error_code
+csp.sl21.userscript.error_code" class="py-name" href="#" onclick="return doclink('link-138', 'error_code', 'link-109');">error_code</a></tt> <tt class="py-op">=</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">getErrorCode</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">            <tt id="link-139" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-139', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-140" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-140', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Partial Run Summary failed with error code %d"</tt> <tt class="py-op">%</tt> <tt id="link-141" class="py-name"><a title="csp.sl10.userscript.error_code
+csp.sl12.userscript.error_code
+csp.sl20.userscript.error_code
+csp.sl21.userscript.error_code" class="py-name" href="#" onclick="return doclink('link-141', 'error_code', 'link-109');">error_code</a></tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">            <tt id="link-142" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-142', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-143" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-143', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">            <tt id="link-144" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-144', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-145" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-145', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-string">"Partial Run Summary failed"</tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">            <tt id="link-146" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-146', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-147" class="py-name"><a title="csp.sl10.ScriptFunctions.WriteToResultsFile
+csp.sl10.maincell_api.WriteToResultsFile
+csp.sl12.ScriptFunctions.WriteToResultsFile
+csp.sl12.maincell_api.WriteToResultsFile
+csp.sl20.ScriptFunctions.WriteToResultsFile
+csp.sl20.maincell_api.WriteToResultsFile
+csp.sl21.ScriptFunctions.WriteToResultsFile
+csp.sl21.maincell_api.WriteToResultsFile" class="py-name" href="#" onclick="return doclink('link-147', 'WriteToResultsFile', 'link-22');">WriteToResultsFile</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"log"</tt><tt class="py-op">)</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">             </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt id="link-148" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-148', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-149" class="py-name"><a title="csp.sl10.maincell_api.closeMainCell
+csp.sl12.maincell_api.closeMainCell
+csp.sl20.maincell_api.closeMainCell
+csp.sl21.maincell_api.closeMainCell" class="py-name" href="#" onclick="return doclink('link-149', 'closeMainCell', 'link-118');">closeMainCell</a></tt><tt class="py-op">(</tt><tt id="link-150" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-150', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt><tt id="link-151" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-151', 'ec', 'link-44');">ec</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-152" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-152', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-153" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor.closeSPMon
+csp.sl12.SerialSocket.SerialMonitor.closeSPMon
+csp.sl20.SerialSocket.SerialMonitor.closeSPMon
+csp.sl21.SerialSocket.SerialMonitor.closeSPMon" class="py-name" href="#" onclick="return doclink('link-153', 'closeSPMon', 'link-122');">closeSPMon</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">        <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-154" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander
+csp.sl12.SerialSocket.SerialCommander
+csp.sl20.SerialSocket.SerialCommander
+csp.sl21.SerialSocket.SerialCommander" class="py-name" href="#" onclick="return doclink('link-154', 'SerialCommander', 'link-52');">SerialCommander</a></tt><tt class="py-op">.</tt><tt id="link-155" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl12.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl20.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl21.SerialSocket.SerialCommander.CloseSerialCommander" class="py-name" href="#" onclick="return doclink('link-155', 'CloseSerialCommander', 'link-124');">CloseSerialCommander</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">         </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">    <tt id="link-156" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-156', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-157" class="py-name"><a title="csp.sl10.maincell_api.closeMainCell
+csp.sl12.maincell_api.closeMainCell
+csp.sl20.maincell_api.closeMainCell
+csp.sl21.maincell_api.closeMainCell" class="py-name" href="#" onclick="return doclink('link-157', 'closeMainCell', 'link-118');">closeMainCell</a></tt><tt class="py-op">(</tt><tt id="link-158" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-158', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt><tt id="link-159" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-159', 'ec', 'link-44');">ec</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">    <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-160" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-160', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-161" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor.closeSPMon
+csp.sl12.SerialSocket.SerialMonitor.closeSPMon
+csp.sl20.SerialSocket.SerialMonitor.closeSPMon
+csp.sl21.SerialSocket.SerialMonitor.closeSPMon" class="py-name" href="#" onclick="return doclink('link-161', 'closeSPMon', 'link-122');">closeSPMon</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">    <tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-162" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander
+csp.sl12.SerialSocket.SerialCommander
+csp.sl20.SerialSocket.SerialCommander
+csp.sl21.SerialSocket.SerialCommander" class="py-name" href="#" onclick="return doclink('link-162', 'SerialCommander', 'link-52');">SerialCommander</a></tt><tt class="py-op">.</tt><tt id="link-163" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl12.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl20.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl21.SerialSocket.SerialCommander.CloseSerialCommander" class="py-name" href="#" onclick="return doclink('link-163', 'CloseSerialCommander', 'link-124');">CloseSerialCommander</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt id="link-164" class="py-name" targets="Class csp.sl10.userscript.InitializeException=csp.sl10.userscript.InitializeException-class.html,Class csp.sl12.userscript.InitializeException=csp.sl12.userscript.InitializeException-class.html,Class csp.sl20.userscript.InitializeException=csp.sl20.userscript.InitializeException-class.html,Class csp.sl21.userscript.InitializeException=csp.sl21.userscript.InitializeException-class.html"><a title="csp.sl10.userscript.InitializeException
+csp.sl12.userscript.InitializeException
+csp.sl20.userscript.InitializeException
+csp.sl21.userscript.InitializeException" class="py-name" href="#" onclick="return doclink('link-164', 'InitializeException', 'link-164');">InitializeException</a></tt><tt class="py-op">(</tt><tt class="py-string">"Initial SpinUp failure"</tt><tt class="py-op">,</tt><tt id="link-165" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-165', 'ec', 'link-44');">ec</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt id="link-166" class="py-name"><a title="csp.sl10.maincell_api
+csp.sl12.maincell_api
+csp.sl20.maincell_api
+csp.sl21.maincell_api" class="py-name" href="#" onclick="return doclink('link-166', 'maincell_api', 'link-0');">maincell_api</a></tt><tt class="py-op">.</tt><tt id="link-167" class="py-name"><a title="csp.sl10.maincell_api.closeMainCell
+csp.sl12.maincell_api.closeMainCell
+csp.sl20.maincell_api.closeMainCell
+csp.sl21.maincell_api.closeMainCell" class="py-name" href="#" onclick="return doclink('link-167', 'closeMainCell', 'link-118');">closeMainCell</a></tt><tt class="py-op">(</tt><tt id="link-168" class="py-name"><a title="csp.sl10.userscript.tray
+csp.sl12.userscript.tray
+csp.sl20.userscript.tray
+csp.sl21.userscript.tray" class="py-name" href="#" onclick="return doclink('link-168', 'tray', 'link-33');">tray</a></tt><tt class="py-op">,</tt><tt id="link-169" class="py-name"><a title="csp.sl10.userscript.ec
+csp.sl12.userscript.ec
+csp.sl20.userscript.ec
+csp.sl21.userscript.ec" class="py-name" href="#" onclick="return doclink('link-169', 'ec', 'link-44');">ec</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-170" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor
+csp.sl12.SerialSocket.SerialMonitor
+csp.sl20.SerialSocket.SerialMonitor
+csp.sl21.SerialSocket.SerialMonitor" class="py-name" href="#" onclick="return doclink('link-170', 'SerialMonitor', 'link-34');">SerialMonitor</a></tt><tt class="py-op">.</tt><tt id="link-171" class="py-name"><a title="csp.sl10.SerialSocket.SerialMonitor.closeSPMon
+csp.sl12.SerialSocket.SerialMonitor.closeSPMon
+csp.sl20.SerialSocket.SerialMonitor.closeSPMon
+csp.sl21.SerialSocket.SerialMonitor.closeSPMon" class="py-name" href="#" onclick="return doclink('link-171', 'closeSPMon', 'link-122');">closeSPMon</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-name">SS</tt><tt class="py-op">.</tt><tt id="link-172" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander
+csp.sl12.SerialSocket.SerialCommander
+csp.sl20.SerialSocket.SerialCommander
+csp.sl21.SerialSocket.SerialCommander" class="py-name" href="#" onclick="return doclink('link-172', 'SerialCommander', 'link-52');">SerialCommander</a></tt><tt class="py-op">.</tt><tt id="link-173" class="py-name"><a title="csp.sl10.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl12.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl20.SerialSocket.SerialCommander.CloseSerialCommander
+csp.sl21.SerialSocket.SerialCommander.CloseSerialCommander" class="py-name" href="#" onclick="return doclink('link-173', 'CloseSerialCommander', 'link-124');">CloseSerialCommander</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="csp-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.seagate.com">Common Software Platform</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb  3 17:47:26 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
